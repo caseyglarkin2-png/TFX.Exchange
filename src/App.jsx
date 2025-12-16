@@ -447,9 +447,142 @@ const WarGameGenerator = () => {
 
 // --- Main App ---
 
+// --- Logo Concepts ---
+const LogoMonogram = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 20H40V40H60V20H80V80H60V60H40V80H20V20Z" fill="currentColor"/>
+    <rect x="40" y="40" width="20" height="20" fill="#F8C617"/>
+  </svg>
+);
+
+const LogoFortress = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 10L30 10L40 90L20 90L10 10Z" fill="currentColor"/>
+    <path d="M90 10L70 10L60 90L80 90L90 10Z" fill="currentColor"/>
+    <rect x="35" y="45" width="30" height="10" fill="#F8C617"/>
+    <path d="M10 10H90V20H10V10Z" fill="currentColor" opacity="0.5"/>
+    <path d="M20 90H80V80H20V90Z" fill="currentColor" opacity="0.5"/>
+  </svg>
+);
+
+const LogoPulse = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 20L45 50L20 80H35L60 50L35 20H20Z" fill="currentColor"/>
+    <path d="M80 80L55 50L80 20H65L40 50L65 80H80Z" fill="#F8C617"/>
+    <rect x="0" y="48" width="100" height="4" fill="currentColor"/>
+  </svg>
+);
+
+const LogoSelector = ({ currentLogo, setCurrentLogo }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const logos = [
+    { name: 'Monogram', id: 'monogram', component: LogoMonogram, desc: 'Bank-like Structure' },
+    { name: 'Fortress', id: 'fortress', component: LogoFortress, desc: 'Enclosed Security' },
+    { name: 'Pulse', id: 'pulse', component: LogoPulse, desc: 'Digital-First' }
+  ];
+  
+  const current = logos.find(l => l.id === currentLogo);
+  
+  return (
+    <div className="relative group">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2 group cursor-pointer hover:opacity-80 transition-opacity"
+      >
+        <div className="w-8 h-8 bg-black border border-[#F8C617] flex items-center justify-center group-hover:bg-[#F8C617] transition-colors">
+          <div className="text-[#F8C617] group-hover:text-black transition-colors">
+            {current && <current.component size={16} />}
+          </div>
+        </div>
+      </button>
+      
+      {isOpen && (
+        <div className="absolute top-12 left-0 bg-[#0A0D1E] border border-[#F8C617] rounded-sm shadow-2xl z-50 overflow-hidden min-w-64">
+          <div className="p-2 border-b border-gray-800">
+            <span className="text-xs font-mono text-gray-500 px-3 block py-2">SELECT IDENTITY</span>
+          </div>
+          {logos.map(logo => (
+            <button
+              key={logo.id}
+              onClick={() => {
+                setCurrentLogo(logo.id);
+                setIsOpen(false);
+              }}
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all ${
+                currentLogo === logo.id 
+                  ? 'bg-[#F8C617] text-black' 
+                  : 'hover:bg-gray-900 text-white'
+              } border-b border-gray-800 last:border-b-0`}
+            >
+              <div className={`w-6 h-6 flex items-center justify-center ${currentLogo === logo.id ? 'text-black' : 'text-[#F8C617]'}`}>
+                <logo.component size={16} />
+              </div>
+              <div className="flex-1">
+                <div className="font-mono font-bold text-sm">{logo.name}</div>
+                <div className={`text-xs ${currentLogo === logo.id ? 'text-black/60' : 'text-gray-500'}`}>{logo.desc}</div>
+              </div>
+              {currentLogo === logo.id && (
+                <div className="w-2 h-2 bg-black rounded-full"></div>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// --- Icon Set for Threat States ---
+const IconVerified = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+    <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const IconThreat = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+    <path d="M12 8V12M12 16H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const IconAnarchy = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 4L28 28M28 4L4 28" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+    <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2"/>
+  </svg>
+);
+
+const IconSanctuary = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="8" width="20" height="18" stroke="currentColor" strokeWidth="2"/>
+    <path d="M16 8L24 2L26 8H32V14H16L10 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+// --- Icon Badge Component ---
+const IconBadge = ({ icon: Icon, label, color = "cyan" }) => {
+  const colorMap = {
+    cyan: 'text-cyan-400 border-cyan-400',
+    yellow: 'text-[#F8C617] border-[#F8C617]',
+    red: 'text-red-500 border-red-500',
+    green: 'text-green-500 border-green-500'
+  };
+  
+  return (
+    <div className={`flex items-center gap-2 px-3 py-2 border ${colorMap[color]} rounded-sm font-mono text-xs`}>
+      <Icon />
+      <span className="uppercase tracking-wider">{label}</span>
+    </div>
+  );
+};
+
 export default function TFXApp() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentLogo, setCurrentLogo] = useState('monogram');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -469,11 +602,8 @@ export default function TFXApp() {
         <Ticker />
         <nav className={`border-b ${scrolled ? 'border-gray-800 py-3' : 'border-transparent py-6'}`}>
           <div className="container mx-auto px-6 flex justify-between items-center">
-            <div className="flex items-center gap-2 group cursor-pointer">
-                {/* Micro Logo representation */}
-                <div className="w-8 h-8 bg-black border border-[#F8C617] flex items-center justify-center group-hover:bg-[#F8C617] transition-colors">
-                    <div className="w-4 h-4 bg-[#F8C617] group-hover:bg-black transition-colors"></div>
-                </div>
+            <div className="flex items-center gap-3">
+              <LogoSelector currentLogo={currentLogo} setCurrentLogo={setCurrentLogo} />
               <span className="text-white font-bold text-xl tracking-tighter">TFX<span className="text-[#F8C617]">.EXCHANGE</span></span>
             </div>
             
@@ -524,7 +654,9 @@ export default function TFXApp() {
               <div className="lg:w-1/2 text-left pt-10">
                 <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm">
                     <span className="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
-                    <span className="text-red-400 font-mono text-xs uppercase tracking-widest">Public Square Status: Compromised</span>
+                    <span className="text-red-400 font-mono text-xs uppercase tracking-widest">
+                      <IconAnarchy /> PUBLIC SQUARE: COMPROMISED
+                    </span>
                 </div>
 
                 <h1 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-6">
@@ -625,7 +757,7 @@ export default function TFXApp() {
                   </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-4 mb-6">
                 <div className="flex items-start gap-4 p-4 border border-red-900/30 bg-red-900/5">
                   <AlertTriangle className="text-red-500 shrink-0 mt-1" />
                   <div>
@@ -633,6 +765,11 @@ export default function TFXApp() {
                     <p className="text-gray-400 text-sm">Bad actors aren't just stealing cargo; they are stealing identities. Static vetting fails against dynamic threats.</p>
                   </div>
                 </div>
+              </div>
+              
+              <div className="flex gap-2 flex-wrap">
+                <IconBadge icon={IconAnarchy} label="The Anarchy" color="red" />
+                <IconBadge icon={IconThreat} label="Strategic Threats" color="red" />
               </div>
             </div>
 
@@ -754,6 +891,11 @@ export default function TFXApp() {
                           <div className="text-white font-bold">Product Council</div>
                           <div className="text-xs text-gray-500">Direct roadmap influence</div>
                       </div>
+                  </div>
+
+                  <div className="flex gap-2 justify-center mb-8 flex-wrap">
+                    <IconBadge icon={IconVerified} label="Verified Access" color="yellow" />
+                    <IconBadge icon={IconSanctuary} label="Sanctuary" color="cyan" />
                   </div>
 
                   <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(248,198,23,0.3)]">
