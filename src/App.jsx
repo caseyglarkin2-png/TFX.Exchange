@@ -360,7 +360,7 @@ const SentinelTerminal = () => {
                 disabled={loading}
                 className="w-full bg-cyan-900/20 border border-cyan-500 text-cyan-400 py-3 font-mono font-bold hover:bg-cyan-500 hover:text-black transition-all flex items-center justify-center gap-2 mb-6"
             >
-                {loading ? "PROCESSING..." : "RUN SENTINEL SCAN ✨"} 
+                {loading ? "ANALYZING..." : "INITIATE THREAT SCAN"} 
             </button>
 
             {analysis && (
@@ -439,7 +439,7 @@ const WarGameGenerator = () => {
                 className="w-full mt-8 bg-red-600 text-white font-bold py-4 hover:bg-red-700 transition-colors uppercase tracking-widest flex items-center justify-center gap-2"
             >
                 {loading ? <Activity className="animate-spin" /> : <Zap size={18} />}
-                Generate Threat Scenario ✨
+                ACTIVATE WAR GAME
             </button>
         </div>
     );
