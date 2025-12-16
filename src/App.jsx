@@ -265,33 +265,22 @@ const HexagonDecor = () => (
   </div>
 );
 
-// --- Star Field Background ---
-const StarField = ({ count = 50 }) => {
-  const stars = Array.from({ length: count }, (_, i) => ({
+// --- Data Points Background (exchange-style) ---
+const DataPoints = ({ count = 20 }) => {
+  const points = Array.from({ length: count }, (_, i) => ({
     id: i,
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
-    size: `${1 + Math.random() * 2}px`,
-    duration: `${2 + Math.random() * 4}s`,
-    delay: `${Math.random() * 3}s`
+    isGold: Math.random() > 0.7
   }));
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {stars.map((s) => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-20">
+      {points.map((p) => (
         <div
-          key={s.id}
-          className="star"
-          style={{
-            left: s.left,
-            top: s.top,
-            width: s.size,
-            height: s.size,
-            '--duration': s.duration,
-            '--delay': s.delay,
-            animationDelay: s.delay,
-            animationDuration: s.duration,
-          }}
+          key={p.id}
+          className={`absolute w-1 h-1 rounded-full ${p.isGold ? 'bg-[#F8C617]' : 'bg-cyan-500'}`}
+          style={{ left: p.left, top: p.top }}
         />
       ))}
     </div>
@@ -926,14 +915,9 @@ export default function TFXApp() {
 
       {/* --- Hero Section: The Exchange Floor --- */}
       <header className="relative min-h-screen flex items-center grid-bg pt-32 pb-12 overflow-hidden aurora-bg" id="the-separation">
-        {/* Premium Background Effects */}
-        <ParticleField count={40} />
+        {/* Subtle Background Effects */}
+        <DataPoints count={30} />
         <BackgroundOrbs />
-        <HexagonDecor />
-        <StarField count={30} />
-        
-        {/* Scan Line Effect */}
-        <div className="scan-line"></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-start gap-12">
@@ -1181,9 +1165,8 @@ export default function TFXApp() {
 
       {/* --- Benefits Section --- */}
       <section id="benefits" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
-        {/* Background Effects */}
-        <ParticleField count={20} />
-        <div className="absolute top-0 left-0 w-full h-1 border-flow"></div>
+        {/* Subtle Background */}
+        <DataPoints count={15} />
         
         <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
@@ -1193,38 +1176,38 @@ export default function TFXApp() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Benefit 1: Carrier Utilization */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group hover-lift spotlight glass">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group hover-lift">
+              <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-all duration-300">
                 <BenefitCarrierUtil size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3 group-hover:text-glow-gold">Increase Carrier Utilization</h3>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Increase Carrier Utilization</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">See only loads you're cleared to haul. Pre-vetted = faster tenders. Higher close rate on qualified lanes.</p>
             </div>
 
             {/* Benefit 2: Reduce Risk */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift spotlight glass">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift">
+              <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-all duration-300">
                 <BenefitReduceRisk size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3 group-hover:text-glow-cyan">Reduce Risk</h3>
+              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3">Reduce Risk</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Verifies identity, insurance, and compliance upfront. No surprises mid-route. Brokers don't call you on hold.</p>
             </div>
 
             {/* Benefit 3: Boost Productivity */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group hover-lift spotlight glass">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group hover-lift">
+              <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-all duration-300">
                 <BenefitProductivity size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3 group-hover:text-glow-gold">Boost Rep Productivity</h3>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Boost Rep Productivity</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Less manual vetting. More first-tender success. Reps spend time closing deals, not chasing verification.</p>
             </div>
 
             {/* Benefit 4: Protect Margins */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift spotlight glass">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift">
+              <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-all duration-300">
                 <BenefitMargins size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3 group-hover:text-glow-cyan">Protect Margins</h3>
+              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3">Protect Margins</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Keep loads moving with fewer bounces and cleaner execution. Quality network = predictable outcomes.</p>
             </div>
           </div>
@@ -1234,8 +1217,8 @@ export default function TFXApp() {
       {/* --- Case Studies: Exchanges in Other Industries --- */}
       <section id="case-studies" className="py-24 bg-[#05060a] relative border-t border-gray-900 overflow-hidden">
         {/* Background Effects */}
-        <StarField count={40} />
-        <div className="absolute inset-0 hex-pattern opacity-50"></div>
+        <DataPoints count={25} />
+        <div className="absolute inset-0 hex-pattern opacity-30"></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
@@ -1491,23 +1474,43 @@ export default function TFXApp() {
               </div>
             </div>
 
-            {/* AI FEATURE 1: Sentinel Terminal */}
-            <div className="relative">
-                <SentinelTerminal />
+            {/* Visual: Market Data Display */}
+            <div className="relative bg-[#0a0a0a] border border-red-900/30 p-6">
+              <div className="text-xs font-mono text-red-500 mb-4 uppercase tracking-widest">// Threat Index - Live</div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center border-b border-gray-800 pb-3">
+                  <span className="text-gray-400">Identity Spoofing</span>
+                  <span className="text-red-500 font-mono">+847% YoY</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-gray-800 pb-3">
+                  <span className="text-gray-400">Double Brokering</span>
+                  <span className="text-red-500 font-mono">+312% YoY</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-gray-800 pb-3">
+                  <span className="text-gray-400">Strategic Theft</span>
+                  <span className="text-red-500 font-mono">+200% YoY</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-400">Cargo Loss (Q3)</span>
+                  <span className="text-red-500 font-mono">$223M</span>
+                </div>
+              </div>
+              <div className="mt-6 pt-4 border-t border-gray-800 text-center">
+                <span className="text-xs text-gray-600 font-mono">Source: Highway Threat Index 2025</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* --- TOOLS SUITE --- */}
-      <section id="tools" className="py-24 bg-gradient-to-b from-[#0A0D1E] to-[#05060a] border-y border-cyan-900/20 relative overflow-hidden">
-          {/* Enhanced Background Effects */}
-          <CyberGrid />
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl orb"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl orb orb-delay-1"></div>
+      <section id="tools" className="py-24 bg-gradient-to-b from-[#0A0D1E] to-[#05060a] border-y border-gray-800 relative overflow-hidden">
+          {/* Subtle Background */}
+          <DataPoints count={20} />
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#F8C617] rounded-full blur-3xl"></div>
           </div>
-          <HexagonDecor />
           
           <div className="container mx-auto px-6 relative z-10">
               <SectionHeader 
@@ -1570,9 +1573,8 @@ export default function TFXApp() {
 
       {/* --- Founder's Circle (Pricing/Offer) --- */}
       <section id="reid-circle" className="py-24 bg-[#0A0D1E] relative overflow-hidden">
-        {/* Background Effects */}
-        <ParticleField count={25} />
-        <BackgroundOrbs />
+        {/* Subtle Background */}
+        <DataPoints count={15} />
         
         <div className="container mx-auto px-6 relative z-10">
            <SectionHeader 
@@ -1580,17 +1582,14 @@ export default function TFXApp() {
             subtitle="Reid's Circle" 
           />
           
-          <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden neon-border glass">
-              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1 flicker">LIMITED CAPACITY</div>
-              
-              {/* Scan line effect */}
-              <div className="scan-line"></div>
+          <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">LIMITED CAPACITY</div>
               
               <div className="p-12 text-center relative">
-                  <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/50 breathe">
+                  <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/30">
                     <img src="/reid-muppet.svg" alt="Reid" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-4xl font-bold text-white mb-2 gradient-text-flow">Reid's Inner Circle</h3>
+                  <h3 className="text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
                   <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">
                       For the visionaries, operators, and architects who believe the separation is inevitable. Commit your conviction to the movement and shape the future of verified freight.
@@ -1646,14 +1645,14 @@ export default function TFXApp() {
       {/* --- Footer / CTA --- */}
       <footer className="bg-black py-20 border-t border-gray-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 gradient-animate"></div>
-        <StarField count={30} />
+        <DataPoints count={20} />
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter flex items-center justify-center gap-4">
-            <IconSanctuary className="animate-pulse" /> JOIN THE <span className="text-[#F8C617] holographic">SANCTUARY</span> <IconSanctuary className="animate-pulse" />
+            <IconSanctuary /> JOIN THE <span className="text-[#F8C617]">SANCTUARY</span> <IconSanctuary />
           </h2>
           <p className="text-gray-500 mb-12 max-w-xl mx-auto font-mono">
-            System Status: <span className="text-green-400 flicker">ONLINE</span>. <br/> The separation has begun. Which side of the wall are you on?
+            System Status: <span className="text-green-400">ONLINE</span>. <br/> The separation has begun. Which side of the wall are you on?
           </p>
 
           <div className="mt-24 flex flex-col md:flex-row justify-between items-center border-t border-gray-900 pt-8 text-gray-600 font-mono text-xs gap-6">
