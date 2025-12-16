@@ -664,6 +664,49 @@ const IconSanctuary = () => (
   </svg>
 );
 
+// --- Benefit Icons (Evolved TFX Design) ---
+const BenefitCarrierUtil = ({ size = 64 }) => (
+  <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="35" fill="#2a2a3e" stroke="#F8C617" strokeWidth="2"/>
+    <path d="M28 35 L32 28 L36 35 L40 28 L44 35 L48 28 L52 35" stroke="#F8C617" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M28 50 Q40 55 52 50" stroke="#F8C617" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <circle cx="40" cy="42" r="3" fill="#F8C617"/>
+    <path d="M32 60 L48 60" stroke="#00F0FF" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const BenefitReduceRisk = ({ size = 64 }) => (
+  <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="35" fill="#2a2a3e" stroke="#F8C617" strokeWidth="2"/>
+    <path d="M40 20 L28 28 L28 42 Q28 55 40 62 Q52 55 52 42 L52 28 Z" stroke="#F8C617" strokeWidth="2.5" fill="none" strokeLinejoin="round"/>
+    <path d="M36 42 L38 46 L44 38" stroke="#00F0FF" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const BenefitProductivity = ({ size = 64 }) => (
+  <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="35" fill="#2a2a3e" stroke="#F8C617" strokeWidth="2"/>
+    <rect x="28" y="48" width="5" height="14" fill="#F8C617" rx="1"/>
+    <rect x="36" y="40" width="5" height="22" fill="#F8C617" rx="1"/>
+    <rect x="44" y="32" width="5" height="30" fill="#F8C617" rx="1"/>
+    <path d="M28 48 L36 40 L44 32 L52 24" stroke="#00F0FF" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+    <circle cx="52" cy="24" r="2.5" fill="#00F0FF"/>
+  </svg>
+);
+
+const BenefitMargins = ({ size = 64 }) => (
+  <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="35" fill="#2a2a3e" stroke="#F8C617" strokeWidth="2"/>
+    <g transform="translate(25, 28)">
+      <rect x="0" y="8" width="8" height="16" fill="#F8C617" rx="1"/>
+      <rect x="12" y="4" width="8" height="20" fill="#F8C617" rx="1"/>
+      <rect x="24" y="0" width="8" height="24" fill="#F8C617" rx="1"/>
+    </g>
+    <path d="M30 30 Q40 35 50 28" stroke="#00F0FF" strokeWidth="2" fill="none" strokeLinecap="round"/>
+    <path d="M32 50 L48 50 M40 48 L40 52" stroke="#00F0FF" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
 // --- Icon Badge Component ---
 const IconBadge = ({ icon: Icon, label, color = "cyan" }) => {
   const colorMap = {
@@ -722,6 +765,7 @@ export default function TFXApp() {
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
               <a href="#the-separation" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> The Separation</a>
               <a href="#architecture" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Architecture</a>
+              <a href="#benefits" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">✨ Benefits</a>
               <a href="#case-studies" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">📊 Case Studies</a>
               <a href="#branding" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">🎨 Branding</a>
               <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
@@ -744,6 +788,7 @@ export default function TFXApp() {
           <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
             <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
             <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
+            <a href="#benefits" onClick={() => setMobileMenuOpen(false)}>Benefits</a>
             <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
             <a href="#branding" onClick={() => setMobileMenuOpen(false)}>Branding</a>
             <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
@@ -994,6 +1039,54 @@ export default function TFXApp() {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Benefits Section --- */}
+      <section id="benefits" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900">
+        <div className="container mx-auto px-6">
+          <SectionHeader 
+            title="Why Choose TFX" 
+            subtitle="Real Benefits for Real Operators" 
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Benefit 1: Carrier Utilization */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+                <BenefitCarrierUtil size={80} />
+              </div>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Increase Carrier Utilization</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">See only loads you're cleared to haul. Pre-vetted = faster tenders. Higher close rate on qualified lanes.</p>
+            </div>
+
+            {/* Benefit 2: Reduce Risk */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+                <BenefitReduceRisk size={80} />
+              </div>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Reduce Risk</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">Verifies identity, insurance, and compliance upfront. No surprises mid-route. Brokers don't call you on hold.</p>
+            </div>
+
+            {/* Benefit 3: Boost Productivity */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+                <BenefitProductivity size={80} />
+              </div>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Boost Rep Productivity</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">Less manual vetting. More first-tender success. Reps spend time closing deals, not chasing verification.</p>
+            </div>
+
+            {/* Benefit 4: Protect Margins */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+                <BenefitMargins size={80} />
+              </div>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Protect Margins</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">Keep loads moving with fewer bounces and cleaner execution. Quality network = predictable outcomes.</p>
+            </div>
           </div>
         </div>
       </section>
