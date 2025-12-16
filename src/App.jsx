@@ -1201,7 +1201,7 @@ export default function TFXApp() {
                       For the visionaries, operators, and architects who believe the separation is inevitable. Commit your conviction to the movement and shape the future of verified freight.
                   </p>
 
-                  <div className="grid grid-cols-2 md:grid-cols-2 gap-4 text-center max-w-xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded">
+                  <div className="grid grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded">
                       <div>
                           <div className="text-4xl font-black text-[#F8C617]">80K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Registered Carriers</div>
@@ -1209,6 +1209,10 @@ export default function TFXApp() {
                       <div>
                           <div className="text-4xl font-black text-cyan-400">40K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Active Daily</div>
+                      </div>
+                      <div>
+                          <div className="text-4xl font-black text-[#F8C617]">170</div>
+                          <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers Signed</div>
                       </div>
                   </div>
 
