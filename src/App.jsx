@@ -623,6 +623,7 @@ export default function TFXApp() {
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
               <a href="#the-separation" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> The Separation</a>
               <a href="#architecture" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Architecture</a>
+              <a href="#case-studies" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">📊 Case Studies</a>
               <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
               <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Reid's Circle</a>
             </div>
@@ -642,6 +643,7 @@ export default function TFXApp() {
           <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
             <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
             <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
+            <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
             <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
             <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
             <a href="#war-room" onClick={() => setMobileMenuOpen(false)}>War Room</a>
@@ -993,6 +995,167 @@ export default function TFXApp() {
                   <rect x="0" y="48" width="100" height="4" fill="black"/>
                 </svg>
             </LogoConcept>
+          </div>
+        </div>
+      </section>
+
+      {/* --- Case Studies: Exchanges in Other Industries --- */}
+      <section id="case-studies" className="py-24 bg-[#05060a] relative border-t border-gray-900">
+        <div className="container mx-auto px-6">
+          <SectionHeader 
+            title="Proven Model" 
+            subtitle="Exchanges Work. Here's Why." 
+          />
+
+          <p className="text-center text-gray-400 max-w-3xl mx-auto mb-16 text-lg">
+            The exchange model isn't new. It's been battle-tested across industries for centuries. Gated access + verified participants = liquidity with safety. The freight market is overdue.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* NYSE */}
+            <div className="border border-gray-800 bg-[#0f1225] p-8 hover:border-[#F8C617] transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-[#F8C617] rounded-sm flex items-center justify-center text-black font-bold text-lg">NYSE</div>
+                <div>
+                  <h4 className="text-white font-bold uppercase">New York Stock Exchange</h4>
+                  <p className="text-xs text-gray-500">Founded 1792</p>
+                </div>
+              </div>
+              
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">Model</p>
+                  <p className="text-sm text-white">Gated marketplace. Not every company can list. Strict financial standards + ongoing compliance required.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Barrier</p>
+                  <p className="text-sm text-white">Listing fees, audits, regulatory filing. Creates "friction" that filters bad actors.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Result</p>
+                  <p className="text-sm text-[#F8C617]">$94T market cap. Trillions trade daily. Trust is the asset.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Coinbase */}
+            <div className="border border-gray-800 bg-[#0f1225] p-8 hover:border-[#F8C617] transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-sm flex items-center justify-center text-white font-bold text-xs">COIN</div>
+                <div>
+                  <h4 className="text-white font-bold uppercase">Coinbase Exchange</h4>
+                  <p className="text-xs text-gray-500">Founded 2012</p>
+                </div>
+              </div>
+              
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">Model</p>
+                  <p className="text-sm text-white">Crypto exchange with KYC (Know Your Customer). Verified users only. Real-time settlement via blockchain.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Barrier</p>
+                  <p className="text-sm text-white">Government ID verification, biometric proof, ongoing compliance checks. Inconvenient? Yes. Worth it? Yes.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Result</p>
+                  <p className="text-sm text-blue-400">$3.6B revenue. Institutional-grade security. Outpaced unverified competitors.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Manheim Auto Auctions */}
+            <div className="border border-gray-800 bg-[#0f1225] p-8 hover:border-[#F8C617] transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-red-600 rounded-sm flex items-center justify-center text-white font-bold text-xs">MAH</div>
+                <div>
+                  <h4 className="text-white font-bold uppercase">Manheim Auto Auctions</h4>
+                  <p className="text-xs text-gray-500">Used Car Exchange</p>
+                </div>
+              </div>
+              
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">Model</p>
+                  <p className="text-sm text-white">Closed exchange. Only licensed dealers/brokers. Every vehicle inspected, graded, certified.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Barrier</p>
+                  <p className="text-sm text-white">Licensing + dealer verification. Can't just walk in with cash. Protects both buyer and seller.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Result</p>
+                  <p className="text-sm text-red-400">$1.2B+ annual transactions. Industry standard. Fraud risk: near-zero.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* ICE Energy Exchange */}
+            <div className="border border-gray-800 bg-[#0f1225] p-8 hover:border-[#F8C617] transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-orange-500 rounded-sm flex items-center justify-center text-white font-bold text-xs">ICE</div>
+                <div>
+                  <h4 className="text-white font-bold uppercase">Intercontinental Exchange (Energy)</h4>
+                  <p className="text-xs text-gray-500">Commodity Trading</p>
+                </div>
+              </div>
+              
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">Model</p>
+                  <p className="text-sm text-white">Verified traders only. Real-time settlement. Physical + financial proof required.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Barrier</p>
+                  <p className="text-sm text-white">Strict credit requirements, collateral, insurance. Can't trade oil on a hunch.</p>
+                </div>
+                <div className="h-px bg-gray-800"></div>
+                <div>
+                  <p className="text-xs text-gray-400 font-mono uppercase mb-1">The Result</p>
+                  <p className="text-sm text-orange-400">$100B+ daily trading. Price discovery + trust. Zero counterparty fraud.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* The Pattern */}
+          <div className="mt-16 bg-[#0A0D1E] border border-[#F8C617] p-8 rounded-sm">
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <IconVerified className="w-6 h-6 text-[#F8C617]" />
+              The Pattern
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div>
+                <p className="text-xs font-mono text-gray-500 uppercase mb-2">1. Gated Access</p>
+                <p className="text-sm text-gray-300">Not everyone gets in. Standards matter. Quality over quantity.</p>
+              </div>
+              <div>
+                <p className="text-xs font-mono text-gray-500 uppercase mb-2">2. Verification</p>
+                <p className="text-sm text-gray-300">Continuous proof of identity/solvency. Today, not yesterday.</p>
+              </div>
+              <div>
+                <p className="text-xs font-mono text-gray-500 uppercase mb-2">3. Real-Time Settlement</p>
+                <p className="text-sm text-gray-300">Instant clearing. Financial link guarantees performance.</p>
+              </div>
+              <div>
+                <p className="text-xs font-mono text-gray-500 uppercase mb-2">4. Trust → Scale</p>
+                <p className="text-sm text-gray-300">Safety paradoxically enables speed. Safe = scalable.</p>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-gray-800">
+              <p className="text-gray-400 italic">
+                <span className="text-[#F8C617] font-bold">TFX applies this pattern to freight:</span> ELD verification = stock audits. Gated carrier network = licensed traders. Financial integration = settlement guarantee. Result? Carriers move loads 1-click, brokers move capital risk-free.
+              </p>
+            </div>
           </div>
         </div>
       </section>
