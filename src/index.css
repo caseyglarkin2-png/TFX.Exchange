@@ -834,16 +834,16 @@ h1, h2, h3, h4, h5, h6 {
 .dwtb-brand {
   background: linear-gradient(
     90deg,
-    #FF0080 0%,
-    #7928CA 25%,
-    #FF0080 50%,
-    #FF4D4D 75%,
-    #FF0080 100%
+    #F8C617 0%,
+    #B8860B 25%,
+    #F8C617 50%,
+    #FFF 75%,
+    #F8C617 100%
   );
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: dwtb-flow 3s linear infinite;
-  filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.3));
+  animation: dwtb-flow 4s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(248, 198, 23, 0.2));
 }
