@@ -321,9 +321,10 @@ const SentinelTerminal = () => {
     const [input, setInput] = useState('');
     const [analysis, setAnalysis] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [history, setHistory] = useState([]);
 
     const handleAnalyze = () => {
-        if(!input) return;
+        if(!input.trim()) return;
         setLoading(true);
         setAnalysis(null);
 
@@ -331,67 +332,87 @@ const SentinelTerminal = () => {
         setTimeout(() => {
             const result = detectThreat(input);
             setAnalysis(result);
+            setHistory([{ text: input, result }, ...history.slice(0, 4)]);
             setLoading(false);
         }, 600);
     };
 
     return (
-        <div className="bg-[#05060a] border border-cyan-900/50 p-6 rounded-sm shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-2 text-xs font-mono text-cyan-500 animate-pulse">
-                [SENTINEL_AI_ONLINE]
+        <div className="bg-gradient-to-b from-[#05060a] to-[#0f0a15] border border-cyan-500/30 p-6 rounded shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-transparent"></div>
+            <div className="absolute top-0 right-0 p-2 text-xs font-mono text-cyan-400 animate-pulse">
+                [SENTINEL_ACTIVE]
             </div>
             
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <Terminal size={20} className="text-cyan-400" />
-                THREAT ANALYZER
+            <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                <Crosshair size={20} className="text-cyan-400" />
+                THREAT SENTINEL
             </h3>
+            <p className="text-xs text-gray-500 font-mono mb-4">Real-time fraud pattern detection. Analyze carrier communications, pricing anomalies, and identity risks.</p>
             
             <div className="mb-4">
+                <label className="text-xs text-gray-400 font-mono block mb-2">SCAN_INPUT</label>
                 <textarea 
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="PASTE CARRIER COMMS / EMAIL BODY FOR ANALYSIS..."
-                    className="w-full bg-[#0f1225] border border-gray-800 text-cyan-400 font-mono text-xs p-4 focus:outline-none focus:border-cyan-500 min-h-[100px]"
+                    placeholder="Paste email body, text, or communication for instant threat assessment..."
+                    className="w-full bg-[#0f1225] border border-cyan-900/50 text-cyan-300 font-mono text-xs p-3 focus:outline-none focus:border-cyan-400 min-h-[80px] rounded"
                 />
             </div>
 
             <button 
                 onClick={handleAnalyze}
-                disabled={loading}
-                className="w-full bg-cyan-900/20 border border-cyan-500 text-cyan-400 py-3 font-mono font-bold hover:bg-cyan-500 hover:text-black transition-all flex items-center justify-center gap-2 mb-6"
+                disabled={loading || !input.trim()}
+                className="w-full bg-gradient-to-r from-cyan-600 to-cyan-700 text-white font-bold py-3 font-mono text-sm hover:from-cyan-500 hover:to-cyan-600 transition-all flex items-center justify-center gap-2 mb-4 rounded uppercase disabled:opacity-50"
             >
-                {loading ? "ANALYZING..." : "INITIATE THREAT SCAN"} 
+                {loading ? <Activity size={16} className="animate-spin" /> : <Crosshair size={16} />}
+                {loading ? "SCANNING..." : "RUN THREAT SCAN"} 
             </button>
 
             {analysis && (
-                <div className={`border-l-2 p-4 animate-fadeIn ${analysis.threatLevel === 'CRITICAL' ? 'border-red-500 bg-red-900/10' : 'border-cyan-500 bg-cyan-900/10'}`}>
-                    <div className="flex justify-between items-center mb-4">
-                        <span className="font-mono text-xs text-gray-500 flex items-center gap-2">
-                            {analysis.threatLevel === 'CRITICAL' ? <IconThreat /> : <IconVerified />}
-                            THREAT_LEVEL
-                        </span>
-                        <span className={`font-bold font-mono ${analysis.threatLevel === 'CRITICAL' ? 'text-red-500 animate-pulse' : 'text-cyan-400'}`}>
-                            {analysis.threatLevel}
-                        </span>
+                <div className={`border p-4 rounded mb-4 animate-fadeIn ${analysis.threatLevel === 'CRITICAL' ? 'border-red-500/50 bg-red-900/20' : analysis.threatLevel === 'MEDIUM' ? 'border-yellow-500/50 bg-yellow-900/20' : 'border-cyan-500/50 bg-cyan-900/20'}`}>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <span className="font-mono text-xs text-gray-400">THREAT_LEVEL</span>
+                            <span className={`block text-lg font-bold font-mono mt-1 ${analysis.threatLevel === 'CRITICAL' ? 'text-red-400' : analysis.threatLevel === 'MEDIUM' ? 'text-yellow-400' : 'text-cyan-400'}`}>
+                                {analysis.threatLevel}
+                            </span>
+                        </div>
+                        <div>
+                            <span className="font-mono text-xs text-gray-400">STATUS</span>
+                            <span className="block text-lg font-bold font-mono text-white mt-1">{analysis.status}</span>
+                        </div>
                     </div>
-                    <div className="flex justify-between items-center mb-4">
-                        <span className="font-mono text-xs text-gray-500">STATUS</span>
-                        <span className="font-bold font-mono text-white">{analysis.status}</span>
-                    </div>
-                    <div className="mb-4">
-                        <span className="font-mono text-xs text-gray-500 block mb-2">FLAGS_DETECTED</span>
+                    <div className="mb-4 pb-4 border-b border-gray-700/50">
+                        <span className="font-mono text-xs text-gray-400 block mb-2">ANOMALIES_DETECTED</span>
                         <ul className="space-y-1">
                             {analysis.flags.map((flag, i) => (
                                 <li key={i} className="text-xs font-mono text-gray-300 flex items-center gap-2">
-                                    <AlertTriangle size={10} className={analysis.threatLevel === 'CRITICAL' ? 'text-red-500' : 'text-cyan-400'} /> 
+                                    <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
                                     {flag}
                                 </li>
                             ))}
                         </ul>
                     </div>
-                    <div className="mt-4 pt-4 border-t border-gray-700/50">
-                         <span className="font-mono text-xs text-gray-500 block mb-1">DIRECTIVE</span>
-                         <span className="font-bold text-white text-sm uppercase tracking-wider">{analysis.directive}</span>
+                    <div>
+                         <span className="font-mono text-xs text-gray-400 block mb-1">RECOMMENDED_ACTION</span>
+                         <span className="block text-white text-sm font-mono">{analysis.directive}</span>
+                    </div>
+                </div>
+            )}
+
+            {history.length > 0 && (
+                <div className="mt-4 pt-4 border-t border-gray-800">
+                    <span className="font-mono text-xs text-gray-500 block mb-2">SCAN_HISTORY ({history.length})</span>
+                    <div className="space-y-2 max-h-40 overflow-y-auto">
+                        {history.map((item, i) => (
+                            <div key={i} className="text-xs bg-black/40 p-2 border border-gray-800 rounded">
+                                <div className="text-gray-400 truncate mb-1">{item.text.substring(0, 50)}...</div>
+                                <div className={`font-mono text-xs ${item.result.threatLevel === 'CRITICAL' ? 'text-red-400' : item.result.threatLevel === 'MEDIUM' ? 'text-yellow-400' : 'text-cyan-400'}`}>
+                                    {item.result.threatLevel}
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             )}
@@ -402,51 +423,129 @@ const SentinelTerminal = () => {
 const WarGameGenerator = () => {
     const [scenario, setScenario] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [difficulty, setDifficulty] = useState('medium');
+    const [attempts, setAttempts] = useState(0);
+    const [userDecision, setUserDecision] = useState(null);
 
     const handleGenerateScenario = () => {
         setLoading(true);
+        setScenario(null);
+        setUserDecision(null);
         
         // Simulate processing delay
         setTimeout(() => {
             const result = generateScenario();
             setScenario(result);
+            setAttempts(attempts + 1);
             setLoading(false);
         }, 500);
     };
 
+    const handleDecision = (decision) => {
+        setUserDecision(decision);
+        setTimeout(() => {
+            setScenario(null);
+            setUserDecision(null);
+        }, 2500);
+    };
+
     return (
-        <div className="bg-black/80 max-w-lg mx-auto p-8 border border-gray-800 relative group">
-             <div className="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
-             
-             <div className="flex justify-between items-center text-sm font-mono text-gray-400 mb-6 border-b border-gray-800 pb-4">
-                <span>SIMULATION_MODE</span>
-                <span>STATUS: {loading ? 'GENERATING...' : 'READY'}</span>
+        <div className="bg-gradient-to-b from-[#15000a] to-[#0a0505] border border-red-600/40 p-6 rounded shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent"></div>
+            
+            <div className="flex justify-between items-start mb-4">
+                <div>
+                    <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-1">
+                        <Zap size={20} className="text-red-500" />
+                        WAR GAME SIMULATION
+                    </h3>
+                    <p className="text-xs text-gray-500 font-mono">Strategic theft scenarios. Real-world decision points. Zero room for error.</p>
+                </div>
+                <div className="text-right">
+                    <div className="text-xs text-gray-500 font-mono">RUNS</div>
+                    <div className="text-2xl font-bold text-red-500 font-mono">{attempts}</div>
+                </div>
             </div>
 
-            <div className="min-h-[150px] flex items-center justify-center text-center">
+            {!scenario && (
+                <div className="mb-4 p-4 bg-red-900/10 border border-red-900/50 rounded">
+                    <label className="text-xs text-gray-400 font-mono block mb-2">DIFFICULTY_LEVEL</label>
+                    <div className="flex gap-2">
+                        {['easy', 'medium', 'hard'].map(level => (
+                            <button
+                                key={level}
+                                onClick={() => setDifficulty(level)}
+                                className={`px-3 py-1 font-mono text-xs rounded uppercase transition-all ${
+                                    difficulty === level 
+                                    ? 'bg-red-600 text-white border border-red-500' 
+                                    : 'bg-black/50 text-gray-400 border border-red-900/30 hover:border-red-600'
+                                }`}
+                            >
+                                {level}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            <div className="min-h-[200px] flex flex-col items-center justify-center text-center mb-6 relative">
                 {loading ? (
-                    <div className="text-red-500 font-mono animate-pulse">UPLOADING SCENARIO PARAMETERS...</div>
+                    <div className="text-red-500 font-mono animate-pulse text-sm">
+                        <div className="mb-2">SCENARIO_LOADING...</div>
+                        <div className="text-xs text-gray-500">[THREAT_SIMULATION_IN_PROGRESS]</div>
+                    </div>
                 ) : scenario ? (
-                    <div className="text-white font-mono text-lg leading-relaxed animate-fadeIn">
-                        "{scenario}"
+                    <div className="w-full animate-fadeIn">
+                        <div className="text-white font-mono text-base leading-relaxed mb-6 bg-red-900/20 border border-red-900/50 p-4 rounded">
+                            "{scenario}"
+                        </div>
+                        {userDecision ? (
+                            <div className={`text-white font-mono text-lg font-bold px-4 py-2 rounded ${
+                                userDecision === 'block' 
+                                ? 'bg-green-900/40 border border-green-600 text-green-400' 
+                                : 'bg-red-900/40 border border-red-600 text-red-400'
+                            }`}>
+                                {userDecision === 'block' ? '✓ THREAT BLOCKED' : '✗ LOAD COMPROMISED'}
+                            </div>
+                        ) : (
+                            <div className="flex gap-3 justify-center">
+                                <button
+                                    onClick={() => handleDecision('block')}
+                                    className="px-6 py-3 bg-green-600 text-white font-bold rounded uppercase text-sm hover:bg-green-700 transition-colors"
+                                >
+                                    Block Load
+                                </button>
+                                <button
+                                    onClick={() => handleDecision('proceed')}
+                                    className="px-6 py-3 bg-yellow-600 text-white font-bold rounded uppercase text-sm hover:bg-yellow-700 transition-colors"
+                                >
+                                    Proceed
+                                </button>
+                            </div>
+                        )}
                     </div>
                 ) : (
-                    <p className="text-gray-500 italic">
-                        "It is 4:00 PM on a Friday. A load of copper wire has just been picked up..."
+                    <p className="text-gray-500 font-mono text-sm">
+                        Press button below to activate simulation
                     </p>
                 )}
             </div>
 
             <button 
                 onClick={handleGenerateScenario}
-                className="w-full mt-8 bg-red-600 text-white font-bold py-4 hover:bg-red-700 transition-colors uppercase tracking-widest flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-bold py-4 hover:from-red-500 hover:to-red-600 transition-all uppercase tracking-widest flex items-center justify-center gap-2 rounded font-mono disabled:opacity-50"
             >
-                {loading ? <Activity className="animate-spin" /> : <Zap size={18} />}
-                ACTIVATE WAR GAME
+                {loading ? <Activity className="animate-spin" size={18} /> : <Zap size={18} />}
+                {loading ? "Generating..." : "ACTIVATE WAR GAME"}
             </button>
+
+            <div className="mt-4 text-xs text-gray-500 font-mono text-center">
+                [SYSTEM_MESSAGE: Success rate on TFX = 100%. On open boards = unpredictable.]
+            </div>
         </div>
     );
-}
+};
 
 // --- Main App ---
 
@@ -625,6 +724,7 @@ export default function TFXApp() {
               <a href="#architecture" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Architecture</a>
               <a href="#case-studies" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">📊 Case Studies</a>
               <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
+              <a href="#tools" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">⚡ Tools</a>
               <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Reid's Circle</a>
             </div>
 
@@ -645,8 +745,8 @@ export default function TFXApp() {
             <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
             <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
             <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
+            <a href="#tools" onClick={() => setMobileMenuOpen(false)}>Tools</a>
             <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
-            <a href="#war-room" onClick={() => setMobileMenuOpen(false)}>War Room</a>
             <button className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4">
               Apply for Access
             </button>
@@ -1160,23 +1260,69 @@ export default function TFXApp() {
         </div>
       </section>
 
-      {/* --- War Room (Manifest 2026 Event) --- */}
-      <section id="war-room" className="py-24 bg-red-900/10 border-y border-red-900/30 relative">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-          <div className="container mx-auto px-6 relative z-10 text-center">
-              <div className="inline-block border border-red-500 text-red-500 font-mono text-xs px-4 py-1 mb-6 animate-pulse">
-                  CLASSIFIED: INVITE ONLY
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tight">
-                  The War Game
-              </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-serif italic">
-                  Run a live simulation of a strategic theft event. Witness how TFX architecture solves what phone calls cannot.
-              </p>
+      {/* --- TOOLS SUITE --- */}
+      <section id="tools" className="py-24 bg-gradient-to-b from-[#0A0D1E] to-[#05060a] border-y border-cyan-900/20 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="container mx-auto px-6 relative z-10">
+              <SectionHeader 
+                title="Operator Toolkit" 
+                subtitle="Threat Sentinel & War Games" 
+              />
               
-              {/* AI FEATURE 2: War Game Generator */}
-              <WarGameGenerator />
+              <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto font-mono text-sm">
+                Two battle-tested tools for operational resilience. Analyze real communications for fraud patterns. Run strategic theft simulations. Master the decision protocol that separates sanctuaries from open markets.
+              </p>
 
+              <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {/* Tool 1: Threat Sentinel */}
+                <div>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold text-cyan-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                      <Crosshair size={18} />
+                      Threat Sentinel
+                    </h3>
+                    <p className="text-xs text-gray-500">Real-time fraud pattern detection. Analyze communications instantly. Build pattern recognition muscle.</p>
+                  </div>
+                  <SentinelTerminal />
+                </div>
+
+                {/* Tool 2: War Game */}
+                <div>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                      <Zap size={18} />
+                      War Game Simulator
+                    </h3>
+                    <p className="text-xs text-gray-500">Strategic theft scenarios. Real decision points. Test your protocol against live threats.</p>
+                  </div>
+                  <WarGameGenerator />
+                </div>
+              </div>
+
+              <div className="mt-16 bg-black/50 border border-gray-800 p-8 rounded-lg max-w-3xl mx-auto">
+                <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                  <Shield size={20} className="text-[#F8C617]" />
+                  Why These Tools Matter
+                </h4>
+                <ul className="space-y-3 text-sm text-gray-400 font-mono">
+                  <li className="flex items-start gap-2">
+                    <span className="text-cyan-400 mt-1">→</span>
+                    <span><strong>On Load Boards:</strong> Zero training. Carriers learn by taking losses. Brokers operate on hope.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-cyan-400 mt-1">→</span>
+                    <span><strong>On TFX:</strong> Train before you tender. Every carrier learns the threat patterns. Every broker knows the protocol. Threats drop 87%.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-cyan-400 mt-1">→</span>
+                    <span><strong>The Pattern:</strong> Identity Certainty + Training Tools + Real-Time Verification = Operational Confidence. This is the exchange model.</span>
+                  </li>
+                </ul>
+              </div>
           </div>
       </section>
 
