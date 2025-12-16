@@ -110,25 +110,25 @@ const Ticker = () => {
   return (
     <div className="bg-black border-b border-[#F8C617]/30 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
       <div className="animate-marquee inline-block font-mono text-xs text-[#F8C617] font-bold tracking-wider">
-        <span className="mx-4">TFX INDEX: 14,203 (+4.2%)</span>
+        <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4 text-cyan-400">MARKET STATUS: VERIFIED</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">VERIFIED CARRIERS: 45,200</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-cyan-400">MARKET STATUS: SEGREGATED</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">IDENTITY DEBT: PURGING...</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">STRATEGIC THEFT ALERT: FOOD & BEV SECTOR</span>
          <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">TFX INDEX: 14,203 (+4.2%)</span>
+        <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
+        <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">VERIFIED CARRIERS: 45,200</span>
+        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-cyan-400">MARKET STATUS: SEGREGATED</span>
+        <span className="mx-4 text-cyan-400">MARKET STATUS: VERIFIED</span>
       </div>
     </div>
   );
@@ -973,20 +973,21 @@ export default function TFXApp() {
                       </div>
 
                       {/* Stats Grid */}
-                      <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="grid grid-cols-3 gap-4 mb-6">
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
-                              <div className="text-xs text-gray-500 font-mono uppercase">Active Carriers</div>
-                              <div className="text-2xl font-bold text-white">40K+</div>
-                              <div className="h-1 w-full bg-gray-800 mt-2">
-                                  <div className="h-full bg-cyan-400 w-[92%]"></div>
-                              </div>
+                              <div className="text-xs text-gray-500 font-mono uppercase">Registered Carriers</div>
+                              <div className="text-2xl font-bold text-[#F8C617]">80K</div>
+                              <div className="text-xs text-gray-600 mt-1">Total network</div>
                           </div>
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
-                              <div className="text-xs text-gray-500 font-mono uppercase">Threats Active</div>
-                              <div className="text-2xl font-bold text-red-500">1,204</div>
-                              <div className="h-1 w-full bg-gray-800 mt-2">
-                                  <div className="h-full bg-red-500 w-[30%]"></div>
-                              </div>
+                              <div className="text-xs text-gray-500 font-mono uppercase">Active Daily</div>
+                              <div className="text-2xl font-bold text-cyan-400">40K</div>
+                              <div className="text-xs text-gray-600 mt-1">Unique moving freight</div>
+                          </div>
+                          <div className="bg-[#0f1225] p-4 border border-gray-800">
+                              <div className="text-xs text-gray-500 font-mono uppercase">Brokers</div>
+                              <div className="text-2xl font-bold text-[#F8C617]">170</div>
+                              <div className="text-xs text-gray-600 mt-1">On the exchange</div>
                           </div>
                       </div>
 
@@ -1587,26 +1588,27 @@ export default function TFXApp() {
               
               <div className="p-12 text-center relative">
                   <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/30">
-                    <img src="/reid-muppet.svg" alt="Reid" className="w-full h-full object-cover" />
+                    <img src="/reid-avatar.svg" alt="Reid Clements" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
-                  <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
+                  <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-2">Reid Clements</p>
+                  <p className="text-gray-500 font-mono text-xs uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">
                       For the visionaries, operators, and architects who believe the separation is inevitable. Commit your conviction to the movement and shape the future of verified freight.
                   </p>
 
-                  <div className="grid grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded glass">
-                      <div className="hover-lift p-2">
-                          <div className="text-4xl font-black text-[#F8C617] neon-text-gold">80K</div>
+                  <div className="grid grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded">
+                      <div className="p-2">
+                          <div className="text-4xl font-black text-[#F8C617]">80K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Registered Carriers</div>
                       </div>
-                      <div className="hover-lift p-2">
-                          <div className="text-4xl font-black text-cyan-400 neon-text-cyan">40K</div>
+                      <div className="p-2">
+                          <div className="text-4xl font-black text-cyan-400">40K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Active Daily</div>
                       </div>
-                      <div className="hover-lift p-2">
-                          <div className="text-4xl font-black text-[#F8C617] neon-text-gold">170</div>
-                          <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers Signed</div>
+                      <div className="p-2">
+                          <div className="text-4xl font-black text-[#F8C617]">170</div>
+                          <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers on Exchange</div>
                       </div>
                   </div>
 

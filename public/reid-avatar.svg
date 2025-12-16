@@ -1,0 +1,97 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Professional Headshot Style Avatar for Reid Clements -->
+  
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="195" fill="#1a1d2e"/>
+  <circle cx="200" cy="200" r="195" stroke="#F8C617" stroke-width="3"/>
+  
+  <!-- Subtle gradient background -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1d2e"/>
+      <stop offset="100%" style="stop-color:#0f1225"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5d0b5"/>
+      <stop offset="100%" style="stop-color:#e8c4a8"/>
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a3a5c"/>
+      <stop offset="100%" style="stop-color:#1a2a4c"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a3c2a"/>
+      <stop offset="50%" style="stop-color:#3a2c1a"/>
+      <stop offset="100%" style="stop-color:#2a1c0a"/>
+    </linearGradient>
+  </defs>
+  
+  <circle cx="200" cy="200" r="190" fill="url(#bgGrad)"/>
+  
+  <!-- Neck -->
+  <path d="M160 310 L160 350 Q200 380 240 350 L240 310" fill="url(#skinGrad)"/>
+  
+  <!-- Dress Shirt / Collar -->
+  <path d="M100 400 L130 320 Q200 300 270 320 L300 400" fill="url(#shirtGrad)"/>
+  
+  <!-- Collar details -->
+  <path d="M155 320 L175 340 L200 320 L225 340 L245 320" fill="white" opacity="0.9"/>
+  <path d="M155 320 L175 340 L200 325" fill="#f0f0f0"/>
+  <path d="M245 320 L225 340 L200 325" fill="#e8e8e8"/>
+  
+  <!-- Face shape -->
+  <ellipse cx="200" cy="220" rx="75" ry="90" fill="url(#skinGrad)"/>
+  
+  <!-- Ears -->
+  <ellipse cx="120" cy="220" rx="12" ry="20" fill="url(#skinGrad)"/>
+  <ellipse cx="280" cy="220" rx="12" ry="20" fill="url(#skinGrad)"/>
+  
+  <!-- Hair - professional, slightly styled -->
+  <path d="M125 180 Q130 120 200 110 Q270 120 275 180 Q275 160 260 150 Q200 130 140 150 Q125 160 125 180" fill="url(#hairGrad)"/>
+  
+  <!-- Hair detail/texture -->
+  <path d="M140 165 Q145 145 170 140" stroke="#5a4c3a" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M180 140 Q200 135 220 140" stroke="#5a4c3a" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M250 145 Q260 155 260 165" stroke="#5a4c3a" stroke-width="2" fill="none" opacity="0.3"/>
+  
+  <!-- Eyebrows -->
+  <path d="M150 195 Q165 188 185 192" stroke="#3a2c1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M215 192 Q235 188 250 195" stroke="#3a2c1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="167" cy="215" rx="18" ry="12" fill="white"/>
+  <ellipse cx="233" cy="215" rx="18" ry="12" fill="white"/>
+  
+  <!-- Irises -->
+  <circle cx="170" cy="215" r="8" fill="#4a6a8a"/>
+  <circle cx="236" cy="215" r="8" fill="#4a6a8a"/>
+  
+  <!-- Pupils -->
+  <circle cx="171" cy="214" r="4" fill="#1a2a3a"/>
+  <circle cx="237" cy="214" r="4" fill="#1a2a3a"/>
+  
+  <!-- Eye highlights -->
+  <circle cx="173" cy="212" r="2" fill="white" opacity="0.8"/>
+  <circle cx="239" cy="212" r="2" fill="white" opacity="0.8"/>
+  
+  <!-- Nose -->
+  <path d="M200 220 Q195 245 200 260 Q205 265 210 260" stroke="#d4b49a" stroke-width="2" fill="none"/>
+  <ellipse cx="195" cy="262" rx="8" ry="5" fill="url(#skinGrad)" opacity="0.5"/>
+  <ellipse cx="210" cy="262" rx="8" ry="5" fill="url(#skinGrad)" opacity="0.5"/>
+  
+  <!-- Smile - confident, approachable -->
+  <path d="M165 285 Q200 310 235 285" stroke="#c49080" stroke-width="3" stroke-linecap="round" fill="none"/>
+  
+  <!-- Slight smile lines -->
+  <path d="M160 280 Q155 285 158 290" stroke="#d4b49a" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M240 280 Q245 285 242 290" stroke="#d4b49a" stroke-width="1" fill="none" opacity="0.5"/>
+  
+  <!-- Subtle jaw definition -->
+  <path d="M125 240 Q130 290 160 310" stroke="#d4b49a" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M275 240 Q270 290 240 310" stroke="#d4b49a" stroke-width="1" fill="none" opacity="0.3"/>
+  
+  <!-- TFX Badge on collar -->
+  <rect x="185" y="355" width="30" height="15" rx="2" fill="#F8C617"/>
+  <text x="200" y="366" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#0A0D1E" text-anchor="middle">TFX</text>
+  
+</svg>
