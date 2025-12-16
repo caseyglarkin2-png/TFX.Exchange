@@ -101,7 +101,7 @@ const GlitchText = ({ text, color = "text-white" }) => {
     <div className={`relative inline-block ${color} font-mono font-bold tracking-tighter uppercase`}>
       <span className="relative z-10">{text}</span>
       <span className="absolute top-0 left-0 -ml-0.5 translate-x-[2px] text-red-500 opacity-70 animate-pulse z-0">{text}</span>
-      <span className="absolute top-0 left-0 -ml-0.5 -translate-x-[2px] text-cyan-400 opacity-70 animate-pulse delay-75 z-0">{text}</span>
+      <span className="absolute top-0 left-0 -ml-0.5 -translate-x-[2px] text-[#5BA4B5] opacity-70 animate-pulse delay-75 z-0">{text}</span>
     </div>
   );
 };
@@ -116,7 +116,7 @@ const Ticker = () => {
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-cyan-400">MARKET STATUS: VERIFIED</span>
+        <span className="mx-4 text-[#5BA4B5]">MARKET STATUS: VERIFIED</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
         <span className="mx-4 text-gray-500">|</span>
@@ -128,7 +128,7 @@ const Ticker = () => {
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-cyan-400">MARKET STATUS: VERIFIED</span>
+        <span className="mx-4 text-[#5BA4B5]">MARKET STATUS: VERIFIED</span>
       </div>
     </div>
   );
@@ -175,7 +175,7 @@ const LiveFeed = () => {
       <div className="space-y-3">
         {items.map((item) => (
           <div key={item.id} className="flex justify-between items-center animate-fadeIn">
-            <span className={item.type === 'BLOCK' ? 'text-red-500' : 'text-cyan-400'}>
+            <span className={item.type === 'BLOCK' ? 'text-red-500' : 'text-[#5BA4B5]'}>
               [{item.type}]
             </span>
             <span className="text-gray-300 truncate ml-2 flex-1">{item.text}</span>
@@ -256,7 +256,7 @@ const HexagonDecor = () => (
     <svg className="absolute -top-20 -left-20 w-64 h-64 text-yellow-500/5 hex-pulse" viewBox="0 0 100 100">
       <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="1"/>
     </svg>
-    <svg className="absolute -bottom-20 -right-20 w-48 h-48 text-cyan-500/5 hex-pulse" style={{animationDelay: '-3s'}} viewBox="0 0 100 100">
+    <svg className="absolute -bottom-20 -right-20 w-48 h-48 text-[#5BA4B5]/5 hex-pulse" style={{animationDelay: '-3s'}} viewBox="0 0 100 100">
       <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="1"/>
     </svg>
     <svg className="absolute top-1/2 right-10 w-32 h-32 text-yellow-500/3 hex-pulse" style={{animationDelay: '-1s'}} viewBox="0 0 100 100">
@@ -279,10 +279,166 @@ const DataPoints = ({ count = 20 }) => {
       {points.map((p) => (
         <div
           key={p.id}
-          className={`absolute w-1 h-1 rounded-full ${p.isGold ? 'bg-[#F8C617]' : 'bg-cyan-500'}`}
+          className={`absolute w-1 h-1 rounded-full ${p.isGold ? 'bg-[#F8C617]' : 'bg-[#5BA4B5]'}`}
           style={{ left: p.left, top: p.top }}
         />
       ))}
+    </div>
+  );
+};
+
+// --- US Map with ELD Pings ---
+const USMapWithPings = () => {
+  // Major freight hub cities with approximate positions on US map (percentage based)
+  const cities = [
+    // West Coast
+    { name: 'Seattle', x: 12, y: 15, size: 'lg' },
+    { name: 'Portland', x: 11, y: 22, size: 'md' },
+    { name: 'San Francisco', x: 8, y: 38, size: 'lg' },
+    { name: 'Los Angeles', x: 12, y: 52, size: 'xl' },
+    { name: 'San Diego', x: 14, y: 58, size: 'md' },
+    { name: 'Phoenix', x: 22, y: 55, size: 'lg' },
+    { name: 'Las Vegas', x: 17, y: 45, size: 'md' },
+    { name: 'Salt Lake', x: 24, y: 35, size: 'md' },
+    { name: 'Denver', x: 32, y: 40, size: 'lg' },
+    // Texas Triangle
+    { name: 'El Paso', x: 28, y: 60, size: 'md' },
+    { name: 'Dallas', x: 42, y: 55, size: 'xl' },
+    { name: 'Houston', x: 46, y: 65, size: 'xl' },
+    { name: 'San Antonio', x: 40, y: 65, size: 'lg' },
+    { name: 'Austin', x: 42, y: 62, size: 'md' },
+    // Midwest
+    { name: 'Minneapolis', x: 48, y: 20, size: 'lg' },
+    { name: 'Chicago', x: 58, y: 30, size: 'xl' },
+    { name: 'Detroit', x: 64, y: 28, size: 'lg' },
+    { name: 'Indianapolis', x: 60, y: 38, size: 'md' },
+    { name: 'St Louis', x: 54, y: 42, size: 'lg' },
+    { name: 'Kansas City', x: 48, y: 42, size: 'lg' },
+    { name: 'Omaha', x: 44, y: 35, size: 'md' },
+    // Southeast
+    { name: 'Atlanta', x: 68, y: 52, size: 'xl' },
+    { name: 'Nashville', x: 64, y: 48, size: 'lg' },
+    { name: 'Memphis', x: 56, y: 50, size: 'lg' },
+    { name: 'Charlotte', x: 74, y: 48, size: 'lg' },
+    { name: 'Miami', x: 78, y: 78, size: 'lg' },
+    { name: 'Tampa', x: 74, y: 70, size: 'md' },
+    { name: 'Jacksonville', x: 76, y: 62, size: 'md' },
+    { name: 'New Orleans', x: 56, y: 68, size: 'md' },
+    // Northeast
+    { name: 'New York', x: 82, y: 30, size: 'xl' },
+    { name: 'Philadelphia', x: 80, y: 34, size: 'lg' },
+    { name: 'Boston', x: 86, y: 22, size: 'lg' },
+    { name: 'Baltimore', x: 78, y: 38, size: 'md' },
+    { name: 'Pittsburgh', x: 72, y: 35, size: 'md' },
+    { name: 'Columbus', x: 66, y: 38, size: 'md' },
+    { name: 'Cleveland', x: 68, y: 32, size: 'md' },
+  ];
+
+  // Random carrier pings (simulating 40K active)
+  const [pings, setPings] = useState([]);
+  
+  useEffect(() => {
+    // Generate initial pings
+    const generatePings = () => {
+      return Array.from({ length: 80 }, (_, i) => ({
+        id: i,
+        x: 8 + Math.random() * 80,
+        y: 12 + Math.random() * 68,
+        delay: Math.random() * 3,
+        duration: 2 + Math.random() * 2,
+      }));
+    };
+    setPings(generatePings());
+    
+    // Refresh some pings periodically
+    const interval = setInterval(() => {
+      setPings(prev => {
+        const updated = [...prev];
+        // Update 10 random pings
+        for (let i = 0; i < 10; i++) {
+          const idx = Math.floor(Math.random() * updated.length);
+          updated[idx] = {
+            ...updated[idx],
+            x: 8 + Math.random() * 80,
+            y: 12 + Math.random() * 68,
+          };
+        }
+        return updated;
+      });
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  const sizeMap = { sm: 4, md: 6, lg: 8, xl: 10 };
+
+  return (
+    <div className="relative w-full h-full bg-[#080a12] rounded overflow-hidden">
+      {/* US Map Outline SVG */}
+      <svg viewBox="0 0 100 80" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
+        {/* Simplified US outline */}
+        <path 
+          d="M5 25 L8 15 L15 12 L25 10 L35 8 L45 10 L55 8 L65 10 L75 12 L82 15 L88 20 L90 25 L88 30 L90 35 L88 40 L85 45 L82 50 L78 60 L75 70 L70 75 L60 72 L55 75 L50 70 L45 72 L40 68 L35 72 L30 68 L25 60 L20 55 L15 50 L12 45 L10 40 L8 35 L6 30 Z"
+          fill="none"
+          stroke="#1a2a3a"
+          strokeWidth="0.5"
+          opacity="0.6"
+        />
+        {/* State-like grid lines */}
+        <line x1="30" y1="10" x2="30" y2="70" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
+        <line x1="50" y1="8" x2="50" y2="72" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
+        <line x1="70" y1="10" x2="70" y2="75" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
+        <line x1="5" y1="30" x2="90" y2="30" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
+        <line x1="5" y1="50" x2="90" y2="50" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
+      </svg>
+      
+      {/* Major freight hubs */}
+      {cities.map((city, i) => (
+        <div
+          key={city.name}
+          className="absolute transform -translate-x-1/2 -translate-y-1/2"
+          style={{ left: `${city.x}%`, top: `${city.y}%` }}
+        >
+          <div 
+            className="rounded-full bg-[#F8C617] opacity-30"
+            style={{ width: sizeMap[city.size], height: sizeMap[city.size] }}
+          />
+        </div>
+      ))}
+      
+      {/* Active carrier pings */}
+      {pings.map((ping) => (
+        <div
+          key={ping.id}
+          className="absolute transform -translate-x-1/2 -translate-y-1/2"
+          style={{ 
+            left: `${ping.x}%`, 
+            top: `${ping.y}%`,
+            animation: `ping ${ping.duration}s ease-in-out infinite`,
+            animationDelay: `${ping.delay}s`
+          }}
+        >
+          <div className="w-1.5 h-1.5 rounded-full bg-[#5BA4B5] opacity-80" />
+        </div>
+      ))}
+      
+      {/* Legend */}
+      <div className="absolute bottom-2 left-2 flex items-center gap-4 text-[10px] font-mono text-gray-500">
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 rounded-full bg-[#F8C617] opacity-50" />
+          <span>Hub</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#5BA4B5]" />
+          <span>ELD Verified</span>
+        </div>
+      </div>
+      
+      {/* Stats overlay */}
+      <div className="absolute top-2 right-2 text-right">
+        <div className="text-[10px] font-mono text-gray-500">LIVE ELD FEED</div>
+        <div className="text-sm font-bold text-[#5BA4B5]">40K Active</div>
+      </div>
     </div>
   );
 };
@@ -294,7 +450,7 @@ const StatCard = ({ label, value, subtext, trend }) => (
     </div>
     <div className="text-gray-400 font-mono text-xs uppercase mb-2">{label}</div>
     <div className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">{value}</div>
-    <div className={`text-xs font-mono flex items-center gap-2 ${trend === 'negative' ? 'text-red-500' : 'text-cyan-400'}`}>
+    <div className={`text-xs font-mono flex items-center gap-2 ${trend === 'negative' ? 'text-red-500' : 'text-[#5BA4B5]'}`}>
       {trend === 'negative' ? <AlertTriangle size={12} /> : <CheckCircle size={12} />}
       {subtext}
     </div>
@@ -426,14 +582,14 @@ const SentinelTerminal = () => {
     };
 
     return (
-        <div className="bg-gradient-to-b from-[#05060a] to-[#0f0a15] border border-cyan-500/30 p-6 rounded shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-b from-[#05060a] to-[#0f0a15] border border-[#5BA4B5]/30 p-6 rounded shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-transparent"></div>
-            <div className="absolute top-0 right-0 p-2 text-xs font-mono text-cyan-400 animate-pulse">
+            <div className="absolute top-0 right-0 p-2 text-xs font-mono text-[#5BA4B5] animate-pulse">
                 [SENTINEL_ACTIVE]
             </div>
             
             <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                <Crosshair size={20} className="text-cyan-400" />
+                <Crosshair size={20} className="text-[#5BA4B5]" />
                 THREAT SENTINEL
             </h3>
             <p className="text-xs text-gray-500 font-mono mb-4">Real-time fraud pattern detection. Analyze carrier communications, pricing anomalies, and identity risks.</p>
@@ -444,7 +600,7 @@ const SentinelTerminal = () => {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Paste email body, text, or communication for instant threat assessment..."
-                    className="w-full bg-[#0f1225] border border-cyan-900/50 text-cyan-300 font-mono text-xs p-3 focus:outline-none focus:border-cyan-400 min-h-[80px] rounded"
+                    className="w-full bg-[#0f1225] border border-cyan-900/50 text-cyan-300 font-mono text-xs p-3 focus:outline-none focus:border-[#5BA4B5] min-h-[80px] rounded"
                 />
             </div>
 
@@ -458,11 +614,11 @@ const SentinelTerminal = () => {
             </button>
 
             {analysis && (
-                <div className={`border p-4 rounded mb-4 animate-fadeIn ${analysis.threatLevel === 'CRITICAL' ? 'border-red-500/50 bg-red-900/20' : analysis.threatLevel === 'MEDIUM' ? 'border-yellow-500/50 bg-yellow-900/20' : 'border-cyan-500/50 bg-cyan-900/20'}`}>
+                <div className={`border p-4 rounded mb-4 animate-fadeIn ${analysis.threatLevel === 'CRITICAL' ? 'border-red-500/50 bg-red-900/20' : analysis.threatLevel === 'MEDIUM' ? 'border-yellow-500/50 bg-yellow-900/20' : 'border-[#5BA4B5]/50 bg-cyan-900/20'}`}>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                         <div>
                             <span className="font-mono text-xs text-gray-400">THREAT_LEVEL</span>
-                            <span className={`block text-lg font-bold font-mono mt-1 ${analysis.threatLevel === 'CRITICAL' ? 'text-red-400' : analysis.threatLevel === 'MEDIUM' ? 'text-yellow-400' : 'text-cyan-400'}`}>
+                            <span className={`block text-lg font-bold font-mono mt-1 ${analysis.threatLevel === 'CRITICAL' ? 'text-red-400' : analysis.threatLevel === 'MEDIUM' ? 'text-yellow-400' : 'text-[#5BA4B5]'}`}>
                                 {analysis.threatLevel}
                             </span>
                         </div>
@@ -476,7 +632,7 @@ const SentinelTerminal = () => {
                         <ul className="space-y-1">
                             {analysis.flags.map((flag, i) => (
                                 <li key={i} className="text-xs font-mono text-gray-300 flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+                                    <div className="w-2 h-2 rounded-full bg-[#5BA4B5]"></div>
                                     {flag}
                                 </li>
                             ))}
@@ -496,7 +652,7 @@ const SentinelTerminal = () => {
                         {history.map((item, i) => (
                             <div key={i} className="text-xs bg-black/40 p-2 border border-gray-800 rounded">
                                 <div className="text-gray-400 truncate mb-1">{item.text.substring(0, 50)}...</div>
-                                <div className={`font-mono text-xs ${item.result.threatLevel === 'CRITICAL' ? 'text-red-400' : item.result.threatLevel === 'MEDIUM' ? 'text-yellow-400' : 'text-cyan-400'}`}>
+                                <div className={`font-mono text-xs ${item.result.threatLevel === 'CRITICAL' ? 'text-red-400' : item.result.threatLevel === 'MEDIUM' ? 'text-yellow-400' : 'text-[#5BA4B5]'}`}>
                                     {item.result.threatLevel}
                                 </div>
                             </div>
@@ -759,7 +915,7 @@ const BenefitCarrierUtil = ({ size = 64 }) => (
     <path d="M28 35 L32 28 L36 35 L40 28 L44 35 L48 28 L52 35" stroke="#F8C617" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
     <path d="M28 50 Q40 55 52 50" stroke="#F8C617" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
     <circle cx="40" cy="42" r="3" fill="#F8C617"/>
-    <path d="M32 60 L48 60" stroke="#00F0FF" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M32 60 L48 60" stroke="#5BA4B5" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
@@ -767,7 +923,7 @@ const BenefitReduceRisk = ({ size = 64 }) => (
   <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="40" cy="40" r="35" fill="#2a2a3e" stroke="#F8C617" strokeWidth="2"/>
     <path d="M40 20 L28 28 L28 42 Q28 55 40 62 Q52 55 52 42 L52 28 Z" stroke="#F8C617" strokeWidth="2.5" fill="none" strokeLinejoin="round"/>
-    <path d="M36 42 L38 46 L44 38" stroke="#00F0FF" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M36 42 L38 46 L44 38" stroke="#5BA4B5" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -777,8 +933,8 @@ const BenefitProductivity = ({ size = 64 }) => (
     <rect x="28" y="48" width="5" height="14" fill="#F8C617" rx="1"/>
     <rect x="36" y="40" width="5" height="22" fill="#F8C617" rx="1"/>
     <rect x="44" y="32" width="5" height="30" fill="#F8C617" rx="1"/>
-    <path d="M28 48 L36 40 L44 32 L52 24" stroke="#00F0FF" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-    <circle cx="52" cy="24" r="2.5" fill="#00F0FF"/>
+    <path d="M28 48 L36 40 L44 32 L52 24" stroke="#5BA4B5" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+    <circle cx="52" cy="24" r="2.5" fill="#5BA4B5"/>
   </svg>
 );
 
@@ -790,15 +946,15 @@ const BenefitMargins = ({ size = 64 }) => (
       <rect x="12" y="4" width="8" height="20" fill="#F8C617" rx="1"/>
       <rect x="24" y="0" width="8" height="24" fill="#F8C617" rx="1"/>
     </g>
-    <path d="M30 30 Q40 35 50 28" stroke="#00F0FF" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    <path d="M32 50 L48 50 M40 48 L40 52" stroke="#00F0FF" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M30 30 Q40 35 50 28" stroke="#5BA4B5" strokeWidth="2" fill="none" strokeLinecap="round"/>
+    <path d="M32 50 L48 50 M40 48 L40 52" stroke="#5BA4B5" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
 // --- Icon Badge Component ---
 const IconBadge = ({ icon: Icon, label, color = "cyan" }) => {
   const colorMap = {
-    cyan: 'text-cyan-400 border-cyan-400',
+    cyan: 'text-[#5BA4B5] border-[#5BA4B5]',
     yellow: 'text-[#F8C617] border-[#F8C617]',
     red: 'text-red-500 border-red-500',
     green: 'text-green-500 border-green-500'
@@ -948,7 +1104,7 @@ export default function TFXApp() {
                         Enter Exchange <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </button>
-                    <button className="border border-gray-700 text-gray-300 px-8 py-4 font-mono uppercase tracking-widest hover:border-cyan-400 hover:text-cyan-400 transition-all electric-border highlight-glow">
+                    <button className="border border-gray-700 text-gray-300 px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all electric-border highlight-glow">
                     Market Analysis
                     </button>
                 </div>
@@ -964,7 +1120,7 @@ export default function TFXApp() {
                       {/* Dashboard Header */}
                       <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-800">
                         <div className="flex items-center gap-3">
-                            <Activity className="text-cyan-400" />
+                            <Activity className="text-[#5BA4B5]" />
                             <span className="text-white font-bold uppercase tracking-widest">Network Topography</span>
                         </div>
                         <div className="text-xs font-mono text-gray-500">
@@ -981,7 +1137,7 @@ export default function TFXApp() {
                           </div>
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
                               <div className="text-xs text-gray-500 font-mono uppercase">Active Daily</div>
-                              <div className="text-2xl font-bold text-cyan-400">40K</div>
+                              <div className="text-2xl font-bold text-[#5BA4B5]">40K</div>
                               <div className="text-xs text-gray-600 mt-1">Unique moving freight</div>
                           </div>
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
@@ -994,16 +1150,9 @@ export default function TFXApp() {
                       {/* Live Feed Component */}
                       <LiveFeed />
 
-                      {/* Map Visualization (Abstract) */}
-                      <div className="mt-6 h-32 w-full bg-[#0f1225] border border-gray-800 relative overflow-hidden flex items-center justify-center">
-                          <div className="absolute inset-0 opacity-20" style={{backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
-                          <div className="text-xs font-mono text-gray-600 flex flex-col items-center">
-                              <Map className="mb-2 opacity-50"/>
-                              [GEO-SPATIAL MONITORING ACTIVE]
-                          </div>
-                          {/* Random blips */}
-                          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-red-500 rounded-full animate-ping"></div>
-                          <div className="absolute top-2/3 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                      {/* US Map with ELD Pings */}
+                      <div className="mt-6 h-48 w-full border border-gray-800 relative overflow-hidden">
+                        <USMapWithPings />
                       </div>
                   </div>
               </div>
@@ -1074,34 +1223,34 @@ export default function TFXApp() {
             <div className="relative hover-lift">
               <div className="border border-cyan-900/50 bg-cyan-900/5 p-8 rounded-sm glass electric-border spotlight">
                 <div className="flex items-center gap-3 mb-6">
-                  <IconSanctuary className="w-8 h-8 text-cyan-400" />
-                  <h3 className="text-2xl font-bold text-cyan-400 uppercase neon-text-cyan">Exchange</h3>
+                  <IconSanctuary className="w-8 h-8 text-[#5BA4B5]" />
+                  <h3 className="text-2xl font-bold text-[#5BA4B5] uppercase neon-text-cyan">Exchange</h3>
                 </div>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex gap-3">
-                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
                       <div className="font-bold text-white">Quality First</div>
                       <div className="text-sm text-gray-400">Gated access. Strategic friction filters out bad actors before they enter.</div>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
                       <div className="font-bold text-white">Real-Time Verification</div>
                       <div className="text-sm text-gray-400">Continuous ELD-linked identity proof. "Verified" = verified RIGHT NOW, not yesterday.</div>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
                       <div className="font-bold text-white">Physical Reality</div>
                       <div className="text-sm text-gray-400">Truck's location is proven via ELD. Digital claim = physical fact. The machine verifies the person.</div>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
                       <div className="font-bold text-white">Safety Enables Speed</div>
                       <div className="text-sm text-gray-400">Zero Trust architecture. One-click booking without fear. Identity certainty = operational velocity.</div>
@@ -1110,7 +1259,7 @@ export default function TFXApp() {
                 </div>
 
                 <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
-                  <p className="text-cyan-400 font-mono text-xs uppercase mb-2">Result:</p>
+                  <p className="text-[#5BA4B5] font-mono text-xs uppercase mb-2">Result:</p>
                   <p className="text-white text-sm">80K registered carriers. 40K active daily. 170 brokers on network. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
                 </div>
               </div>
@@ -1124,7 +1273,7 @@ export default function TFXApp() {
                 <tr className="border-b border-gray-800 bg-[#05060a]">
                   <th className="text-left px-6 py-4 font-mono text-xs uppercase text-gray-500">Dimension</th>
                   <th className="text-left px-6 py-4 font-mono text-xs uppercase text-red-500">Load Board</th>
-                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-cyan-400">Exchange</th>
+                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-[#5BA4B5]">Exchange</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800">
@@ -1186,11 +1335,11 @@ export default function TFXApp() {
             </div>
 
             {/* Benefit 2: Reduce Risk */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#5BA4B5] transition-all p-8 rounded-lg group hover-lift">
               <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-all duration-300">
                 <BenefitReduceRisk size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3">Reduce Risk</h3>
+              <h3 className="text-2xl font-bold text-[#5BA4B5] text-center mb-3">Reduce Risk</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Verifies identity, insurance, and compliance upfront. No surprises mid-route. Brokers don't call you on hold.</p>
             </div>
 
@@ -1204,11 +1353,11 @@ export default function TFXApp() {
             </div>
 
             {/* Benefit 4: Protect Margins */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#5BA4B5] transition-all p-8 rounded-lg group hover-lift">
               <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-all duration-300">
                 <BenefitMargins size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3">Protect Margins</h3>
+              <h3 className="text-2xl font-bold text-[#5BA4B5] text-center mb-3">Protect Margins</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Keep loads moving with fewer bounces and cleaner execution. Quality network = predictable outcomes.</p>
             </div>
           </div>
@@ -1509,7 +1658,7 @@ export default function TFXApp() {
           {/* Subtle Background */}
           <DataPoints count={20} />
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 left-0 w-96 h-96 bg-[#5BA4B5] rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#F8C617] rounded-full blur-3xl"></div>
           </div>
           
@@ -1527,7 +1676,7 @@ export default function TFXApp() {
                 {/* Tool 1: Threat Sentinel */}
                 <div className="hover-lift">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-cyan-400 uppercase tracking-wider mb-2 flex items-center gap-2 neon-text-cyan">
+                    <h3 className="text-lg font-bold text-[#5BA4B5] uppercase tracking-wider mb-2 flex items-center gap-2 neon-text-cyan">
                       <Crosshair size={18} className="animate-pulse" />
                       Threat Sentinel
                     </h3>
@@ -1556,15 +1705,15 @@ export default function TFXApp() {
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-400 font-mono">
                   <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 mt-1">→</span>
+                    <span className="text-[#5BA4B5] mt-1">→</span>
                     <span><strong className="text-white">On Load Boards:</strong> Zero training. Carriers learn by taking losses. Brokers operate on hope.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 mt-1">→</span>
+                    <span className="text-[#5BA4B5] mt-1">→</span>
                     <span><strong className="text-white">On TFX:</strong> Train before you tender. Every carrier learns the threat patterns. Every broker knows the protocol. Threats drop 87%.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 mt-1">→</span>
+                    <span className="text-[#5BA4B5] mt-1">→</span>
                     <span><strong className="text-white">The Pattern:</strong> Identity Certainty + Training Tools + Real-Time Verification = Operational Confidence. This is the exchange model.</span>
                   </li>
                 </ul>
@@ -1603,7 +1752,7 @@ export default function TFXApp() {
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Registered Carriers</div>
                       </div>
                       <div className="p-2">
-                          <div className="text-4xl font-black text-cyan-400">40K</div>
+                          <div className="text-4xl font-black text-[#5BA4B5]">40K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Active Daily</div>
                       </div>
                       <div className="p-2">
