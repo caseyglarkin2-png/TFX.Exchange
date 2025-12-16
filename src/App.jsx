@@ -199,6 +199,105 @@ const SectionHeader = ({ title, subtitle, align = "center" }) => (
   </div>
 );
 
+// --- Floating Particles Background ---
+const ParticleField = ({ count = 30 }) => {
+  const particles = Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 5}s`,
+    duration: `${8 + Math.random() * 8}s`,
+    size: `${2 + Math.random() * 4}px`,
+    isCyan: Math.random() > 0.5,
+    drift: `${(Math.random() - 0.5) * 100}px`
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className={`particle ${p.isCyan ? 'particle-cyan' : 'particle-gold'}`}
+          style={{
+            left: p.left,
+            width: p.size,
+            height: p.size,
+            '--delay': p.delay,
+            '--duration': p.duration,
+            '--drift': p.drift,
+            animationDelay: p.delay,
+            animationDuration: p.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+// --- Animated Background Orbs ---
+const BackgroundOrbs = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-yellow-500/10 to-transparent rounded-full blur-3xl orb"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-cyan-500/10 to-transparent rounded-full blur-3xl orb orb-delay-1"></div>
+    <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-gradient-to-br from-red-500/5 to-transparent rounded-full blur-3xl orb orb-delay-2"></div>
+  </div>
+);
+
+// --- Animated Grid Background ---
+const CyberGrid = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-30">
+    <div className="absolute inset-0 cyber-grid"></div>
+    <div className="scan-line"></div>
+  </div>
+);
+
+// --- Hexagon Decorations ---
+const HexagonDecor = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <svg className="absolute -top-20 -left-20 w-64 h-64 text-yellow-500/5 hex-pulse" viewBox="0 0 100 100">
+      <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="1"/>
+    </svg>
+    <svg className="absolute -bottom-20 -right-20 w-48 h-48 text-cyan-500/5 hex-pulse" style={{animationDelay: '-3s'}} viewBox="0 0 100 100">
+      <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="1"/>
+    </svg>
+    <svg className="absolute top-1/2 right-10 w-32 h-32 text-yellow-500/3 hex-pulse" style={{animationDelay: '-1s'}} viewBox="0 0 100 100">
+      <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="1"/>
+    </svg>
+  </div>
+);
+
+// --- Star Field Background ---
+const StarField = ({ count = 50 }) => {
+  const stars = Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    size: `${1 + Math.random() * 2}px`,
+    duration: `${2 + Math.random() * 4}s`,
+    delay: `${Math.random() * 3}s`
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {stars.map((s) => (
+        <div
+          key={s.id}
+          className="star"
+          style={{
+            left: s.left,
+            top: s.top,
+            width: s.size,
+            height: s.size,
+            '--duration': s.duration,
+            '--delay': s.delay,
+            animationDelay: s.delay,
+            animationDuration: s.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const StatCard = ({ label, value, subtext, trend }) => (
   <div className="bg-[#0f1225] border border-gray-800 p-6 relative overflow-hidden group hover:border-[#F8C617] transition-colors duration-300">
     <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
@@ -763,14 +862,38 @@ export default function TFXApp() {
             </div>
             
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
-              <a href="#the-separation" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> The Separation</a>
-              <a href="#architecture" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Architecture</a>
-              <a href="#benefits" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">✨ Benefits</a>
-              <a href="#case-studies" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">📊 Case Studies</a>
-              <a href="#branding" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">🎨 Branding</a>
-              <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
-              <a href="#tools" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">⚡ Tools</a>
-              <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Reid's Circle</a>
+              <a href="#the-separation" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconAnarchy className="w-3 h-3" /> The Separation
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#architecture" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconVerified className="w-3 h-3" /> Architecture
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#benefits" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                ✨ Benefits
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#case-studies" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                📊 Case Studies
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#branding" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                🎨 Branding
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#the-anarchy" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconThreat className="w-3 h-3" /> The Problem
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#tools" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                ⚡ Tools
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#reid-circle" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconSanctuary className="w-3 h-3" /> Reid's Circle
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
             </div>
 
             <div className="md:hidden">
@@ -802,19 +925,22 @@ export default function TFXApp() {
       )}
 
       {/* --- Hero Section: The Exchange Floor --- */}
-      <header className="relative min-h-screen flex items-center grid-bg pt-32 pb-12 overflow-hidden" id="the-separation">
-        {/* Abstract "Map" Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+      <header className="relative min-h-screen flex items-center grid-bg pt-32 pb-12 overflow-hidden aurora-bg" id="the-separation">
+        {/* Premium Background Effects */}
+        <ParticleField count={40} />
+        <BackgroundOrbs />
+        <HexagonDecor />
+        <StarField count={30} />
+        
+        {/* Scan Line Effect */}
+        <div className="scan-line"></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-start gap-12">
               
               {/* Left Column: Text */}
               <div className="lg:w-1/2 text-left pt-10">
-                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm">
+                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm electric-border" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
                     <span className="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
                     <span className="text-red-400 font-mono text-xs uppercase tracking-widest">
                       <IconAnarchy /> PUBLIC SQUARE: COMPROMISED
@@ -822,20 +948,23 @@ export default function TFXApp() {
                 </div>
 
                 <h1 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-6">
-                    THE GREAT <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600">SEPARATION</span>
+                    <span className="gradient-text-flow">THE GREAT</span> <br/>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600 hover:from-yellow-500 hover:via-cyan-400 hover:to-yellow-500 transition-all duration-1000">SEPARATION</span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6">
+                <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6 relative">
+                    <span className="shimmer absolute inset-0 pointer-events-none"></span>
                     The open market is dead. The "Anarchy" has won. <br/>
-                    <span className="text-white font-bold">TFX is the only Sanctuary left.</span>
+                    <span className="text-white font-bold neon-text-gold">TFX is the only Sanctuary left.</span>
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-4">
-                    <button className="bg-[#F8C617] text-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2 group">
-                    Enter Exchange <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                    <button className="relative bg-[#F8C617] text-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group breathe ripple overflow-hidden">
+                      <span className="relative z-10 flex items-center gap-2">
+                        Enter Exchange <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                      </span>
                     </button>
-                    <button className="border border-gray-700 text-gray-300 px-8 py-4 font-mono uppercase tracking-widest hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+                    <button className="border border-gray-700 text-gray-300 px-8 py-4 font-mono uppercase tracking-widest hover:border-cyan-400 hover:text-cyan-400 transition-all electric-border highlight-glow">
                     Market Analysis
                     </button>
                 </div>
@@ -843,7 +972,10 @@ export default function TFXApp() {
 
               {/* Right Column: Expanded Live Feed (Command Center) */}
               <div className="lg:w-1/2 w-full">
-                  <div className="relative w-full bg-[#05060a] border border-gray-800 p-6 rounded-sm shadow-2xl">
+                  <div className="relative w-full bg-[#05060a]/90 border border-gray-800 p-6 rounded-sm shadow-2xl glass tilt-card">
+                      
+                      {/* Glow effect behind card */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/20 via-transparent to-cyan-500/20 rounded-sm blur-xl -z-10"></div>
                       
                       {/* Dashboard Header */}
                       <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-800">
@@ -895,8 +1027,12 @@ export default function TFXApp() {
       </header>
 
       {/* --- The Architecture: Load Board vs Exchange --- */}
-      <section id="architecture" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900">
-        <div className="container mx-auto px-6">
+      <section id="architecture" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 circuit-pattern opacity-30"></div>
+        <BackgroundOrbs />
+        
+        <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
             title="Market Structure" 
             subtitle="Load Board vs Exchange" 
@@ -904,11 +1040,11 @@ export default function TFXApp() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Load Board */}
-            <div className="relative">
-              <div className="border border-red-900/50 bg-red-900/5 p-8 rounded-sm">
+            <div className="relative hover-lift">
+              <div className="border border-red-900/50 bg-red-900/5 p-8 rounded-sm glass spotlight">
                 <div className="flex items-center gap-3 mb-6">
                   <IconAnarchy className="w-8 h-8 text-red-500" />
-                  <h3 className="text-2xl font-bold text-red-500 uppercase">Load Board</h3>
+                  <h3 className="text-2xl font-bold text-red-500 uppercase neon-text-gold" style={{textShadow: '0 0 10px rgba(255,68,68,0.5)'}}>Load Board</h3>
                 </div>
                 
                 <div className="space-y-4 mb-8">
@@ -950,11 +1086,11 @@ export default function TFXApp() {
             </div>
 
             {/* Exchange */}
-            <div className="relative">
-              <div className="border border-cyan-900/50 bg-cyan-900/5 p-8 rounded-sm">
+            <div className="relative hover-lift">
+              <div className="border border-cyan-900/50 bg-cyan-900/5 p-8 rounded-sm glass electric-border spotlight">
                 <div className="flex items-center gap-3 mb-6">
                   <IconSanctuary className="w-8 h-8 text-cyan-400" />
-                  <h3 className="text-2xl font-bold text-cyan-400 uppercase">Exchange</h3>
+                  <h3 className="text-2xl font-bold text-cyan-400 uppercase neon-text-cyan">Exchange</h3>
                 </div>
                 
                 <div className="space-y-4 mb-8">
@@ -1044,8 +1180,12 @@ export default function TFXApp() {
       </section>
 
       {/* --- Benefits Section --- */}
-      <section id="benefits" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900">
-        <div className="container mx-auto px-6">
+      <section id="benefits" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
+        {/* Background Effects */}
+        <ParticleField count={20} />
+        <div className="absolute top-0 left-0 w-full h-1 border-flow"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
             title="Why Choose TFX" 
             subtitle="Real Benefits for Real Operators" 
@@ -1053,38 +1193,38 @@ export default function TFXApp() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Benefit 1: Carrier Utilization */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group hover-lift spotlight glass">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                 <BenefitCarrierUtil size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Increase Carrier Utilization</h3>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3 group-hover:text-glow-gold">Increase Carrier Utilization</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">See only loads you're cleared to haul. Pre-vetted = faster tenders. Higher close rate on qualified lanes.</p>
             </div>
 
             {/* Benefit 2: Reduce Risk */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift spotlight glass">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
                 <BenefitReduceRisk size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Reduce Risk</h3>
+              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3 group-hover:text-glow-cyan">Reduce Risk</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Verifies identity, insurance, and compliance upfront. No surprises mid-route. Brokers don't call you on hold.</p>
             </div>
 
             {/* Benefit 3: Boost Productivity */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group hover-lift spotlight glass">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                 <BenefitProductivity size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Boost Rep Productivity</h3>
+              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3 group-hover:text-glow-gold">Boost Rep Productivity</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Less manual vetting. More first-tender success. Reps spend time closing deals, not chasing verification.</p>
             </div>
 
             {/* Benefit 4: Protect Margins */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-8 rounded-lg group">
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-cyan-400 transition-all p-8 rounded-lg group hover-lift spotlight glass">
+              <div className="flex justify-center mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
                 <BenefitMargins size={80} />
               </div>
-              <h3 className="text-2xl font-bold text-[#F8C617] text-center mb-3">Protect Margins</h3>
+              <h3 className="text-2xl font-bold text-cyan-400 text-center mb-3 group-hover:text-glow-cyan">Protect Margins</h3>
               <p className="text-gray-400 text-center text-sm leading-relaxed">Keep loads moving with fewer bounces and cleaner execution. Quality network = predictable outcomes.</p>
             </div>
           </div>
@@ -1092,8 +1232,12 @@ export default function TFXApp() {
       </section>
 
       {/* --- Case Studies: Exchanges in Other Industries --- */}
-      <section id="case-studies" className="py-24 bg-[#05060a] relative border-t border-gray-900">
-        <div className="container mx-auto px-6">
+      <section id="case-studies" className="py-24 bg-[#05060a] relative border-t border-gray-900 overflow-hidden">
+        {/* Background Effects */}
+        <StarField count={40} />
+        <div className="absolute inset-0 hex-pattern opacity-50"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
             title="Proven Model" 
             subtitle="Exchanges Work. Here's Why." 
@@ -1105,9 +1249,9 @@ export default function TFXApp() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* NYSE */}
-            <div className="border border-gray-800 bg-[#0f1225] p-8 hover:border-[#F8C617] transition-all">
+            <div className="border border-gray-800 bg-[#0f1225]/80 p-8 hover:border-[#F8C617] transition-all hover-lift glass spotlight">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-[#F8C617] rounded-sm flex items-center justify-center text-black font-bold text-lg">NYSE</div>
+                <div className="w-12 h-12 bg-[#F8C617] rounded-sm flex items-center justify-center text-black font-bold text-lg breathe">NYSE</div>
                 <div>
                   <h4 className="text-white font-bold uppercase">New York Stock Exchange</h4>
                   <p className="text-xs text-gray-500">Founded 1792</p>
@@ -1357,10 +1501,13 @@ export default function TFXApp() {
 
       {/* --- TOOLS SUITE --- */}
       <section id="tools" className="py-24 bg-gradient-to-b from-[#0A0D1E] to-[#05060a] border-y border-cyan-900/20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl"></div>
+          {/* Enhanced Background Effects */}
+          <CyberGrid />
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl orb"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl orb orb-delay-1"></div>
           </div>
+          <HexagonDecor />
           
           <div className="container mx-auto px-6 relative z-10">
               <SectionHeader 
@@ -1374,10 +1521,10 @@ export default function TFXApp() {
 
               <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {/* Tool 1: Threat Sentinel */}
-                <div>
+                <div className="hover-lift">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-cyan-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                      <Crosshair size={18} />
+                    <h3 className="text-lg font-bold text-cyan-400 uppercase tracking-wider mb-2 flex items-center gap-2 neon-text-cyan">
+                      <Crosshair size={18} className="animate-pulse" />
                       Threat Sentinel
                     </h3>
                     <p className="text-xs text-gray-500">Real-time fraud pattern detection. Analyze communications instantly. Build pattern recognition muscle.</p>
@@ -1386,10 +1533,10 @@ export default function TFXApp() {
                 </div>
 
                 {/* Tool 2: War Game */}
-                <div>
+                <div className="hover-lift">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                      <Zap size={18} />
+                    <h3 className="text-lg font-bold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-2" style={{textShadow: '0 0 10px rgba(255,68,68,0.5)'}}>
+                      <Zap size={18} className="animate-pulse" />
                       War Game Simulator
                     </h3>
                     <p className="text-xs text-gray-500">Strategic theft scenarios. Real decision points. Test your protocol against live threats.</p>
@@ -1398,7 +1545,7 @@ export default function TFXApp() {
                 </div>
               </div>
 
-              <div className="mt-16 bg-black/50 border border-gray-800 p-8 rounded-lg max-w-3xl mx-auto">
+              <div className="mt-16 bg-black/50 border border-gray-800 p-8 rounded-lg max-w-3xl mx-auto glass spotlight hover-lift">
                 <h4 className="text-white font-bold mb-4 flex items-center gap-2">
                   <Shield size={20} className="text-[#F8C617]" />
                   Why These Tools Matter
@@ -1406,15 +1553,15 @@ export default function TFXApp() {
                 <ul className="space-y-3 text-sm text-gray-400 font-mono">
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 mt-1">→</span>
-                    <span><strong>On Load Boards:</strong> Zero training. Carriers learn by taking losses. Brokers operate on hope.</span>
+                    <span><strong className="text-white">On Load Boards:</strong> Zero training. Carriers learn by taking losses. Brokers operate on hope.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 mt-1">→</span>
-                    <span><strong>On TFX:</strong> Train before you tender. Every carrier learns the threat patterns. Every broker knows the protocol. Threats drop 87%.</span>
+                    <span><strong className="text-white">On TFX:</strong> Train before you tender. Every carrier learns the threat patterns. Every broker knows the protocol. Threats drop 87%.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 mt-1">→</span>
-                    <span><strong>The Pattern:</strong> Identity Certainty + Training Tools + Real-Time Verification = Operational Confidence. This is the exchange model.</span>
+                    <span><strong className="text-white">The Pattern:</strong> Identity Certainty + Training Tools + Real-Time Verification = Operational Confidence. This is the exchange model.</span>
                   </li>
                 </ul>
               </div>
@@ -1422,53 +1569,60 @@ export default function TFXApp() {
       </section>
 
       {/* --- Founder's Circle (Pricing/Offer) --- */}
-      <section id="reid-circle" className="py-24 bg-[#0A0D1E] relative">
-        <div className="container mx-auto px-6">
+      <section id="reid-circle" className="py-24 bg-[#0A0D1E] relative overflow-hidden">
+        {/* Background Effects */}
+        <ParticleField count={25} />
+        <BackgroundOrbs />
+        
+        <div className="container mx-auto px-6 relative z-10">
            <SectionHeader 
             title="Access Protocols" 
             subtitle="Reid's Circle" 
           />
           
-          <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">LIMITED CAPACITY</div>
+          <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden neon-border glass">
+              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1 flicker">LIMITED CAPACITY</div>
               
-              <div className="p-12 text-center">
-                  <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/50">
+              {/* Scan line effect */}
+              <div className="scan-line"></div>
+              
+              <div className="p-12 text-center relative">
+                  <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/50 breathe">
                     <img src="/reid-muppet.svg" alt="Reid" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
+                  <h3 className="text-4xl font-bold text-white mb-2 gradient-text-flow">Reid's Inner Circle</h3>
                   <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">
                       For the visionaries, operators, and architects who believe the separation is inevitable. Commit your conviction to the movement and shape the future of verified freight.
                   </p>
 
-                  <div className="grid grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded">
-                      <div>
-                          <div className="text-4xl font-black text-[#F8C617]">80K</div>
+                  <div className="grid grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded glass">
+                      <div className="hover-lift p-2">
+                          <div className="text-4xl font-black text-[#F8C617] neon-text-gold">80K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Registered Carriers</div>
                       </div>
-                      <div>
-                          <div className="text-4xl font-black text-cyan-400">40K</div>
+                      <div className="hover-lift p-2">
+                          <div className="text-4xl font-black text-cyan-400 neon-text-cyan">40K</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Active Daily</div>
                       </div>
-                      <div>
-                          <div className="text-4xl font-black text-[#F8C617]">170</div>
+                      <div className="hover-lift p-2">
+                          <div className="text-4xl font-black text-[#F8C617] neon-text-gold">170</div>
                           <div className="text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers Signed</div>
                       </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-2xl mx-auto mb-10">
-                      <div className="bg-black/40 p-4 border border-gray-700">
+                      <div className="bg-black/40 p-4 border border-gray-700 hover-lift spotlight">
                           <CheckCircle size={20} className="text-[#F8C617] mb-2"/>
                           <div className="text-white font-bold">Zero Fees</div>
                           <div className="text-xs text-gray-500">For first 90 days of activation</div>
                       </div>
-                      <div className="bg-black/40 p-4 border border-gray-700">
+                      <div className="bg-black/40 p-4 border border-gray-700 hover-lift spotlight">
                           <CheckCircle size={20} className="text-[#F8C617] mb-2"/>
                           <div className="text-white font-bold">Legacy Pricing</div>
                           <div className="text-xs text-gray-500">Locked rate for 3 years</div>
                       </div>
-                      <div className="bg-black/40 p-4 border border-gray-700">
+                      <div className="bg-black/40 p-4 border border-gray-700 hover-lift spotlight">
                           <CheckCircle size={20} className="text-[#F8C617] mb-2"/>
                           <div className="text-white font-bold">Product Council</div>
                           <div className="text-xs text-gray-500">Direct roadmap influence</div>
@@ -1480,8 +1634,8 @@ export default function TFXApp() {
                     <IconBadge icon={IconSanctuary} label="Sanctuary" color="cyan" />
                   </div>
 
-                  <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(248,198,23,0.3)]">
-                    Secure Your Seat
+                  <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(248,198,23,0.3)] breathe ripple relative overflow-hidden">
+                    <span className="relative z-10">Secure Your Seat</span>
                   </button>
               </div>
           </div>
@@ -1491,14 +1645,15 @@ export default function TFXApp() {
 
       {/* --- Footer / CTA --- */}
       <footer className="bg-black py-20 border-t border-gray-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F8C617] via-red-500 to-cyan-500"></div>
+        <div className="absolute top-0 left-0 w-full h-1 gradient-animate"></div>
+        <StarField count={30} />
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter flex items-center justify-center gap-4">
-            <IconSanctuary /> JOIN THE <span className="text-[#F8C617]">SANCTUARY</span> <IconSanctuary />
+            <IconSanctuary className="animate-pulse" /> JOIN THE <span className="text-[#F8C617] holographic">SANCTUARY</span> <IconSanctuary className="animate-pulse" />
           </h2>
           <p className="text-gray-500 mb-12 max-w-xl mx-auto font-mono">
-            System Status: ONLINE. <br/> The separation has begun. Which side of the wall are you on?
+            System Status: <span className="text-green-400 flicker">ONLINE</span>. <br/> The separation has begun. Which side of the wall are you on?
           </p>
 
           <div className="mt-24 flex flex-col md:flex-row justify-between items-center border-t border-gray-900 pt-8 text-gray-600 font-mono text-xs gap-6">
@@ -1507,12 +1662,12 @@ export default function TFXApp() {
             </div>
             <div className="text-center text-gray-500 text-xs">
               <div className="mb-2">🎬 A Production by</div>
-              <div className="font-bold text-[#F8C617] tracking-wider">DUDE WHAT'S THE BID?! LLC</div>
+              <div className="font-bold text-[#F8C617] tracking-wider holographic">DUDE WHAT'S THE BID?! LLC</div>
             </div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">PRIVACY_PROTOCOL</a>
-              <a href="#" className="hover:text-white transition-colors">TERMS_OF_WAR</a>
-              <a href="#" className="hover:text-white transition-colors">STATUS_PAGE</a>
+              <a href="#" className="hover:text-[#F8C617] transition-colors highlight-glow">PRIVACY_PROTOCOL</a>
+              <a href="#" className="hover:text-[#F8C617] transition-colors highlight-glow">TERMS_OF_WAR</a>
+              <a href="#" className="hover:text-[#F8C617] transition-colors highlight-glow">STATUS_PAGE</a>
             </div>
           </div>
         </div>
