@@ -1090,10 +1090,10 @@ const IconAnarchy = () => (
   </svg>
 );
 
-const IconSanctuary = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="8" width="20" height="18" stroke="currentColor" strokeWidth="2"/>
-    <path d="M16 8L24 2L26 8H32V14H16L10 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+const IconSanctuary = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2L4 8V14C4 21.5 9.1 28.4 16 30C22.9 28.4 28 21.5 28 14V8L16 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M12 14L15 17L20 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -1685,32 +1685,36 @@ export default function TFXApp() {
           </div>
 
           {/* The Pattern */}
-          <div className="mt-16 bg-[#0A0D1E] border border-[#F8C617] p-8 rounded-sm">
+          <div className="mt-16 bg-[#0A0D1E] border border-[#F8C617] p-8 rounded-sm relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
+              <IconSanctuary size={120} />
+            </div>
+            
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
               <IconVerified className="w-6 h-6 text-[#F8C617]" />
               The Pattern
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div>
-                <p className="text-xs font-mono text-gray-500 uppercase mb-2">1. Gated Access</p>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+              <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">1. Gated Access</p>
                 <p className="text-sm text-gray-300">Not everyone gets in. Standards matter. Quality over quantity.</p>
               </div>
-              <div>
-                <p className="text-xs font-mono text-gray-500 uppercase mb-2">2. Verification</p>
+              <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">2. Verification</p>
                 <p className="text-sm text-gray-300">Continuous proof of identity/solvency. Today, not yesterday.</p>
               </div>
-              <div>
-                <p className="text-xs font-mono text-gray-500 uppercase mb-2">3. Real-Time Settlement</p>
+              <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">3. Real-Time Settlement</p>
                 <p className="text-sm text-gray-300">Instant clearing. Financial link guarantees performance.</p>
               </div>
-              <div>
-                <p className="text-xs font-mono text-gray-500 uppercase mb-2">4. Trust → Scale</p>
+              <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">4. Trust → Scale</p>
                 <p className="text-sm text-gray-300">Safety paradoxically enables speed. Safe = scalable.</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-gray-800">
+            <div className="mt-6 pt-6 border-t border-gray-800 relative z-10">
               <p className="text-gray-400 italic">
                 <span className="text-[#F8C617] font-bold">TFX applies this pattern to freight:</span> ELD verification = stock audits. Gated carrier network = licensed traders. Financial integration = settlement guarantee. Result? Carriers move loads 1-click, brokers move capital risk-free.
               </p>
