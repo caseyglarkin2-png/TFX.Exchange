@@ -622,9 +622,9 @@ export default function TFXApp() {
             
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
               <a href="#the-separation" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> The Separation</a>
+              <a href="#architecture" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Architecture</a>
               <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
-              <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Reid's Circle</a>
-              <a href="#war-room" className="hover:text-[#F8C617] transition-colors text-red-500 flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> War Room</a>
+              <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Reid's Circle</a>
             </div>
 
             <div className="md:hidden">
@@ -641,6 +641,7 @@ export default function TFXApp() {
         <div className="fixed inset-0 z-40 bg-[#0A0D1E] pt-32 px-6 md:hidden">
           <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
             <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
+            <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
             <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
             <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
             <a href="#war-room" onClick={() => setMobileMenuOpen(false)}>War Room</a>
@@ -743,6 +744,155 @@ export default function TFXApp() {
           </div>
         </div>
       </header>
+
+      {/* --- The Architecture: Load Board vs Exchange --- */}
+      <section id="architecture" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900">
+        <div className="container mx-auto px-6">
+          <SectionHeader 
+            title="Market Structure" 
+            subtitle="Load Board vs Exchange" 
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Load Board */}
+            <div className="relative">
+              <div className="border border-red-900/50 bg-red-900/5 p-8 rounded-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <IconAnarchy className="w-8 h-8 text-red-500" />
+                  <h3 className="text-2xl font-bold text-red-500 uppercase">Load Board</h3>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Liquidity First</div>
+                      <div className="text-sm text-gray-400">Maximum volume, minimum friction. Anyone with a credit card can post.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Passive Vetting</div>
+                      <div className="text-sm text-gray-400">One-time credit check. No ongoing identity verification. "Verified" badge = yesterday's snapshot.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">No Physical Proof</div>
+                      <div className="text-sm text-gray-400">Trucks exist on paper, not in reality. No ELD integration, no real-time location verification.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Speed Over Safety</div>
+                      <div className="text-sm text-gray-400">Built for discovery (finding loads). Not designed for certainty (proving who you are).</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-black/30 p-4 border border-red-900/30 rounded-sm">
+                  <p className="text-red-400 font-mono text-xs uppercase mb-2">Result:</p>
+                  <p className="text-white text-sm">13% YoY increase in cargo theft. Strategic theft outpaces hijacking. Identity spoofing becomes the primary attack vector.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Exchange */}
+            <div className="relative">
+              <div className="border border-cyan-900/50 bg-cyan-900/5 p-8 rounded-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <IconSanctuary className="w-8 h-8 text-cyan-400" />
+                  <h3 className="text-2xl font-bold text-cyan-400 uppercase">Exchange</h3>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Quality First</div>
+                      <div className="text-sm text-gray-400">Gated access. Strategic friction filters out bad actors before they enter.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Real-Time Verification</div>
+                      <div className="text-sm text-gray-400">Continuous ELD-linked identity proof. "Verified" = verified RIGHT NOW, not yesterday.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Physical Reality</div>
+                      <div className="text-sm text-gray-400">Truck's location is proven via ELD. Digital claim = physical fact. The machine verifies the person.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Safety Enables Speed</div>
+                      <div className="text-sm text-gray-400">Zero Trust architecture. One-click booking without fear. Identity certainty = operational velocity.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
+                  <p className="text-cyan-400 font-mono text-xs uppercase mb-2">Result:</p>
+                  <p className="text-white text-sm">45,210 verified nodes. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="mt-12 overflow-x-auto">
+            <table className="w-full border border-gray-800">
+              <thead>
+                <tr className="border-b border-gray-800 bg-[#05060a]">
+                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-gray-500">Dimension</th>
+                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-red-500">Load Board</th>
+                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-cyan-400">Exchange</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800">
+                <tr>
+                  <td className="px-6 py-4 font-mono text-xs text-gray-400">Onboarding</td>
+                  <td className="px-6 py-4 text-sm text-gray-300">Credit card + form submission</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">Multi-layer verification + ELD integration</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-mono text-xs text-gray-400">Vetting Model</td>
+                  <td className="px-6 py-4 text-sm text-gray-300">Historical (FMCSA data, past inspections)</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">Real-time (live ELD, current location, active status)</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-mono text-xs text-gray-400">Identity Proof</td>
+                  <td className="px-6 py-4 text-sm text-gray-300">None. You claim you're a carrier; we believe you.</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">Cryptographic. You prove you are a carrier (ELD + financial link).</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-mono text-xs text-gray-400">Fraud Rate</td>
+                  <td className="px-6 py-4 text-sm text-red-300">13% YoY increase (strategic theft)</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">1% (isolated attempts, rapidly blocked)</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-mono text-xs text-gray-400">Capacity</td>
+                  <td className="px-6 py-4 text-sm text-gray-300">400M+ loads. Noise kills signal.</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">45K+ verified carriers. Every load is clean.</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 font-mono text-xs text-gray-400">Trust Model</td>
+                  <td className="px-6 py-4 text-sm text-gray-300">Optimism. Hope no one is lying.</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">Zero Trust. Prove it or we don't move it.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       {/* --- The Anarchy (Problem) --- */}
       <section id="the-anarchy" className="py-24 bg-[#05060a] relative border-t border-gray-900">
