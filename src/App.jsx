@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Shield, Lock, Activity, AlertTriangle, CheckCircle, Terminal, DollarSign, ChevronRight, Menu, X, Crosshair, Hexagon, Zap, Layers, Map, Users, Radio, FileText, Send } from 'lucide-react';
+import { Shield, Lock, Activity, AlertTriangle, CheckCircle, Terminal, DollarSign, ChevronRight, Menu, X, Crosshair, Hexagon, Zap, Layers, Map, Users, Radio, FileText, Send, Ban, Clapperboard, Sparkles, BarChart3, Palette, ArrowRight, Clock } from 'lucide-react';
 
 // --- Local Threat Detection ---
 const detectThreat = (input) => {
@@ -116,19 +116,19 @@ const Ticker = () => {
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-[#5BA4B5]">⚡ ACTUAL TRANSPARENCY (NOT A BUZZWORD)</span>
+        <span className="mx-4 text-[#5BA4B5] flex items-center gap-1"><Zap className="w-3 h-3" /> ACTUAL TRANSPARENCY (NOT A BUZZWORD)</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">APPLICATION REQUIRED</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-red-400">⛔ NOT EVERYONE GETS IN</span>
+        <span className="mx-4 text-red-400 flex items-center gap-1"><Ban className="w-3 h-3" /> NOT EVERYONE GETS IN</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-[#5BA4B5]">⚡ REAL MARKETPLACE, REAL TRANSPARENCY</span>
+        <span className="mx-4 text-[#5BA4B5] flex items-center gap-1"><Zap className="w-3 h-3" /> REAL MARKETPLACE, REAL TRANSPARENCY</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
       </div>
@@ -938,7 +938,11 @@ const WarGameGenerator = () => {
                                 ? 'bg-green-900/40 border border-green-600 text-green-400' 
                                 : 'bg-red-900/40 border border-red-600 text-red-400'
                             }`}>
-                                {userDecision === 'block' ? '✓ THREAT BLOCKED' : '✗ LOAD COMPROMISED'}
+                                {userDecision === 'block' ? (
+                                    <span className="flex items-center gap-2"><CheckCircle className="w-5 h-5" /> THREAT BLOCKED</span>
+                                ) : (
+                                    <span className="flex items-center gap-2"><X className="w-5 h-5" /> LOAD COMPROMISED</span>
+                                )}
                             </div>
                         ) : (
                             <div className="flex gap-3 justify-center">
@@ -1178,7 +1182,7 @@ export default function TFXApp() {
       
       {/* Production Credit */}
       <div className="fixed top-0 right-6 z-30 pt-2 text-xs font-mono text-gray-600 hover:text-[#F8C617] transition-colors">
-        <a href="#" title="Presented by Dude What's The Bid?! LLC">🎬 DWBTB</a>
+        <a href="#" title="Presented by Dude What's The Bid?! LLC" className="flex items-center gap-1"><Clapperboard className="w-3 h-3" /> DWBTB</a>
       </div>
       
       <style>{`
@@ -1205,15 +1209,15 @@ export default function TFXApp() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
               <a href="#benefits" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                ✨ Benefits
+                <Sparkles className="w-3 h-3" /> Benefits
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
               <a href="#case-studies" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                📊 Case Studies
+                <BarChart3 className="w-3 h-3" /> Case Studies
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
               <a href="#branding" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                🎨 Branding
+                <Palette className="w-3 h-3" /> Branding
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
               <a href="#the-anarchy" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
@@ -1221,7 +1225,7 @@ export default function TFXApp() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
               <a href="#tools" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                ⚡ Tools
+                <Zap className="w-3 h-3" /> Tools
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
               <a href="#reid-circle" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
@@ -1278,7 +1282,7 @@ export default function TFXApp() {
 
                 <h1 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-6">
                     <span className="gradient-text-flow">THE GREAT</span> <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600 hover:from-yellow-500 hover:via-cyan-400 hover:to-yellow-500 transition-all duration-1000">SEPARATION</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600 hover:from-[#F8C617] hover:via-[#F8C617] hover:to-[#D4A017] transition-all duration-1000">SEPARATION</span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6 relative">
@@ -1305,7 +1309,7 @@ export default function TFXApp() {
                   <div className="relative w-full bg-[#05060a]/90 border border-gray-800 p-6 rounded-sm shadow-2xl glass tilt-card">
                       
                       {/* Glow effect behind card */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/20 via-transparent to-cyan-500/20 rounded-sm blur-xl -z-10"></div>
+                      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/20 via-transparent to-yellow-500/20 rounded-sm blur-xl -z-10"></div>
                       
                       {/* Dashboard Header */}
                       <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-800">
@@ -1709,7 +1713,7 @@ export default function TFXApp() {
                 <p className="text-sm text-gray-300">Instant clearing. Financial link guarantees performance.</p>
               </div>
               <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
-                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">4. Trust → Scale</p>
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2 flex items-center gap-1">4. Trust <ArrowRight className="w-3 h-3" /> Scale</p>
                 <p className="text-sm text-gray-300">Safety paradoxically enables speed. Safe = scalable.</p>
               </div>
             </div>
@@ -1899,15 +1903,15 @@ export default function TFXApp() {
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-400 font-mono">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#5BA4B5] mt-1">→</span>
+                    <span className="text-[#5BA4B5] mt-1"><ArrowRight className="w-3 h-3" /></span>
                     <span><strong className="text-white">On Load Boards:</strong> Zero training. Carriers learn by taking losses. Brokers operate on hope.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#5BA4B5] mt-1">→</span>
+                    <span className="text-[#5BA4B5] mt-1"><ArrowRight className="w-3 h-3" /></span>
                     <span><strong className="text-white">On TFX:</strong> Train before you tender. Every carrier learns the threat patterns. Every broker knows the protocol. Threats drop 87%.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#5BA4B5] mt-1">→</span>
+                    <span className="text-[#5BA4B5] mt-1"><ArrowRight className="w-3 h-3" /></span>
                     <span><strong className="text-white">The Pattern:</strong> Identity Certainty + Training Tools + Real-Time Verification = Operational Confidence. This is the exchange model.</span>
                   </li>
                 </ul>
@@ -1965,7 +1969,7 @@ export default function TFXApp() {
                   <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(248,198,23,0.3)] breathe ripple relative overflow-hidden">
                     <span className="relative z-10">Submit Application</span>
                   </button>
-                  <p className="text-xs text-gray-500 font-mono mt-4">⏱ Average review time: 48 hours. <span className="text-gray-600">We actually check.</span></p>
+                  <p className="text-xs text-gray-500 font-mono mt-4 flex items-center justify-center gap-1"><Clock className="w-3 h-3" /> Average review time: 48 hours. <span className="text-gray-600">We actually check.</span></p>
               </div>
           </div>
 
@@ -1992,7 +1996,7 @@ export default function TFXApp() {
               © 2026 HIGHWAY INC. // ALL SYSTEMS NOMINAL
             </div>
             <div className="text-center text-gray-500 text-xs">
-              <div className="mb-2">🎬 A Production by</div>
+              <div className="mb-2 flex items-center justify-center gap-2"><Clapperboard className="w-4 h-4" /> A Production by</div>
               <div className="font-bold tracking-wider dwtb-brand text-lg">DUDE WHAT'S THE BID?! LLC</div>
             </div>
             <div className="flex gap-6">
