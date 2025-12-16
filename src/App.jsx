@@ -601,6 +601,11 @@ export default function TFXApp() {
   return (
     <div className="bg-[#0A0D1E] min-h-screen text-gray-300 font-sans selection:bg-[#F8C617] selection:text-black overflow-x-hidden">
       
+      {/* Production Credit */}
+      <div className="fixed top-0 right-6 z-30 pt-2 text-xs font-mono text-gray-600 hover:text-[#F8C617] transition-colors">
+        <a href="#" title="Presented by Dude What's The Bid?! LLC">🎬 DWBTB</a>
+      </div>
+      
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;500;700&family=Inter:wght@400;600;800&display=swap');
       `}</style>
@@ -616,12 +621,10 @@ export default function TFXApp() {
             </div>
             
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
-              <a href="#anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> Surveillance</a>
-              <a href="#sanctuary" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Sanctuary</a>
-              <a href="#war-room" className="hover:text-[#F8C617] transition-colors text-red-500 flex items-center gap-1"><IconThreat className="w-3 h-3" /> War Room</a>
-              <button className="bg-transparent border border-[#F8C617] text-[#F8C617] px-6 py-2 hover:bg-[#F8C617] hover:text-black transition-all font-bold">
-                Reid's Circle
-              </button>
+              <a href="#the-separation" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> The Separation</a>
+              <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
+              <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Reid's Circle</a>
+              <a href="#war-room" className="hover:text-[#F8C617] transition-colors text-red-500 flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> War Room</a>
             </div>
 
             <div className="md:hidden">
@@ -637,8 +640,9 @@ export default function TFXApp() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[#0A0D1E] pt-32 px-6 md:hidden">
           <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
-            <a href="#anarchy" onClick={() => setMobileMenuOpen(false)}>The Anarchy</a>
-            <a href="#sanctuary" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
+            <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
+            <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
+            <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
             <a href="#war-room" onClick={() => setMobileMenuOpen(false)}>War Room</a>
             <button className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4">
               Apply for Access
@@ -648,7 +652,7 @@ export default function TFXApp() {
       )}
 
       {/* --- Hero Section: The Exchange Floor --- */}
-      <header className="relative min-h-screen flex items-center grid-bg pt-32 pb-12 overflow-hidden">
+      <header className="relative min-h-screen flex items-center grid-bg pt-32 pb-12 overflow-hidden" id="the-separation">
         {/* Abstract "Map" Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse"></div>
@@ -741,7 +745,7 @@ export default function TFXApp() {
       </header>
 
       {/* --- The Anarchy (Problem) --- */}
-      <section id="anarchy" className="py-24 bg-[#05060a] relative border-t border-gray-900">
+      <section id="the-anarchy" className="py-24 bg-[#05060a] relative border-t border-gray-900">
         <div className="container mx-auto px-6">
           <SectionHeader 
             title="Current Operating Environment" 
@@ -864,7 +868,7 @@ export default function TFXApp() {
       </section>
 
       {/* --- Founder's Circle (Pricing/Offer) --- */}
-      <section id="sanctuary" className="py-24 bg-[#0A0D1E] relative">
+      <section id="reid-circle" className="py-24 bg-[#0A0D1E] relative">
         <div className="container mx-auto px-6">
            <SectionHeader 
             title="Access Protocols" 
@@ -928,9 +932,13 @@ export default function TFXApp() {
             System Status: ONLINE. <br/> The separation has begun. Which side of the wall are you on?
           </p>
 
-          <div className="mt-24 flex flex-col md:flex-row justify-between items-center border-t border-gray-900 pt-8 text-gray-600 font-mono text-xs">
-            <div className="mb-4 md:mb-0">
+          <div className="mt-24 flex flex-col md:flex-row justify-between items-center border-t border-gray-900 pt-8 text-gray-600 font-mono text-xs gap-6">
+            <div>
               © 2026 HIGHWAY INC. // ALL SYSTEMS NOMINAL
+            </div>
+            <div className="text-center text-gray-500 text-xs">
+              <div className="mb-2">🎬 A Production by</div>
+              <div className="font-bold text-[#F8C617] tracking-wider">DUDE WHAT'S THE BID?! LLC</div>
             </div>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors">PRIVACY_PROTOCOL</a>
