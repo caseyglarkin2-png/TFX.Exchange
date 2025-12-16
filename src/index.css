@@ -823,3 +823,27 @@ h1, h2, h3, h4, h5, h6 {
 .highlight-glow:hover::before {
   opacity: 0.6;
 }
+
+/* === DUDE WHAT'S THE BID BRANDING === */
+@keyframes dwtb-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.dwtb-brand {
+  background: linear-gradient(
+    90deg,
+    #FF0080 0%,
+    #7928CA 25%,
+    #FF0080 50%,
+    #FF4D4D 75%,
+    #FF0080 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: dwtb-flow 3s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.3));
+}

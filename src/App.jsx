@@ -2011,7 +2011,7 @@ export default function TFXApp() {
             </div>
             <div className="text-center text-gray-500 text-xs">
               <div className="mb-2">🎬 A Production by</div>
-              <div className="font-bold text-[#F8C617] tracking-wider holographic">DUDE WHAT'S THE BID?! LLC</div>
+              <div className="font-bold tracking-wider dwtb-brand text-lg">DUDE WHAT'S THE BID?! LLC</div>
             </div>
             <div className="flex gap-6">
               <a href="#" className="hover:text-[#F8C617] transition-colors highlight-glow">PRIVACY_PROTOCOL</a>
