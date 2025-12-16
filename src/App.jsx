@@ -98,11 +98,7 @@ const generateScenario = () => {
 
 const GlitchText = ({ text, color = "text-white" }) => {
   return (
-    <div className={`relative inline-block ${color} font-mono font-bold tracking-tighter uppercase`}>
-      <span className="relative z-10">{text}</span>
-      <span className="absolute top-0 left-0 -ml-0.5 translate-x-[2px] text-red-500 opacity-70 animate-pulse z-0">{text}</span>
-      <span className="absolute top-0 left-0 -ml-0.5 -translate-x-[2px] text-[#5BA4B5] opacity-70 animate-pulse delay-75 z-0">{text}</span>
-    </div>
+    <span className={`${color} font-mono font-bold tracking-tighter uppercase`}>{text}</span>
   );
 };
 
@@ -170,8 +166,8 @@ const LiveFeed = () => {
       <div className="flex justify-between items-center mb-4 border-b border-gray-800 pb-2">
         <span className="text-gray-500 uppercase">Live Exchange Feed</span>
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-          <span className="text-green-500">REALTIME</span>
+          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+          <span className="text-green-500">LIVE</span>
         </div>
       </div>
       <div className="space-y-3">
@@ -773,8 +769,8 @@ const SentinelTerminal = () => {
     return (
         <div className="bg-gradient-to-b from-[#05060a] to-[#0f0a15] border border-[#5BA4B5]/30 p-6 rounded shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-transparent"></div>
-            <div className="absolute top-0 right-0 p-2 text-xs font-mono text-[#5BA4B5] animate-pulse">
-                [SENTINEL_ACTIVE]
+            <div className="absolute top-0 right-0 p-2 text-xs font-mono text-[#5BA4B5]">
+                [ACTIVE]
             </div>
             
             <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
@@ -923,9 +919,9 @@ const WarGameGenerator = () => {
 
             <div className="min-h-[200px] flex flex-col items-center justify-center text-center mb-6 relative">
                 {loading ? (
-                    <div className="text-red-500 font-mono animate-pulse text-sm">
-                        <div className="mb-2">SCENARIO_LOADING...</div>
-                        <div className="text-xs text-gray-500">[THREAT_SIMULATION_IN_PROGRESS]</div>
+                    <div className="text-red-500 font-mono text-sm">
+                        <div className="mb-2">Loading scenario...</div>
+                        <div className="text-xs text-gray-500">Please wait</div>
                     </div>
                 ) : scenario ? (
                     <div className="w-full animate-fadeIn">
@@ -1273,8 +1269,8 @@ export default function TFXApp() {
               
               {/* Left Column: Text */}
               <div className="lg:w-1/2 text-left pt-10">
-                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm electric-border" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
-                    <span className="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
+                    <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                     <span className="text-red-400 font-mono text-xs uppercase tracking-widest">
                       <IconAnarchy /> PUBLIC SQUARE: COMPROMISED
                     </span>
@@ -1285,17 +1281,14 @@ export default function TFXApp() {
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600 hover:from-[#F8C617] hover:via-[#F8C617] hover:to-[#D4A017] transition-all duration-1000">SEPARATION</span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6 relative">
-                    <span className="shimmer absolute inset-0 pointer-events-none"></span>
+                <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6">
                     The open market is dead. The "Anarchy" has won. <br/>
-                    <span className="text-white font-bold neon-text-gold">TFX is the only Sanctuary left.</span>
+                    <span className="text-white font-bold">TFX is the only Sanctuary left.</span>
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-4">
-                    <button className="relative bg-[#F8C617] text-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group breathe ripple overflow-hidden">
-                      <span className="relative z-10 flex items-center gap-2">
+                    <button className="bg-[#F8C617] text-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group">
                         Apply for Access <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-                      </span>
                     </button>
                     <button className="border border-gray-700 text-gray-300 px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all electric-border highlight-glow">
                     View Requirements
@@ -1578,7 +1571,7 @@ export default function TFXApp() {
             {/* NYSE */}
             <div className="border border-gray-800 bg-[#0f1225]/80 p-8 hover:border-[#F8C617] transition-all hover-lift glass spotlight">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-[#F8C617] rounded-sm flex items-center justify-center text-black font-bold text-lg breathe">NYSE</div>
+                <div className="w-12 h-12 bg-[#F8C617] rounded-sm flex items-center justify-center text-black font-bold text-lg">NYSE</div>
                 <div>
                   <h4 className="text-white font-bold uppercase">New York Stock Exchange</h4>
                   <p className="text-xs text-gray-500">Founded 1792</p>
@@ -1874,8 +1867,8 @@ export default function TFXApp() {
                 {/* Tool 1: Threat Sentinel */}
                 <div className="hover-lift">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-[#5BA4B5] uppercase tracking-wider mb-2 flex items-center gap-2 neon-text-cyan">
-                      <Crosshair size={18} className="animate-pulse" />
+                    <h3 className="text-lg font-bold text-[#5BA4B5] uppercase tracking-wider mb-2 flex items-center gap-2">
+                      <Crosshair size={18} />
                       Threat Sentinel
                     </h3>
                     <p className="text-xs text-gray-500">Real-time fraud pattern detection. Analyze communications instantly. Build pattern recognition muscle.</p>
@@ -1886,8 +1879,8 @@ export default function TFXApp() {
                 {/* Tool 2: War Game */}
                 <div className="hover-lift">
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-2" style={{textShadow: '0 0 10px rgba(255,68,68,0.5)'}}>
-                      <Zap size={18} className="animate-pulse" />
+                    <h3 className="text-lg font-bold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                      <Zap size={18} />
                       War Game Simulator
                     </h3>
                     <p className="text-xs text-gray-500">Strategic theft scenarios. Real decision points. Test your protocol against live threats.</p>
@@ -1966,8 +1959,8 @@ export default function TFXApp() {
                     <IconBadge icon={IconSanctuary} label="Sanctuary" color="cyan" />
                   </div>
 
-                  <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(248,198,23,0.3)] breathe ripple relative overflow-hidden">
-                    <span className="relative z-10">Submit Application</span>
+                  <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform">
+                    Submit Application
                   </button>
                   <p className="text-xs text-gray-500 font-mono mt-4 flex items-center justify-center gap-1"><Clock className="w-3 h-3" /> Average review time: 48 hours. <span className="text-gray-600">We actually check.</span></p>
               </div>
