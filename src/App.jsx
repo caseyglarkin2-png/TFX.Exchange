@@ -712,10 +712,10 @@ export default function TFXApp() {
                       {/* Stats Grid */}
                       <div className="grid grid-cols-2 gap-4 mb-6">
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
-                              <div className="text-xs text-gray-500 font-mono uppercase">Verified Nodes</div>
-                              <div className="text-2xl font-bold text-white">45,210</div>
+                              <div className="text-xs text-gray-500 font-mono uppercase">Active Carriers</div>
+                              <div className="text-2xl font-bold text-white">40K+</div>
                               <div className="h-1 w-full bg-gray-800 mt-2">
-                                  <div className="h-full bg-cyan-400 w-[85%]"></div>
+                                  <div className="h-full bg-cyan-400 w-[92%]"></div>
                               </div>
                           </div>
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
@@ -843,7 +843,7 @@ export default function TFXApp() {
 
                 <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
                   <p className="text-cyan-400 font-mono text-xs uppercase mb-2">Result:</p>
-                  <p className="text-white text-sm">45,210 verified nodes. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
+                  <p className="text-white text-sm">80K registered carriers. 40K active daily. 170 brokers on network. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
                 </div>
               </div>
             </div>
@@ -883,7 +883,7 @@ export default function TFXApp() {
                 <tr>
                   <td className="px-6 py-4 font-mono text-xs text-gray-400">Capacity</td>
                   <td className="px-6 py-4 text-sm text-gray-300">400M+ loads. Noise kills signal.</td>
-                  <td className="px-6 py-4 text-sm text-cyan-300">45K+ verified carriers. Every load is clean.</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">80K+ registered | 40K+ active | 170 brokers. Every load is clean.</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 font-mono text-xs text-gray-400">Trust Model</td>
