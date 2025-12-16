@@ -612,7 +612,7 @@ export default function TFXApp() {
               <a href="#sanctuary" className="hover:text-[#F8C617] transition-colors">Sanctuary</a>
               <a href="#war-room" className="hover:text-[#F8C617] transition-colors text-red-500">War Room</a>
               <button className="bg-transparent border border-[#F8C617] text-[#F8C617] px-6 py-2 hover:bg-[#F8C617] hover:text-black transition-all font-bold">
-                Founder's Circle
+                Reid's Circle
               </button>
             </div>
 
@@ -630,7 +630,7 @@ export default function TFXApp() {
         <div className="fixed inset-0 z-40 bg-[#0A0D1E] pt-32 px-6 md:hidden">
           <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
             <a href="#anarchy" onClick={() => setMobileMenuOpen(false)}>The Anarchy</a>
-            <a href="#sanctuary" onClick={() => setMobileMenuOpen(false)}>The Sanctuary</a>
+            <a href="#sanctuary" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
             <a href="#war-room" onClick={() => setMobileMenuOpen(false)}>War Room</a>
             <button className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4">
               Apply for Access
@@ -860,19 +860,22 @@ export default function TFXApp() {
         <div className="container mx-auto px-6">
            <SectionHeader 
             title="Access Protocols" 
-            subtitle="The Founder's Circle" 
+            subtitle="Reid's Circle" 
           />
           
           <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">LIMITED CAPACITY</div>
               
               <div className="p-12 text-center">
-                  <div className="w-20 h-20 bg-[#F8C617]/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-[#F8C617]">
-                      <Users size={40} className="text-[#F8C617]" />
+                  <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#F8C617] to-cyan-400 p-1 shadow-2xl shadow-[#F8C617]/50">
+                    <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden border-2 border-[#F8C617]">
+                      <div className="w-full h-full bg-gradient-to-b from-gray-600 to-gray-800 flex items-center justify-center text-6xl font-black text-[#F8C617]">R</div>
+                    </div>
                   </div>
-                  <h3 className="text-4xl font-bold text-white mb-4">Enterprise Partnership</h3>
+                  <h3 className="text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
+                  <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                      For the top 50 Enterprise Brokers who are ready to separate from the Anarchy. Commit your volume to the Sanctuary and secure legacy pricing.
+                      For the visionaries, operators, and architects who believe the separation is inevitable. Commit your conviction to the movement and shape the future of verified freight.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-2xl mx-auto mb-10">
