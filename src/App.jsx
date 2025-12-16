@@ -366,7 +366,10 @@ const SentinelTerminal = () => {
             {analysis && (
                 <div className={`border-l-2 p-4 animate-fadeIn ${analysis.threatLevel === 'CRITICAL' ? 'border-red-500 bg-red-900/10' : 'border-cyan-500 bg-cyan-900/10'}`}>
                     <div className="flex justify-between items-center mb-4">
-                        <span className="font-mono text-xs text-gray-500">THREAT_LEVEL</span>
+                        <span className="font-mono text-xs text-gray-500 flex items-center gap-2">
+                            {analysis.threatLevel === 'CRITICAL' ? <IconThreat /> : <IconVerified />}
+                            THREAT_LEVEL
+                        </span>
                         <span className={`font-bold font-mono ${analysis.threatLevel === 'CRITICAL' ? 'text-red-500 animate-pulse' : 'text-cyan-400'}`}>
                             {analysis.threatLevel}
                         </span>
@@ -579,6 +582,11 @@ const IconBadge = ({ icon: Icon, label, color = "cyan" }) => {
   );
 };
 
+// Wrapper to render icons inline
+const Icon = ({ component: Component, size = 20, ...props }) => (
+  <Component size={size} {...props} />
+);
+
 export default function TFXApp() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -608,9 +616,9 @@ export default function TFXApp() {
             </div>
             
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
-              <a href="#anarchy" className="hover:text-[#F8C617] transition-colors">Surveillance</a>
-              <a href="#sanctuary" className="hover:text-[#F8C617] transition-colors">Sanctuary</a>
-              <a href="#war-room" className="hover:text-[#F8C617] transition-colors text-red-500">War Room</a>
+              <a href="#anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> Surveillance</a>
+              <a href="#sanctuary" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Sanctuary</a>
+              <a href="#war-room" className="hover:text-[#F8C617] transition-colors text-red-500 flex items-center gap-1"><IconThreat className="w-3 h-3" /> War Room</a>
               <button className="bg-transparent border border-[#F8C617] text-[#F8C617] px-6 py-2 hover:bg-[#F8C617] hover:text-black transition-all font-bold">
                 Reid's Circle
               </button>
@@ -867,10 +875,8 @@ export default function TFXApp() {
               <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">LIMITED CAPACITY</div>
               
               <div className="p-12 text-center">
-                  <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#F8C617] to-cyan-400 p-1 shadow-2xl shadow-[#F8C617]/50">
-                    <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden border-2 border-[#F8C617]">
-                      <div className="w-full h-full bg-gradient-to-b from-gray-600 to-gray-800 flex items-center justify-center text-6xl font-black text-[#F8C617]">R</div>
-                    </div>
+                  <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#F8C617] to-cyan-400 p-1 shadow-2xl shadow-[#F8C617]/50 overflow-hidden border-2 border-[#F8C617]">
+                    <img src="/reid.jpg" alt="Reid" className="w-full h-full object-cover rounded-full" />
                   </div>
                   <h3 className="text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
                   <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
@@ -915,8 +921,8 @@ export default function TFXApp() {
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F8C617] via-red-500 to-cyan-500"></div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-            JOIN THE <span className="text-[#F8C617]">SANCTUARY</span>
+          <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter flex items-center justify-center gap-4">
+            <IconSanctuary /> JOIN THE <span className="text-[#F8C617]">SANCTUARY</span> <IconSanctuary />
           </h2>
           <p className="text-gray-500 mb-12 max-w-xl mx-auto font-mono">
             System Status: ONLINE. <br/> The separation has begun. Which side of the wall are you on?
