@@ -68,6 +68,13 @@ h1, h2, h3, h4, h5, h6 {
   100% { background-position: 0 40px; }
 }
 
+@keyframes scan {
+  0% { left: -10%; opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { left: 110%; opacity: 0; }
+}
+
 .cyber-grid {
   background-image:
     linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
@@ -344,6 +351,17 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes pulse-ring {
   0% { transform: scale(1); opacity: 1; }
   100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* === MAP PING PULSE === */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes ping-glow {
+  0%, 100% { r: 2; opacity: 0.9; }
+  50% { r: 4; opacity: 0.4; }
 }
 
 .pulse-ring::before {

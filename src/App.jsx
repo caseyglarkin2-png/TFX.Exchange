@@ -116,19 +116,21 @@ const Ticker = () => {
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-[#5BA4B5]">MARKET STATUS: VERIFIED</span>
+        <span className="mx-4 text-[#5BA4B5]">⚡ ACTUAL TRANSPARENCY (NOT A BUZZWORD)</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">APPLICATION REQUIRED</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">STRATEGIC THEFT ALERT: FOOD & BEV SECTOR</span>
-         <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4 text-red-400">⛔ NOT EVERYONE GETS IN</span>
+        <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
         <span className="mx-4 text-gray-500">|</span>
         <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
+        <span className="mx-4 text-[#5BA4B5]">⚡ REAL MARKETPLACE, REAL TRANSPARENCY</span>
         <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-[#5BA4B5]">MARKET STATUS: VERIFIED</span>
+        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
       </div>
     </div>
   );
@@ -289,155 +291,342 @@ const DataPoints = ({ count = 20 }) => {
 
 // --- US Map with ELD Pings ---
 const USMapWithPings = () => {
-  // Major freight hub cities with approximate positions on US map (percentage based)
+  // Major freight hub cities with positions mapped to SVG viewBox (959x593)
   const cities = [
     // West Coast
-    { name: 'Seattle', x: 12, y: 15, size: 'lg' },
-    { name: 'Portland', x: 11, y: 22, size: 'md' },
-    { name: 'San Francisco', x: 8, y: 38, size: 'lg' },
-    { name: 'Los Angeles', x: 12, y: 52, size: 'xl' },
-    { name: 'San Diego', x: 14, y: 58, size: 'md' },
-    { name: 'Phoenix', x: 22, y: 55, size: 'lg' },
-    { name: 'Las Vegas', x: 17, y: 45, size: 'md' },
-    { name: 'Salt Lake', x: 24, y: 35, size: 'md' },
-    { name: 'Denver', x: 32, y: 40, size: 'lg' },
+    { name: 'Seattle', x: 108, y: 60, size: 'lg' },
+    { name: 'Portland', x: 95, y: 110, size: 'md' },
+    { name: 'San Francisco', x: 65, y: 200, size: 'lg' },
+    { name: 'Los Angeles', x: 95, y: 280, size: 'xl' },
+    { name: 'San Diego', x: 110, y: 310, size: 'md' },
+    { name: 'Phoenix', x: 175, y: 310, size: 'lg' },
+    { name: 'Las Vegas', x: 145, y: 245, size: 'md' },
+    { name: 'Salt Lake City', x: 180, y: 180, size: 'md' },
+    { name: 'Denver', x: 260, y: 220, size: 'lg' },
     // Texas Triangle
-    { name: 'El Paso', x: 28, y: 60, size: 'md' },
-    { name: 'Dallas', x: 42, y: 55, size: 'xl' },
-    { name: 'Houston', x: 46, y: 65, size: 'xl' },
-    { name: 'San Antonio', x: 40, y: 65, size: 'lg' },
-    { name: 'Austin', x: 42, y: 62, size: 'md' },
+    { name: 'El Paso', x: 230, y: 350, size: 'md' },
+    { name: 'Dallas', x: 355, y: 380, size: 'xl' },
+    { name: 'Houston', x: 390, y: 440, size: 'xl' },
+    { name: 'San Antonio', x: 340, y: 430, size: 'lg' },
+    { name: 'Austin', x: 345, y: 410, size: 'md' },
     // Midwest
-    { name: 'Minneapolis', x: 48, y: 20, size: 'lg' },
-    { name: 'Chicago', x: 58, y: 30, size: 'xl' },
-    { name: 'Detroit', x: 64, y: 28, size: 'lg' },
-    { name: 'Indianapolis', x: 60, y: 38, size: 'md' },
-    { name: 'St Louis', x: 54, y: 42, size: 'lg' },
-    { name: 'Kansas City', x: 48, y: 42, size: 'lg' },
-    { name: 'Omaha', x: 44, y: 35, size: 'md' },
+    { name: 'Minneapolis', x: 420, y: 130, size: 'lg' },
+    { name: 'Chicago', x: 510, y: 210, size: 'xl' },
+    { name: 'Detroit', x: 580, y: 180, size: 'lg' },
+    { name: 'Indianapolis', x: 535, y: 265, size: 'md' },
+    { name: 'St Louis', x: 475, y: 290, size: 'lg' },
+    { name: 'Kansas City', x: 405, y: 270, size: 'lg' },
+    { name: 'Omaha', x: 390, y: 215, size: 'md' },
     // Southeast
-    { name: 'Atlanta', x: 68, y: 52, size: 'xl' },
-    { name: 'Nashville', x: 64, y: 48, size: 'lg' },
-    { name: 'Memphis', x: 56, y: 50, size: 'lg' },
-    { name: 'Charlotte', x: 74, y: 48, size: 'lg' },
-    { name: 'Miami', x: 78, y: 78, size: 'lg' },
-    { name: 'Tampa', x: 74, y: 70, size: 'md' },
-    { name: 'Jacksonville', x: 76, y: 62, size: 'md' },
-    { name: 'New Orleans', x: 56, y: 68, size: 'md' },
+    { name: 'Atlanta', x: 595, y: 375, size: 'xl' },
+    { name: 'Nashville', x: 555, y: 330, size: 'lg' },
+    { name: 'Memphis', x: 490, y: 345, size: 'lg' },
+    { name: 'Charlotte', x: 660, y: 340, size: 'lg' },
+    { name: 'Miami', x: 690, y: 530, size: 'lg' },
+    { name: 'Tampa', x: 640, y: 480, size: 'md' },
+    { name: 'Jacksonville', x: 650, y: 430, size: 'md' },
+    { name: 'New Orleans', x: 480, y: 440, size: 'md' },
     // Northeast
-    { name: 'New York', x: 82, y: 30, size: 'xl' },
-    { name: 'Philadelphia', x: 80, y: 34, size: 'lg' },
-    { name: 'Boston', x: 86, y: 22, size: 'lg' },
-    { name: 'Baltimore', x: 78, y: 38, size: 'md' },
-    { name: 'Pittsburgh', x: 72, y: 35, size: 'md' },
-    { name: 'Columbus', x: 66, y: 38, size: 'md' },
-    { name: 'Cleveland', x: 68, y: 32, size: 'md' },
+    { name: 'New York', x: 780, y: 175, size: 'xl' },
+    { name: 'Philadelphia', x: 765, y: 210, size: 'lg' },
+    { name: 'Boston', x: 810, y: 120, size: 'lg' },
+    { name: 'Baltimore', x: 740, y: 235, size: 'md' },
+    { name: 'Pittsburgh', x: 660, y: 230, size: 'md' },
+    { name: 'Columbus', x: 595, y: 255, size: 'md' },
+    { name: 'Cleveland', x: 610, y: 210, size: 'md' },
   ];
 
-  // Random carrier pings (simulating 40K active)
+  // Define major freight lanes
+  const lanes = [
+    ['Los Angeles', 'Dallas'],
+    ['Dallas', 'Chicago'],
+    ['Chicago', 'New York'],
+    ['Seattle', 'Chicago'],
+    ['Dallas', 'Atlanta'],
+    ['Atlanta', 'Miami'],
+    ['Los Angeles', 'Seattle'],
+    ['Chicago', 'New Orleans'],
+    ['New York', 'Miami'],
+    ['Denver', 'Kansas City'],
+    ['Kansas City', 'St Louis'],
+    ['St Louis', 'Indianapolis'],
+    ['Indianapolis', 'Columbus'],
+    ['Columbus', 'New York'],
+    ['Phoenix', 'Dallas'],
+    ['El Paso', 'Houston']
+  ];
+
+  // Random carrier pings (simulating 40K active) - coordinates for SVG viewBox 959x593
   const [pings, setPings] = useState([]);
   
   useEffect(() => {
-    // Generate initial pings
+    // Generate initial pings within continental US bounds
     const generatePings = () => {
-      return Array.from({ length: 80 }, (_, i) => ({
+      return Array.from({ length: 120 }, (_, i) => ({
         id: i,
-        x: 8 + Math.random() * 80,
-        y: 12 + Math.random() * 68,
+        x: 60 + Math.random() * 780,  // Stay within US bounds
+        y: 40 + Math.random() * 480,
         delay: Math.random() * 3,
         duration: 2 + Math.random() * 2,
+        size: Math.random() > 0.7 ? 4 : 2, // Some larger pings
       }));
     };
     setPings(generatePings());
     
-    // Refresh some pings periodically
+    // Refresh some pings periodically to simulate movement
     const interval = setInterval(() => {
       setPings(prev => {
         const updated = [...prev];
-        // Update 10 random pings
-        for (let i = 0; i < 10; i++) {
+        // Update 15 random pings
+        for (let i = 0; i < 15; i++) {
           const idx = Math.floor(Math.random() * updated.length);
           updated[idx] = {
             ...updated[idx],
-            x: 8 + Math.random() * 80,
-            y: 12 + Math.random() * 68,
+            x: 60 + Math.random() * 780,
+            y: 40 + Math.random() * 480,
           };
         }
         return updated;
       });
-    }, 2000);
+    }, 1500);
     
     return () => clearInterval(interval);
   }, []);
 
-  const sizeMap = { sm: 4, md: 6, lg: 8, xl: 10 };
+  const sizeMap = { sm: 6, md: 8, lg: 10, xl: 14 };
+  const getCityPos = (name) => cities.find(c => c.name === name);
 
   return (
-    <div className="relative w-full h-full bg-[#080a12] rounded overflow-hidden">
-      {/* US Map Outline SVG */}
-      <svg viewBox="0 0 100 80" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
-        {/* Simplified US outline */}
-        <path 
-          d="M5 25 L8 15 L15 12 L25 10 L35 8 L45 10 L55 8 L65 10 L75 12 L82 15 L88 20 L90 25 L88 30 L90 35 L88 40 L85 45 L82 50 L78 60 L75 70 L70 75 L60 72 L55 75 L50 70 L45 72 L40 68 L35 72 L30 68 L25 60 L20 55 L15 50 L12 45 L10 40 L8 35 L6 30 Z"
-          fill="none"
-          stroke="#1a2a3a"
-          strokeWidth="0.5"
-          opacity="0.6"
-        />
-        {/* State-like grid lines */}
-        <line x1="30" y1="10" x2="30" y2="70" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
-        <line x1="50" y1="8" x2="50" y2="72" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
-        <line x1="70" y1="10" x2="70" y2="75" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
-        <line x1="5" y1="30" x2="90" y2="30" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
-        <line x1="5" y1="50" x2="90" y2="50" stroke="#1a2a3a" strokeWidth="0.2" opacity="0.3"/>
+    <div className="relative w-full h-full bg-[#080a12] rounded overflow-hidden group">
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-20" 
+           style={{
+             backgroundImage: 'linear-gradient(#1a2a3a 1px, transparent 1px), linear-gradient(90deg, #1a2a3a 1px, transparent 1px)',
+             backgroundSize: '40px 40px'
+           }}>
+      </div>
+
+      {/* Radar Scan Effect */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 bottom-0 w-[2px] bg-[#5BA4B5] shadow-[0_0_20px_#5BA4B5] opacity-50 animate-[scan_4s_linear_infinite]"></div>
+      </div>
+
+      {/* US Map with State Boundaries SVG */}
+      <svg viewBox="0 0 959 593" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
+        <g fill="none" stroke="#1a3a4a" strokeWidth="1" opacity="0.6">
+          {/* Washington */}
+          <path d="M78 42L93 44L108 39L123 40L137 43L138 82L107 82L78 78Z"/>
+          {/* Oregon */}
+          <path d="M78 78L107 82L138 82L140 130L93 132L60 125L58 95Z"/>
+          {/* California */}
+          <path d="M60 125L93 132L140 130L145 185L125 250L100 290L75 295L55 260L50 200L52 160Z"/>
+          {/* Nevada */}
+          <path d="M140 130L145 185L165 240L155 250L145 200L140 130Z"/>
+          {/* Idaho */}
+          <path d="M138 82L170 85L185 130L175 175L145 175L140 130L138 82Z"/>
+          {/* Montana */}
+          <path d="M170 85L270 90L275 140L185 130Z"/>
+          {/* Wyoming */}
+          <path d="M185 130L275 140L280 195L190 190L185 130Z"/>
+          {/* Utah */}
+          <path d="M145 175L190 190L195 250L155 250L145 175Z"/>
+          {/* Colorado */}
+          <path d="M190 190L280 195L285 265L200 260L195 250L190 190Z"/>
+          {/* Arizona */}
+          <path d="M125 250L155 250L195 250L200 260L205 330L140 335L100 290Z"/>
+          {/* New Mexico */}
+          <path d="M200 260L285 265L290 340L205 330Z"/>
+          {/* North Dakota */}
+          <path d="M270 90L370 92L372 135L275 140Z"/>
+          {/* South Dakota */}
+          <path d="M275 140L372 135L375 190L280 195Z"/>
+          {/* Nebraska */}
+          <path d="M280 195L375 190L380 245L285 265Z"/>
+          {/* Kansas */}
+          <path d="M285 265L380 245L385 310L290 320Z"/>
+          {/* Oklahoma */}
+          <path d="M290 320L385 310L390 365L295 375Z"/>
+          {/* Texas */}
+          <path d="M205 330L290 340L295 375L390 365L400 430L385 485L330 520L270 485L230 430L205 360Z"/>
+          {/* Minnesota */}
+          <path d="M370 92L460 90L465 170L430 175L375 190L372 135Z"/>
+          {/* Iowa */}
+          <path d="M375 190L430 175L465 170L475 230L445 245L380 245Z"/>
+          {/* Missouri */}
+          <path d="M380 245L445 245L475 230L485 295L450 320L385 310Z"/>
+          {/* Arkansas */}
+          <path d="M385 310L450 320L460 375L395 380L390 365Z"/>
+          {/* Louisiana */}
+          <path d="M390 365L395 380L460 375L475 440L440 465L410 445L400 430Z"/>
+          {/* Wisconsin */}
+          <path d="M460 90L530 95L545 175L510 190L465 170Z"/>
+          {/* Illinois */}
+          <path d="M465 170L510 190L520 275L475 295L475 230Z"/>
+          {/* Michigan */}
+          <path d="M530 95L575 60L620 100L600 170L560 190L545 175Z"/>
+          {/* Indiana */}
+          <path d="M510 190L560 190L570 270L520 275Z"/>
+          {/* Ohio */}
+          <path d="M560 190L600 170L635 195L620 275L570 270Z"/>
+          {/* Kentucky */}
+          <path d="M520 275L570 270L620 275L625 315L560 330L510 320Z"/>
+          {/* Tennessee */}
+          <path d="M510 320L560 330L625 315L680 330L675 370L515 365Z"/>
+          {/* Mississippi */}
+          <path d="M460 375L515 365L520 440L475 440Z"/>
+          {/* Alabama */}
+          <path d="M515 365L570 365L580 450L520 440Z"/>
+          {/* Georgia */}
+          <path d="M570 365L635 355L660 440L620 470L580 450Z"/>
+          {/* Florida */}
+          <path d="M580 450L620 470L660 440L690 480L720 540L680 560L630 520L590 480Z"/>
+          {/* South Carolina */}
+          <path d="M635 355L690 335L710 385L660 390L635 355Z"/>
+          {/* North Carolina */}
+          <path d="M625 315L680 330L735 305L760 345L710 385L690 335L635 355Z"/>
+          {/* Virginia */}
+          <path d="M620 275L680 260L740 270L760 305L735 305L680 330L625 315Z"/>
+          {/* West Virginia */}
+          <path d="M620 275L660 255L680 260L680 295L660 310L625 315Z"/>
+          {/* Pennsylvania */}
+          <path d="M635 195L730 175L745 225L680 245L660 255L620 275Z"/>
+          {/* New York */}
+          <path d="M680 120L755 100L780 140L760 175L730 175L635 195L630 160Z"/>
+          {/* Vermont */}
+          <path d="M755 100L770 80L780 110L780 140L755 100Z"/>
+          {/* New Hampshire */}
+          <path d="M770 80L785 65L795 100L780 110Z"/>
+          {/* Maine */}
+          <path d="M785 65L820 25L850 60L820 110L795 100Z"/>
+          {/* Massachusetts */}
+          <path d="M780 110L820 110L835 130L795 145L780 140Z"/>
+          {/* Rhode Island */}
+          <path d="M820 130L835 130L835 145L820 145Z"/>
+          {/* Connecticut */}
+          <path d="M795 145L820 145L830 165L795 175Z"/>
+          {/* New Jersey */}
+          <path d="M760 175L780 180L790 220L765 235L745 225Z"/>
+          {/* Delaware */}
+          <path d="M765 235L790 220L795 250L770 260Z"/>
+          {/* Maryland */}
+          <path d="M680 245L745 225L765 235L770 260L740 270Z"/>
+        </g>
+        {/* Glow effect for activity */}
+        <defs>
+          <radialGradient id="pingGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#5BA4B5" stopOpacity="0.8"/>
+            <stop offset="100%" stopColor="#5BA4B5" stopOpacity="0"/>
+          </radialGradient>
+          <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#F8C617" stopOpacity="0.6"/>
+            <stop offset="100%" stopColor="#F8C617" stopOpacity="0"/>
+          </radialGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* Lanes */}
+        {lanes.map(([start, end], i) => {
+          const s = getCityPos(start);
+          const e = getCityPos(end);
+          if (!s || !e) return null;
+          return (
+            <g key={`${start}-${end}`}>
+              {/* Lane Line */}
+              <path
+                d={`M${s.x},${s.y} L${e.x},${e.y}`}
+                stroke="#5BA4B5"
+                strokeWidth="0.5"
+                strokeOpacity="0.2"
+                strokeDasharray="4 4"
+              />
+              {/* Moving Particle on Lane */}
+              <circle r="1.5" fill="#fff">
+                <animateMotion
+                  dur={`${3 + i % 4}s`}
+                  repeatCount="indefinite"
+                  path={`M${s.x},${s.y} L${e.x},${e.y}`}
+                />
+              </circle>
+            </g>
+          );
+        })}
+        
+        {/* Major freight hubs as SVG circles */}
+        {cities.map((city) => (
+          <g key={city.name}>
+            <circle
+              cx={city.x}
+              cy={city.y}
+              r={sizeMap[city.size]}
+              fill="#F8C617"
+              opacity="0.15"
+            />
+            <circle
+              cx={city.x}
+              cy={city.y}
+              r={sizeMap[city.size] / 2}
+              fill="#F8C617"
+              opacity="0.4"
+            />
+          </g>
+        ))}
+        
+        {/* Active carrier pings as SVG circles with animation */}
+        {pings.map((ping) => (
+          <g key={ping.id}>
+            <circle
+              cx={ping.x}
+              cy={ping.y}
+              r={ping.size + 4}
+              fill="url(#pingGlow)"
+              opacity="0.3"
+              style={{
+                animation: `pulse ${ping.duration}s ease-in-out infinite`,
+                animationDelay: `${ping.delay}s`,
+                transformOrigin: `${ping.x}px ${ping.y}px`
+              }}
+            />
+            <circle
+              cx={ping.x}
+              cy={ping.y}
+              r={ping.size}
+              fill="#5BA4B5"
+              opacity="0.9"
+              style={{
+                animation: `pulse ${ping.duration}s ease-in-out infinite`,
+                animationDelay: `${ping.delay}s`
+              }}
+            />
+          </g>
+        ))}
       </svg>
       
-      {/* Major freight hubs */}
-      {cities.map((city, i) => (
-        <div
-          key={city.name}
-          className="absolute transform -translate-x-1/2 -translate-y-1/2"
-          style={{ left: `${city.x}%`, top: `${city.y}%` }}
-        >
-          <div 
-            className="rounded-full bg-[#F8C617] opacity-30"
-            style={{ width: sizeMap[city.size], height: sizeMap[city.size] }}
-          />
-        </div>
-      ))}
-      
-      {/* Active carrier pings */}
-      {pings.map((ping) => (
-        <div
-          key={ping.id}
-          className="absolute transform -translate-x-1/2 -translate-y-1/2"
-          style={{ 
-            left: `${ping.x}%`, 
-            top: `${ping.y}%`,
-            animation: `ping ${ping.duration}s ease-in-out infinite`,
-            animationDelay: `${ping.delay}s`
-          }}
-        >
-          <div className="w-1.5 h-1.5 rounded-full bg-[#5BA4B5] opacity-80" />
-        </div>
-      ))}
-      
       {/* Legend */}
-      <div className="absolute bottom-2 left-2 flex items-center gap-4 text-[10px] font-mono text-gray-500">
+      <div className="absolute bottom-2 left-2 flex items-center gap-4 text-[10px] font-mono text-gray-500 bg-[#080a12]/80 px-2 py-1 rounded border border-gray-800/50">
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full bg-[#F8C617] opacity-50" />
-          <span>Hub</span>
+          <span>Freight Hub</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded-full bg-[#5BA4B5]" />
-          <span>ELD Verified</span>
+          <span>ELD Verified Carrier</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-4 h-[1px] bg-[#5BA4B5] opacity-50 border-t border-dashed border-[#5BA4B5]" />
+          <span>Active Lane</span>
         </div>
       </div>
       
       {/* Stats overlay */}
-      <div className="absolute top-2 right-2 text-right">
+      <div className="absolute top-2 right-2 text-right bg-[#080a12]/80 px-2 py-1 rounded border border-gray-800/50">
         <div className="text-[10px] font-mono text-gray-500">LIVE ELD FEED</div>
-        <div className="text-sm font-bold text-[#5BA4B5]">40K Active</div>
+        <div className="text-sm font-bold text-[#5BA4B5]">40K <span className="text-xs text-gray-500">Active</span></div>
       </div>
     </div>
   );
@@ -1101,13 +1290,14 @@ export default function TFXApp() {
                 <div className="flex flex-col md:flex-row gap-4">
                     <button className="relative bg-[#F8C617] text-black px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group breathe ripple overflow-hidden">
                       <span className="relative z-10 flex items-center gap-2">
-                        Enter Exchange <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                        Apply for Access <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </button>
                     <button className="border border-gray-700 text-gray-300 px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all electric-border highlight-glow">
-                    Market Analysis
+                    View Requirements
                     </button>
                 </div>
+                <p className="text-xs text-gray-600 font-mono mt-4 italic">* Membership by application only. Not everyone gets in.</p>
               </div>
 
               {/* Right Column: Expanded Live Feed (Command Center) */}
@@ -1151,7 +1341,7 @@ export default function TFXApp() {
                       <LiveFeed />
 
                       {/* US Map with ELD Pings */}
-                      <div className="mt-6 h-48 w-full border border-gray-800 relative overflow-hidden">
+                      <div className="mt-6 h-64 w-full border border-gray-800 relative overflow-hidden rounded">
                         <USMapWithPings />
                       </div>
                   </div>
@@ -1733,7 +1923,8 @@ export default function TFXApp() {
           />
           
           <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">LIMITED CAPACITY</div>
+              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">APPLICATION REQUIRED</div>
+              <div className="absolute top-0 left-0 bg-red-900/80 text-red-200 text-xs font-mono px-4 py-1">87% REJECTION RATE</div>
               
               <div className="p-12 text-center relative">
                   <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/30">
@@ -1743,7 +1934,8 @@ export default function TFXApp() {
                   <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-2">Reid Clements</p>
                   <p className="text-gray-500 font-mono text-xs uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                      For the visionaries, operators, and architects who believe the separation is inevitable. Commit your conviction to the movement and shape the future of verified freight.
+                      For the visionaries, operators, and architects who believe the separation is inevitable. <br/>
+                      <span className="text-gray-500 text-sm italic">We know "transparency" is every freighttech deck's buzzword. Here it's just... how we operate.</span>
                   </p>
 
                   <div className="grid grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-8 rounded">
@@ -1785,8 +1977,9 @@ export default function TFXApp() {
                   </div>
 
                   <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(248,198,23,0.3)] breathe ripple relative overflow-hidden">
-                    <span className="relative z-10">Secure Your Seat</span>
+                    <span className="relative z-10">Submit Application</span>
                   </button>
+                  <p className="text-xs text-gray-500 font-mono mt-4">⏱ Average review time: 48 hours. <span className="text-gray-600">We actually check.</span></p>
               </div>
           </div>
 
@@ -1800,10 +1993,12 @@ export default function TFXApp() {
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter flex items-center justify-center gap-4">
-            <IconSanctuary /> JOIN THE <span className="text-[#F8C617]">SANCTUARY</span> <IconSanctuary />
+            <IconSanctuary /> REQUEST <span className="text-[#F8C617]">ADMISSION</span> <IconSanctuary />
           </h2>
           <p className="text-gray-500 mb-12 max-w-xl mx-auto font-mono">
-            System Status: <span className="text-green-400">ONLINE</span>. <br/> The separation has begun. Which side of the wall are you on?
+            System Status: <span className="text-green-400">ONLINE</span>. <br/> 
+            A marketplace with actual transparency. <span className="text-gray-600 italic">Yes, we know everyone says that.</span><br/>
+            The difference? <span className="text-[#F8C617]">We mean it.</span>
           </p>
 
           <div className="mt-24 flex flex-col md:flex-row justify-between items-center border-t border-gray-900 pt-8 text-gray-600 font-mono text-xs gap-6">
