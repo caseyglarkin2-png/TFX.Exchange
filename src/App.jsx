@@ -1957,24 +1957,6 @@ export default function TFXApp() {
                       </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-2xl mx-auto mb-10">
-                      <div className="bg-black/40 p-4 border border-gray-700 hover-lift spotlight">
-                          <CheckCircle size={20} className="text-[#F8C617] mb-2"/>
-                          <div className="text-white font-bold">Zero Fees</div>
-                          <div className="text-xs text-gray-500">For first 90 days of activation</div>
-                      </div>
-                      <div className="bg-black/40 p-4 border border-gray-700 hover-lift spotlight">
-                          <CheckCircle size={20} className="text-[#F8C617] mb-2"/>
-                          <div className="text-white font-bold">Legacy Pricing</div>
-                          <div className="text-xs text-gray-500">Locked rate for 3 years</div>
-                      </div>
-                      <div className="bg-black/40 p-4 border border-gray-700 hover-lift spotlight">
-                          <CheckCircle size={20} className="text-[#F8C617] mb-2"/>
-                          <div className="text-white font-bold">Product Council</div>
-                          <div className="text-xs text-gray-500">Direct roadmap influence</div>
-                      </div>
-                  </div>
-
                   <div className="flex gap-2 justify-center mb-8 flex-wrap">
                     <IconBadge icon={IconVerified} label="Verified Access" color="yellow" />
                     <IconBadge icon={IconSanctuary} label="Sanctuary" color="cyan" />
