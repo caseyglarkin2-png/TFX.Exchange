@@ -723,6 +723,7 @@ export default function TFXApp() {
               <a href="#the-separation" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconAnarchy className="w-3 h-3" /> The Separation</a>
               <a href="#architecture" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconVerified className="w-3 h-3" /> Architecture</a>
               <a href="#case-studies" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">📊 Case Studies</a>
+              <a href="#branding" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">🎨 Branding</a>
               <a href="#the-anarchy" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconThreat className="w-3 h-3" /> The Problem</a>
               <a href="#tools" className="hover:text-[#F8C617] transition-colors flex items-center gap-1">⚡ Tools</a>
               <a href="#reid-circle" className="hover:text-[#F8C617] transition-colors flex items-center gap-1"><IconSanctuary className="w-3 h-3" /> Reid's Circle</a>
@@ -744,6 +745,7 @@ export default function TFXApp() {
             <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
             <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
             <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
+            <a href="#branding" onClick={() => setMobileMenuOpen(false)}>Branding</a>
             <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
             <a href="#tools" onClick={() => setMobileMenuOpen(false)}>Tools</a>
             <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
@@ -996,109 +998,6 @@ export default function TFXApp() {
         </div>
       </section>
 
-      {/* --- The Anarchy (Problem) --- */}
-      <section id="the-anarchy" className="py-24 bg-[#05060a] relative border-t border-gray-900">
-        <div className="container mx-auto px-6">
-          <SectionHeader 
-            title="Current Operating Environment" 
-            subtitle="Welcome to the Anarchy" 
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <p className="text-xl text-gray-400 mb-6 leading-relaxed">
-                The public load boards have failed. They were designed for liquidity, not security. 
-                In the "Public Square," a legitimate carrier is indistinguishable from a criminal syndicate.
-              </p>
-              <div className="grid grid-cols-1 gap-4 mb-8">
-                  <div className="flex items-center gap-4 bg-[#111] p-4 border-l-2 border-red-500">
-                      <div className="font-mono text-2xl font-bold text-red-500">1.4M</div>
-                      <div className="text-sm text-gray-400">Fraudulent Emails Blocked <br/> <span className="text-xs text-gray-600">Q3 2025 (Source: Highway Index)</span></div>
-                  </div>
-                   <div className="flex items-center gap-4 bg-[#111] p-4 border-l-2 border-yellow-500">
-                      <div className="font-mono text-2xl font-bold text-yellow-500">200%</div>
-                      <div className="text-sm text-gray-400">Increase in Strategic Theft <br/> <span className="text-xs text-gray-600">High-Value Cargo Targeting</span></div>
-                  </div>
-              </div>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-4 p-4 border border-red-900/30 bg-red-900/5">
-                  <AlertTriangle className="text-red-500 shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-white font-bold uppercase mb-1">Identity Spoofing</h4>
-                    <p className="text-gray-400 text-sm">Bad actors aren't just stealing cargo; they are stealing identities. Static vetting fails against dynamic threats.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex gap-2 flex-wrap">
-                <IconBadge icon={IconAnarchy} label="The Anarchy" color="red" />
-                <IconBadge icon={IconThreat} label="Strategic Threats" color="red" />
-              </div>
-            </div>
-
-            {/* AI FEATURE 1: Sentinel Terminal */}
-            <div className="relative">
-                <SentinelTerminal />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Visual Identity Lab --- */}
-      <section id="branding" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900">
-        <div className="container mx-auto px-6">
-          <SectionHeader 
-            title="Visual Identity Lab" 
-            subtitle="Constructing The Brand" 
-            align="left"
-          />
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <p className="text-gray-400 max-w-2xl font-mono text-sm">
-                // OBJECTIVE: Establish TFX as a distinct, premium exchange environment. <br/>
-                // DIRECTIVE: Toggle views to inspect brand resilience across digital and physical mediums.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <LogoConcept 
-              title="Concept A: The Monogram" 
-              description="Interlocking 'H' and 'X'. Represents the intersection of Verification and Liquidity. A solid, bank-like structure."
-              active={true}
-            >
-               <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 20H40V40H60V20H80V80H60V60H40V80H20V20Z" fill="white"/>
-                  <rect x="40" y="40" width="20" height="20" fill="#F8C617"/>
-               </svg>
-            </LogoConcept>
-
-            <LogoConcept 
-              title="Concept B: The Fortress" 
-              description="Evolution of the Highway 'H', now enclosed. Transforms the open road into a secured perimeter. Yellow core = verified load."
-            >
-                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 10L30 10L40 90L20 90L10 10Z" fill="white"/>
-                  <path d="M90 10L70 10L60 90L80 90L90 10Z" fill="white"/>
-                  <rect x="35" y="45" width="30" height="10" fill="#F8C617"/>
-                  <path d="M10 10H90V20H10V10Z" fill="white" opacity="0.5"/>
-                  <path d="M20 90H80V80H20V90Z" fill="white" opacity="0.5"/>
-                </svg>
-            </LogoConcept>
-
-             <LogoConcept 
-              title="Concept C: The Pulse" 
-              description="Focuses on the 'X' of Exchange. The break signifies the speed of the live data feed. Minimalist and digital-first."
-            >
-                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 20L45 50L20 80H35L60 50L35 20H20Z" fill="white"/>
-                  <path d="M80 80L55 50L80 20H65L40 50L65 80H80Z" fill="#F8C617"/>
-                  <rect x="0" y="48" width="100" height="4" fill="black"/>
-                </svg>
-            </LogoConcept>
-          </div>
-        </div>
-      </section>
-
       {/* --- Case Studies: Exchanges in Other Industries --- */}
       <section id="case-studies" className="py-24 bg-[#05060a] relative border-t border-gray-900">
         <div className="container mx-auto px-6">
@@ -1260,6 +1159,109 @@ export default function TFXApp() {
         </div>
       </section>
 
+      {/* --- Visual Identity Lab --- */}
+      <section id="branding" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900">
+        <div className="container mx-auto px-6">
+          <SectionHeader 
+            title="Visual Identity Lab" 
+            subtitle="Constructing The Brand" 
+            align="left"
+          />
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+            <p className="text-gray-400 max-w-2xl font-mono text-sm">
+                // OBJECTIVE: Establish TFX as a distinct, premium exchange environment. <br/>
+                // DIRECTIVE: Toggle views to inspect brand resilience across digital and physical mediums.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <LogoConcept 
+              title="Concept A: The Monogram" 
+              description="Interlocking 'H' and 'X'. Represents the intersection of Verification and Liquidity. A solid, bank-like structure."
+              active={true}
+            >
+               <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 20H40V40H60V20H80V80H60V60H40V80H20V20Z" fill="white"/>
+                  <rect x="40" y="40" width="20" height="20" fill="#F8C617"/>
+               </svg>
+            </LogoConcept>
+
+            <LogoConcept 
+              title="Concept B: The Fortress" 
+              description="Evolution of the Highway 'H', now enclosed. Transforms the open road into a secured perimeter. Yellow core = verified load."
+            >
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 10L30 10L40 90L20 90L10 10Z" fill="white"/>
+                  <path d="M90 10L70 10L60 90L80 90L90 10Z" fill="white"/>
+                  <rect x="35" y="45" width="30" height="10" fill="#F8C617"/>
+                  <path d="M10 10H90V20H10V10Z" fill="white" opacity="0.5"/>
+                  <path d="M20 90H80V80H20V90Z" fill="white" opacity="0.5"/>
+                </svg>
+            </LogoConcept>
+
+             <LogoConcept 
+              title="Concept C: The Pulse" 
+              description="Focuses on the 'X' of Exchange. The break signifies the speed of the live data feed. Minimalist and digital-first."
+            >
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 20L45 50L20 80H35L60 50L35 20H20Z" fill="white"/>
+                  <path d="M80 80L55 50L80 20H65L40 50L65 80H80Z" fill="#F8C617"/>
+                  <rect x="0" y="48" width="100" height="4" fill="black"/>
+                </svg>
+            </LogoConcept>
+          </div>
+        </div>
+      </section>
+
+      {/* --- The Anarchy (Problem) --- */}
+      <section id="the-anarchy" className="py-24 bg-[#05060a] relative border-t border-gray-900">
+        <div className="container mx-auto px-6">
+          <SectionHeader 
+            title="Current Operating Environment" 
+            subtitle="Welcome to the Anarchy" 
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-xl text-gray-400 mb-6 leading-relaxed">
+                The public load boards have failed. They were designed for liquidity, not security. 
+                In the "Public Square," a legitimate carrier is indistinguishable from a criminal syndicate.
+              </p>
+              <div className="grid grid-cols-1 gap-4 mb-8">
+                  <div className="flex items-center gap-4 bg-[#111] p-4 border-l-2 border-red-500">
+                      <div className="font-mono text-2xl font-bold text-red-500">1.4M</div>
+                      <div className="text-sm text-gray-400">Fraudulent Emails Blocked <br/> <span className="text-xs text-gray-600">Q3 2025 (Source: Highway Index)</span></div>
+                  </div>
+                   <div className="flex items-center gap-4 bg-[#111] p-4 border-l-2 border-yellow-500">
+                      <div className="font-mono text-2xl font-bold text-yellow-500">200%</div>
+                      <div className="text-sm text-gray-400">Increase in Strategic Theft <br/> <span className="text-xs text-gray-600">High-Value Cargo Targeting</span></div>
+                  </div>
+              </div>
+              
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-4 p-4 border border-red-900/30 bg-red-900/5">
+                  <AlertTriangle className="text-red-500 shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-white font-bold uppercase mb-1">Identity Spoofing</h4>
+                    <p className="text-gray-400 text-sm">Bad actors aren't just stealing cargo; they are stealing identities. Static vetting fails against dynamic threats.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex gap-2 flex-wrap">
+                <IconBadge icon={IconAnarchy} label="The Anarchy" color="red" />
+                <IconBadge icon={IconThreat} label="Strategic Threats" color="red" />
+              </div>
+            </div>
+
+            {/* AI FEATURE 1: Sentinel Terminal */}
+            <div className="relative">
+                <SentinelTerminal />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* --- TOOLS SUITE --- */}
       <section id="tools" className="py-24 bg-gradient-to-b from-[#0A0D1E] to-[#05060a] border-y border-cyan-900/20 relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
@@ -1338,8 +1340,8 @@ export default function TFXApp() {
               <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-xs font-bold px-4 py-1">LIMITED CAPACITY</div>
               
               <div className="p-12 text-center">
-                  <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-[#F8C617] to-cyan-400 p-1 shadow-2xl shadow-[#F8C617]/50 overflow-hidden border-2 border-[#F8C617]">
-                    <img src="/reid.jpg" alt="Reid" className="w-full h-full object-cover rounded-full" />
+                  <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/50">
+                    <img src="/reid-muppet.svg" alt="Reid" className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
                   <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
