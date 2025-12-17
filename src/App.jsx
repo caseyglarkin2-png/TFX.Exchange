@@ -1382,7 +1382,7 @@ export default function TFXApp() {
                       <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-800">
                         <div className="flex items-center gap-3">
                             <Activity className="text-[#5BA4B5]" />
-                            <span className="text-white font-bold uppercase tracking-widest">Network Topography</span>
+                            <span className="text-white font-bold uppercase tracking-widest">Exchange Floor</span>
                         </div>
                         <div className="text-xs font-mono text-gray-500">
                             UPDATED: {new Date().toLocaleTimeString()}
@@ -1392,19 +1392,19 @@ export default function TFXApp() {
                       {/* Stats Grid */}
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
-                              <div className="text-xs text-gray-500 font-mono uppercase">Registered Carriers</div>
+                              <div className="text-xs text-gray-500 font-mono uppercase">Listed Carriers</div>
                               <div className="text-2xl font-bold text-[#F8C617]">80K</div>
-                              <div className="text-xs text-gray-600 mt-1">Total network</div>
-                          </div>
-                          <div className="bg-[#0f1225] p-4 border border-gray-800">
-                              <div className="text-xs text-gray-500 font-mono uppercase">Active Daily</div>
-                              <div className="text-2xl font-bold text-[#5BA4B5]">80K</div>
-                              <div className="text-xs text-gray-600 mt-1">Unique moving freight</div>
-                          </div>
-                          <div className="bg-[#0f1225] p-4 border border-gray-800">
-                              <div className="text-xs text-gray-500 font-mono uppercase">Brokers</div>
-                              <div className="text-2xl font-bold text-[#F8C617]">170</div>
                               <div className="text-xs text-gray-600 mt-1">On the exchange</div>
+                          </div>
+                          <div className="bg-[#0f1225] p-4 border border-gray-800">
+                              <div className="text-xs text-gray-500 font-mono uppercase">Trading Now</div>
+                              <div className="text-2xl font-bold text-green-400">40K</div>
+                              <div className="text-xs text-gray-600 mt-1">Active order flow</div>
+                          </div>
+                          <div className="bg-[#0f1225] p-4 border border-gray-800">
+                              <div className="text-xs text-gray-500 font-mono uppercase">Member Brokers</div>
+                              <div className="text-2xl font-bold text-[#F8C617]">170</div>
+                              <div className="text-xs text-gray-600 mt-1">On the floor</div>
                           </div>
                       </div>
 
@@ -1848,19 +1848,19 @@ export default function TFXApp() {
         </div>
       </section>
 
-      {/* --- The Anarchy (Problem) --- */}
+      {/* --- The Problem: Unregulated Markets --- */}
       <section id="the-anarchy" className="py-24 bg-[#05060a] relative border-t border-gray-900">
         <div className="container mx-auto px-6">
           <SectionHeader 
-            title="Current Operating Environment" 
-            subtitle="Welcome to the Anarchy" 
+            title="The Problem" 
+            subtitle="Trading in the Dark" 
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <p className="text-xl text-gray-400 mb-6 leading-relaxed">
-                The public load boards have failed. They were designed for liquidity, not security. 
-                In the "Public Square," a legitimate carrier is indistinguishable from a criminal syndicate.
+                Traditional load boards are unregulated markets. No listing requirements. No clearinghouse. 
+                Anyone can post. Anyone can bid. It's not a marketplace—it's a free-for-all.
               </p>
               <div className="grid grid-cols-1 gap-4 mb-8">
                   <div className="flex items-center gap-4 bg-[#111] p-4 border-l-2 border-red-500">
@@ -1877,15 +1877,15 @@ export default function TFXApp() {
                 <div className="flex items-start gap-4 p-4 border border-red-900/30 bg-red-900/5">
                   <AlertTriangle className="text-red-500 shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-white font-bold uppercase mb-1">Identity Spoofing</h4>
-                    <p className="text-gray-400 text-sm">Bad actors aren't just stealing cargo; they are stealing identities. Static vetting fails against dynamic threats.</p>
+                    <h4 className="text-white font-bold uppercase mb-1">No Listing Standards</h4>
+                    <p className="text-gray-400 text-sm">Without exchange-level requirements, bad actors operate alongside legitimate carriers. Static vetting fails against dynamic threats.</p>
                   </div>
                 </div>
               </div>
               
               <div className="flex gap-2 flex-wrap">
-                <IconBadge icon={IconAnarchy} label="The Anarchy" color="red" />
-                <IconBadge icon={IconThreat} label="Strategic Threats" color="red" />
+                <IconBadge icon={IconAnarchy} label="Unregulated" color="red" />
+                <IconBadge icon={IconThreat} label="No Clearinghouse" color="red" />
               </div>
             </div>
 
@@ -1971,11 +1971,11 @@ export default function TFXApp() {
                 <ul className="space-y-3 text-sm text-gray-400 font-mono">
                   <li className="flex items-start gap-2">
                     <span className="text-[#5BA4B5] mt-1"><ArrowRight className="w-3 h-3" /></span>
-                    <span><strong className="text-white">On Load Boards:</strong> Zero training. Carriers learn by taking losses. Brokers operate on hope.</span>
+                    <span><strong className="text-white">Unregulated Markets:</strong> No training. Carriers learn by taking losses. Brokers operate on hope.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#5BA4B5] mt-1"><ArrowRight className="w-3 h-3" /></span>
-                    <span><strong className="text-white">On TFX:</strong> Train before you tender. Every carrier learns the threat patterns. Every broker knows the protocol. Threats drop 87%.</span>
+                    <span><strong className="text-white">On the Exchange:</strong> Train before you trade. Every listed carrier knows the threat patterns. Every member broker knows the protocol.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#5BA4B5] mt-1"><ArrowRight className="w-3 h-3" /></span>
@@ -2010,15 +2010,15 @@ export default function TFXApp() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-4 sm:p-8 rounded">
                       <div className="p-2">
                           <div className="text-3xl sm:text-4xl font-black text-[#F8C617]">80K</div>
-                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Verified Carriers</div>
+                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Listed Carriers</div>
                       </div>
                       <div className="p-2">
-                          <div className="text-3xl sm:text-4xl font-black text-[#5BA4B5]">Zero</div>
-                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Fraud Incidents</div>
+                          <div className="text-3xl sm:text-4xl font-black text-green-400">40K</div>
+                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Trading Daily</div>
                       </div>
                       <div className="p-2">
                           <div className="text-3xl sm:text-4xl font-black text-[#F8C617]">170</div>
-                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers Trading</div>
+                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Member Brokers</div>
                       </div>
                   </div>
 
@@ -2042,8 +2042,8 @@ export default function TFXApp() {
             Ready to <span className="text-[#F8C617]">Trade?</span>
           </h2>
           <p className="text-gray-500 mb-12 max-w-xl mx-auto font-mono text-sm sm:text-base">
-            The floor is open. 80,000 verified carriers. 170 brokers who made the cut.<br/>
-            <span className="text-[#F8C617]">Zero fraud incidents.</span>
+            The floor is open. 80K listed. 40K trading daily. 170 member brokers.<br/>
+            <span className="text-[#F8C617]">Zero fraud. Ever.</span>
           </p>
           
           <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:bg-white transition-colors">
