@@ -1255,32 +1255,32 @@ export default function TFXApp() {
               
               {/* Left Column: Text */}
               <div className="lg:w-1/2 text-left pt-10">
-                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-2 rounded-full mb-8 backdrop-blur-sm" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
-                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
-                    <span className="text-red-400 font-mono text-xs uppercase tracking-widest">
-                      Public Square: Compromised
+                <div className="inline-flex items-center gap-2 border border-[#F8C617]/30 bg-[#F8C617]/5 px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+                    <span className="w-1.5 h-1.5 bg-[#F8C617] rounded-full animate-pulse"></span>
+                    <span className="text-[#F8C617] font-mono text-xs uppercase tracking-widest">
+                      The Trusted Freight Exchange
                     </span>
                 </div>
 
-                <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-6">
-                    <span className="gradient-text-flow">THE GREAT</span> <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600 hover:from-[#F8C617] hover:via-[#F8C617] hover:to-[#D4A017] transition-all duration-1000">SEPARATION</span>
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-6">
+                    <span className="text-gray-400 font-medium">Stop Working the Phones.</span> <br/>
+                    <span className="text-white">Start Working the Floor.</span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6">
-                    The open market is dead. The "Anarchy" has won. <br/>
-                    <span className="text-white font-bold">TFX is the only Sanctuary left.</span>
+                <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-xl">
+                    Freight has an exchange now. 40,000 verified carriers. 170 brokers who made the cut. 
+                    <span className="text-white font-semibold"> Zero fraud incidents.</span>
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                     <button className="bg-[#F8C617] text-black px-6 sm:px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
-                        Apply for Access <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                        Apply for Membership <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                     </button>
                     <button className="border border-gray-700 text-gray-300 px-6 sm:px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all text-sm sm:text-base">
-                    View Requirements
+                    See Requirements
                     </button>
                 </div>
-                <p className="text-xs text-gray-600 font-mono mt-4 italic">* Membership by application only. Not everyone gets in.</p>
+                <p className="text-xs text-gray-500 font-mono mt-4">Membership by application only.</p>
               </div>
 
               {/* Right Column: Expanded Live Feed (Command Center) */}
