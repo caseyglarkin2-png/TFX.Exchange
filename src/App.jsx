@@ -104,29 +104,29 @@ const GlitchText = ({ text, color = "text-white" }) => {
 
 const Ticker = () => {
   return (
-    <div className="bg-black border-b border-[#F8C617]/20 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
-      <div className="animate-marquee inline-block font-mono text-xs text-gray-400 font-medium tracking-wider">
-        <span className="mx-4"><CheckCircle className="w-3 h-3 inline text-[#5BA4B5] mr-1" />80K VERIFIED CARRIERS</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4">40K ACTIVE DAILY</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><Shield className="w-3 h-3 inline text-[#F8C617] mr-1" />REAL-TIME VERIFICATION</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4">170+ BROKER PARTNERSHIPS</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4 text-[#5BA4B5]"><Activity className="w-3 h-3 inline mr-1" />LIVE ELD INTEGRATION</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4">FRAUD PREVENTION: 1,204 BLOCKS/24H</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4 text-[#F8C617]"><DollarSign className="w-3 h-3 inline mr-1" />TRIUMPAY INTEGRATION</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><CheckCircle className="w-3 h-3 inline text-[#5BA4B5] mr-1" />80K VERIFIED CARRIERS</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4">40K ACTIVE DAILY</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><Shield className="w-3 h-3 inline text-[#F8C617] mr-1" />REAL-TIME VERIFICATION</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4">170+ BROKER PARTNERSHIPS</span>
+    <div className="bg-black border-b border-[#F8C617]/30 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
+      <div className="animate-marquee inline-block font-mono text-xs text-[#F8C617] font-bold tracking-wider">
+        <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4 text-[#5BA4B5] flex items-center gap-1"><Zap className="w-3 h-3" /> ACTUAL TRANSPARENCY (NOT A BUZZWORD)</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">APPLICATION REQUIRED</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4 text-red-400 flex items-center gap-1"><Ban className="w-3 h-3" /> NOT EVERYONE GETS IN</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4 text-[#5BA4B5] flex items-center gap-1"><Zap className="w-3 h-3" /> REAL MARKETPLACE, REAL TRANSPARENCY</span>
+        <span className="mx-4 text-gray-500">|</span>
+        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
       </div>
     </div>
   );
@@ -1189,45 +1189,50 @@ export default function TFXApp() {
       <div className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0D1E]/95 backdrop-blur-md' : 'bg-transparent'}`}>
         <Ticker />
         <nav className={`border-b ${scrolled ? 'border-gray-800 py-3' : 'border-transparent py-6'}`}>
-          <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-            <div className="flex items-center gap-2 sm:gap-3">
+          <div className="container mx-auto px-6 flex justify-between items-center">
+            <div className="flex items-center gap-3">
               <LogoSelector currentLogo={currentLogo} setCurrentLogo={setCurrentLogo} />
-              <span className="text-white font-bold text-lg sm:text-xl tracking-tighter">TFX<span className="text-[#F8C617]">.EXCHANGE</span></span>
+              <span className="text-white font-bold text-xl tracking-tighter">TFX<span className="text-[#F8C617]">.EXCHANGE</span></span>
             </div>
             
-            <div className="hidden lg:flex items-center gap-6 font-medium text-sm">
-              <a href="#platform" className="hover:text-[#F8C617] transition-all relative group">
-                Platform
+            <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
+              <a href="#the-separation" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconAnarchy className="w-3 h-3" /> The Separation
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#benefits" className="hover:text-[#F8C617] transition-all relative group">
-                Benefits
+              <a href="#architecture" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconVerified className="w-3 h-3" /> Architecture
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#how-it-works" className="hover:text-[#F8C617] transition-all relative group">
-                How It Works
+              <a href="#benefits" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <Sparkles className="w-3 h-3" /> Benefits
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#case-studies" className="hover:text-[#F8C617] transition-all relative group">
-                Case Studies
+              <a href="#case-studies" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <BarChart3 className="w-3 h-3" /> Case Studies
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#tools" className="hover:text-[#F8C617] transition-all relative group">
-                Resources
+              <a href="#branding" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <Palette className="w-3 h-3" /> Branding
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <button className="bg-[#F8C617] text-black px-5 py-2 font-semibold hover:bg-white transition-all rounded-sm text-sm">
-                Request Demo
-              </button>
+              <a href="#the-anarchy" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconThreat className="w-3 h-3" /> The Problem
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#tools" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <Zap className="w-3 h-3" /> Tools
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#reid-circle" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
+                <IconSanctuary className="w-3 h-3" /> Reid's Circle
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
+              </a>
             </div>
 
-            <div className="lg:hidden">
-              <button 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-                className="text-white p-2 hover:text-[#F8C617] transition-colors"
-                aria-label="Toggle menu"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <div className="md:hidden">
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white">
+                {mobileMenuOpen ? <X /> : <Menu />}
               </button>
             </div>
           </div>
@@ -1236,57 +1241,25 @@ export default function TFXApp() {
 
       {/* --- Mobile Menu --- */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0A0D1E]/98 backdrop-blur-md lg:hidden">
-          <div className="container mx-auto px-6 pt-32 pb-12 h-full overflow-y-auto">
-            <div className="flex flex-col gap-8">
-              <a 
-                href="#platform" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-[#F8C617] text-2xl font-semibold transition-colors border-b border-gray-800 pb-4"
-              >
-                Platform
-              </a>
-              <a 
-                href="#benefits" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-[#F8C617] text-2xl font-semibold transition-colors border-b border-gray-800 pb-4"
-              >
-                Benefits
-              </a>
-              <a 
-                href="#how-it-works" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-[#F8C617] text-2xl font-semibold transition-colors border-b border-gray-800 pb-4"
-              >
-                How It Works
-              </a>
-              <a 
-                href="#case-studies" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-[#F8C617] text-2xl font-semibold transition-colors border-b border-gray-800 pb-4"
-              >
-                Case Studies
-              </a>
-              <a 
-                href="#tools" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-[#F8C617] text-2xl font-semibold transition-colors border-b border-gray-800 pb-4"
-              >
-                Resources
-              </a>
-              <button 
-                className="bg-[#F8C617] text-black px-8 py-4 font-bold text-lg hover:bg-white transition-all rounded-sm mt-4"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Request Demo
-              </button>
-            </div>
+        <div className="fixed inset-0 z-40 bg-[#0A0D1E] pt-32 px-6 md:hidden">
+          <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
+            <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
+            <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
+            <a href="#benefits" onClick={() => setMobileMenuOpen(false)}>Benefits</a>
+            <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
+            <a href="#branding" onClick={() => setMobileMenuOpen(false)}>Branding</a>
+            <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
+            <a href="#tools" onClick={() => setMobileMenuOpen(false)}>Tools</a>
+            <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
+            <button className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4">
+              Apply for Access
+            </button>
           </div>
         </div>
       )}
 
       {/* --- Hero Section: The Exchange Floor --- */}
-      <header className="relative min-h-screen flex items-center grid-bg pt-24 sm:pt-32 pb-12 overflow-hidden aurora-bg" id="platform">
+      <header className="relative min-h-screen flex items-center grid-bg pt-24 sm:pt-32 pb-12 overflow-hidden aurora-bg" id="the-separation">
         {/* Subtle Background Effects */}
         <DataPoints count={30} />
         <BackgroundOrbs />
@@ -1296,55 +1269,32 @@ export default function TFXApp() {
               
               {/* Left Column: Text */}
               <div className="lg:w-1/2 text-left pt-10">
-                <div className="inline-flex items-center gap-2 border border-[#5BA4B5]/30 bg-[#5BA4B5]/5 px-4 py-1 rounded-full mb-8 backdrop-blur-sm">
-                    <CheckCircle className="w-4 h-4 text-[#5BA4B5]" />
-                    <span className="text-[#5BA4B5] font-mono text-xs uppercase tracking-widest">
-                      For Freight Brokers
+                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
+                    <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span className="text-red-400 font-mono text-xs uppercase tracking-widest">
+                      <IconAnarchy /> PUBLIC SQUARE: COMPROMISED
                     </span>
                 </div>
 
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white leading-none tracking-tight mb-6">
-                    Access 40K Verified <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8C617] via-[#F8C617] to-[#D4A017]">Carriers</span>
+                <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-6">
+                    <span className="gradient-text-flow">THE GREAT</span> <br/>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600 hover:from-[#F8C617] hover:via-[#F8C617] hover:to-[#D4A017] transition-all duration-1000">SEPARATION</span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-xl">
-                    Join 170+ brokerages using TFX to access pre-verified carriers with real-time ELD confirmation. Less vetting, faster placements, better margins.
+                <p className="text-lg md:text-xl text-gray-400 mb-10 font-mono leading-relaxed border-l-4 border-[#F8C617] pl-6">
+                    The open market is dead. The "Anarchy" has won. <br/>
+                    <span className="text-white font-bold">TFX is the only Sanctuary left.</span>
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 max-w-xl">
-                    <div className="flex items-start gap-2">
-                        <Shield className="w-5 h-5 text-[#F8C617] shrink-0 mt-0.5" />
-                        <div>
-                            <div className="font-semibold text-white text-sm">Pre-Vetted Carriers</div>
-                            <div className="text-xs text-gray-400">All 80K carriers verified upfront</div>
-                        </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                        <Lock className="w-5 h-5 text-[#F8C617] shrink-0 mt-0.5" />
-                        <div>
-                            <div className="font-semibold text-white text-sm">Faster Placements</div>
-                            <div className="text-xs text-gray-400">40K active carriers booking now</div>
-                        </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                        <Activity className="w-5 h-5 text-[#F8C617] shrink-0 mt-0.5" />
-                        <div>
-                            <div className="font-semibold text-white text-sm">Zero Fraud</div>
-                            <div className="text-xs text-gray-400">Real-time ELD verification</div>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="bg-[#F8C617] text-black px-6 sm:px-8 py-3 font-semibold uppercase tracking-wide hover:bg-white transition-all flex items-center justify-center gap-2 group text-sm sm:text-base rounded-sm">
-                        Join TFX <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <button className="bg-[#F8C617] text-black px-6 sm:px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
+                        Apply for Access <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                     </button>
-                    <button className="border border-gray-700 text-gray-300 px-6 sm:px-8 py-3 font-medium uppercase tracking-wide hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all text-sm sm:text-base rounded-sm">
-                        See How It Works
+                    <button className="border border-gray-700 text-gray-300 px-6 sm:px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all text-sm sm:text-base">
+                    View Requirements
                     </button>
                 </div>
-                <p className="text-xs text-gray-500 font-mono mt-4">Join 170+ brokerages already accessing our network of 80K verified carriers</p>
+                <p className="text-xs text-gray-600 font-mono mt-4 italic">* Membership by application only. Not everyone gets in.</p>
               </div>
 
               {/* Right Column: Expanded Live Feed (Command Center) */}
@@ -1397,80 +1347,107 @@ export default function TFXApp() {
         </div>
       </header>
 
-      {/* --- How It Works --- */}
-      <section id="how-it-works" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
+      {/* --- The Architecture: Load Board vs Exchange --- */}
+      <section id="architecture" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         <BackgroundOrbs />
         
         <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
-            title="Platform Overview" 
-            subtitle="How TFX Works" 
+            title="Market Structure" 
+            subtitle="Load Board vs Exchange" 
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {/* Step 1 */}
-            <div className="relative group">
-              <div className="border border-gray-800 bg-[#05060a]/90 p-8 rounded-sm hover:border-[#F8C617]/50 transition-all">
-                <div className="w-12 h-12 rounded-full bg-[#F8C617]/10 border border-[#F8C617] flex items-center justify-center mb-6">
-                  <Shield className="w-6 h-6 text-[#F8C617]" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Load Board */}
+            <div className="relative">
+              <div className="border border-red-900/50 bg-red-900/5 p-6 sm:p-8 rounded-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <IconAnarchy className="w-8 h-8 text-red-500" />
+                  <h3 className="text-2xl font-bold text-red-500 uppercase neon-text-gold" style={{textShadow: '0 0 10px rgba(255,68,68,0.5)'}}>Load Board</h3>
                 </div>
-                <div className="text-sm font-mono text-[#F8C617] mb-2 uppercase tracking-wider">Step 1</div>
-                <h3 className="text-xl font-bold text-white mb-3">Carrier Verification</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Carriers undergo comprehensive verification including FMCSA credentials, insurance validation, and ELD integration setup. Real-time identity confirmation ensures authentic participants.
-                </p>
-              </div>
-            </div>
-
-            {/* Step 2 */}
-            <div className="relative group">
-              <div className="border border-gray-800 bg-[#05060a]/90 p-8 rounded-sm hover:border-[#5BA4B5]/50 transition-all">
-                <div className="w-12 h-12 rounded-full bg-[#5BA4B5]/10 border border-[#5BA4B5] flex items-center justify-center mb-6">
-                  <Activity className="w-6 h-6 text-[#5BA4B5]" />
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Liquidity First</div>
+                      <div className="text-sm text-gray-400">Maximum volume, minimum friction. Anyone with a credit card can post.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Passive Vetting</div>
+                      <div className="text-sm text-gray-400">One-time credit check. No ongoing identity verification. "Verified" badge = yesterday's snapshot.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">No Physical Proof</div>
+                      <div className="text-sm text-gray-400">Trucks exist on paper, not in reality. No ELD integration, no real-time location verification.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-red-500 rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Speed Over Safety</div>
+                      <div className="text-sm text-gray-400">Built for discovery (finding loads). Not designed for certainty (proving who you are).</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm font-mono text-[#5BA4B5] mb-2 uppercase tracking-wider">Step 2</div>
-                <h3 className="text-xl font-bold text-white mb-3">Real-Time Matching</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Live ELD data validates truck locations and availability. Intelligent matching connects verified carriers with appropriate loads based on location, capacity, and credentials.
-                </p>
-              </div>
-            </div>
 
-            {/* Step 3 */}
-            <div className="relative group">
-              <div className="border border-gray-800 bg-[#05060a]/90 p-8 rounded-sm hover:border-[#F8C617]/50 transition-all">
-                <div className="w-12 h-12 rounded-full bg-[#F8C617]/10 border border-[#F8C617] flex items-center justify-center mb-6">
-                  <Lock className="w-6 h-6 text-[#F8C617]" />
-                </div>
-                <div className="text-sm font-mono text-[#F8C617] mb-2 uppercase tracking-wider">Step 3</div>
-                <h3 className="text-xl font-bold text-white mb-3">Secure Transactions</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  TriumphPay integration ensures secure payment processing. Continuous monitoring and fraud detection protect all parties throughout the transaction lifecycle.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Key Differentiators */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="border border-[#5BA4B5]/30 bg-[#5BA4B5]/5 p-8 rounded-sm">
-              <div className="flex items-start gap-4 mb-4">
-                <CheckCircle className="w-6 h-6 text-[#5BA4B5] shrink-0" />
-                <div>
-                  <h4 className="text-lg font-bold text-white mb-2">Continuous Verification</h4>
-                  <p className="text-gray-400 text-sm">Unlike one-time credential checks, TFX maintains real-time verification through ELD integration, ensuring carrier identity and location accuracy at all times.</p>
+                <div className="bg-black/30 p-4 border border-red-900/30 rounded-sm">
+                  <p className="text-red-400 font-mono text-xs uppercase mb-2">Result:</p>
+                  <p className="text-white text-sm">13% YoY increase in cargo theft. Strategic theft outpaces hijacking. Identity spoofing becomes the primary attack vector.</p>
                 </div>
               </div>
             </div>
 
-            <div className="border border-[#F8C617]/30 bg-[#F8C617]/5 p-8 rounded-sm">
-              <div className="flex items-start gap-4 mb-4">
-                <Zap className="w-6 h-6 text-[#F8C617] shrink-0" />
-                <div>
-                  <h4 className="text-lg font-bold text-white mb-2">Quality Network</h4>
-                  <p className="text-gray-400 text-sm">Selective onboarding creates a trusted marketplace. With 80K verified carriers and 170+ brokers, the platform balances scale with safety and operational excellence.</p>
+            {/* Exchange */}
+            <div className="relative">
+              <div className="border border-cyan-900/50 bg-cyan-900/5 p-6 sm:p-8 rounded-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <IconSanctuary className="w-8 h-8 text-[#5BA4B5]" />
+                  <h3 className="text-2xl font-bold text-[#5BA4B5] uppercase neon-text-cyan">Exchange</h3>
+                </div>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Quality First</div>
+                      <div className="text-sm text-gray-400">Gated access. Strategic friction filters out bad actors before they enter.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Real-Time Verification</div>
+                      <div className="text-sm text-gray-400">Continuous ELD-linked identity proof. "Verified" = verified RIGHT NOW, not yesterday.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Physical Reality</div>
+                      <div className="text-sm text-gray-400">Truck's location is proven via ELD. Digital claim = physical fact. The machine verifies the person.</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
+                    <div>
+                      <div className="font-bold text-white">Safety Enables Speed</div>
+                      <div className="text-sm text-gray-400">Zero Trust architecture. One-click booking without fear. Identity certainty = operational velocity.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
+                  <p className="text-[#5BA4B5] font-mono text-xs uppercase mb-2">Result:</p>
+                  <p className="text-white text-sm">80K registered carriers. 40K active daily. 170 brokers on network. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
                 </div>
               </div>
             </div>
@@ -1530,36 +1507,36 @@ export default function TFXApp() {
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <SectionHeader 
-            title="Why Brokers Choose TFX" 
-            subtitle="Built for Brokerage Efficiency" 
+            title="Why Choose TFX" 
+            subtitle="Real Benefits for Real Operators" 
           />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {/* Benefit 1: Stop Wasting Time */}
+            {/* Benefit 1: Carrier Utilization */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
+              <div className="flex justify-center mb-4 sm:mb-6">
+                <BenefitCarrierUtil size={60} />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#F8C617] text-center mb-3">Increase Carrier Utilization</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">See only loads you're cleared to haul. Pre-vetted = faster tenders. Higher close rate on qualified lanes.</p>
+            </div>
+
+            {/* Benefit 2: Reduce Risk */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#5BA4B5] transition-all p-6 sm:p-8 rounded-lg group">
+              <div className="flex justify-center mb-4 sm:mb-6">
+                <BenefitReduceRisk size={60} />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#5BA4B5] text-center mb-3">Reduce Risk</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">Verifies identity, insurance, and compliance upfront. No surprises mid-route. Brokers don't call you on hold.</p>
+            </div>
+
+            {/* Benefit 3: Boost Productivity */}
             <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
               <div className="flex justify-center mb-4 sm:mb-6">
                 <BenefitProductivity size={60} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#F8C617] text-center mb-3">Stop Wasting Time Vetting</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">All 80K carriers pre-verified with real-time ELD confirmation. Your reps focus on closing deals, not chasing paperwork.</p>
-            </div>
-
-            {/* Benefit 2: Faster Placements */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#5BA4B5] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <BenefitCarrierUtil size={60} />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#5BA4B5] text-center mb-3">Faster Load Placement</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">40K active carriers booking right now. Pre-vetted network means higher acceptance rates and faster tender-to-pickup times.</p>
-            </div>
-
-            {/* Benefit 3: Zero Fraud */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <BenefitReduceRisk size={60} />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#F8C617] text-center mb-3">Zero Fraud Incidents</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">Real-time verification eliminates identity spoofing. No cargo theft from fake carriers. Clean track record across the network.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#F8C617] text-center mb-3">Boost Rep Productivity</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">Less manual vetting. More first-tender success. Reps spend time closing deals, not chasing verification.</p>
             </div>
 
             {/* Benefit 4: Protect Margins */}
@@ -1567,8 +1544,8 @@ export default function TFXApp() {
               <div className="flex justify-center mb-4 sm:mb-6">
                 <BenefitMargins size={60} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#5BA4B5] text-center mb-3">Better Margins</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">No fraud claims, no chargebacks, no recovery costs. Predictable operations mean protected margins and happier customers.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#5BA4B5] text-center mb-3">Protect Margins</h3>
+              <p className="text-gray-400 text-center text-sm leading-relaxed">Keep loads moving with fewer bounces and cleaner execution. Quality network = predictable outcomes.</p>
             </div>
           </div>
         </div>
