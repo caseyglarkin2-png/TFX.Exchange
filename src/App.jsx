@@ -107,31 +107,31 @@ const Ticker = () => {
     <div className="bg-black border-b border-[#F8C617]/30 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
       <div className="animate-marquee inline-block font-mono text-xs text-gray-400 font-medium tracking-wider">
         <span className="mx-4 text-[#F8C617]">40K UNIQUE CARRIERS ACTIVE DAILY</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><Shield className="w-3 h-3 inline text-[#5BA4B5] mr-1" />ZERO FRAUD INCIDENTS</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
+        <span className="mx-4">ZERO FRAUD INCIDENTS</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">STOP WORRYING ABOUT SCAMMERS</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4 text-[#5BA4B5]">NO MORE SLEEPLESS NIGHTS</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><Activity className="w-3 h-3 inline mr-1" />REAL-TIME ELD VERIFICATION</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
+        <span className="mx-4">NO MORE SLEEPLESS NIGHTS</span>
+        <span className="mx-4 text-gray-600">|</span>
+        <span className="mx-4">REAL-TIME ELD VERIFICATION</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4 text-[#F8C617]">FRAUD TEAM BUILT IN</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">170+ BROKERS OPERATING WITHOUT FEAR</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><Clock className="w-3 h-3 inline text-[#5BA4B5] mr-1" />SAVE 20+ HOURS/WEEK VETTING</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
+        <span className="mx-4">SAVE 20+ HOURS/WEEK VETTING</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4 text-[#F8C617]">AI SCAMMERS GETTING SMARTER. WE'RE FASTER.</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">REDUCE HEADCOUNT ON FRAUD PREVENTION</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4 text-[#5BA4B5]">WE HANDLE THE SCARY STUFF</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
+        <span className="mx-4">WE HANDLE THE SCARY STUFF</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4 text-[#F8C617]">40K UNIQUE CARRIERS ACTIVE DAILY</span>
-        <span className="mx-4 text-gray-600">•</span>
-        <span className="mx-4"><Shield className="w-3 h-3 inline text-[#5BA4B5] mr-1" />ZERO FRAUD INCIDENTS</span>
-        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-gray-600">|</span>
+        <span className="mx-4">ZERO FRAUD INCIDENTS</span>
+        <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">170+ BROKERS SLEEPING BETTER</span>
       </div>
     </div>
