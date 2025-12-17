@@ -1518,40 +1518,40 @@ export default function TFXApp() {
           />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {/* Benefit 1: Carrier Utilization */}
+            {/* Benefit 1: Stop Wasting Time Vetting */}
             <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <BenefitCarrierUtil size={60} />
+              <div className="mb-4 sm:mb-6">
+                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">01</div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#F8C617] text-center mb-3">Increase Carrier Utilization</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">See only loads you're cleared to haul. Pre-vetted = faster tenders. Higher close rate on qualified lanes.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Stop Wasting Time Vetting</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Every carrier on TFX is pre-verified. Real-time ELD data, insurance, authority. Your team spends time closing deals, not calling references.</p>
             </div>
 
-            {/* Benefit 2: Reduce Risk */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#5BA4B5] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <BenefitReduceRisk size={60} />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#5BA4B5] text-center mb-3">Reduce Risk</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">Verifies identity, insurance, and compliance upfront. No surprises mid-route. Brokers don't call you on hold.</p>
-            </div>
-
-            {/* Benefit 3: Boost Productivity */}
+            {/* Benefit 2: Massive Daily Capacity */}
             <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <BenefitProductivity size={60} />
+              <div className="mb-4 sm:mb-6">
+                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">02</div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#F8C617] text-center mb-3">Boost Rep Productivity</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">Less manual vetting. More first-tender success. Reps spend time closing deals, not chasing verification.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Massive Daily Capacity</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">40K unique carriers active every day. That's tens of thousands of trucks ready to move your freight. Real capacity, not stale lists.</p>
             </div>
 
-            {/* Benefit 4: Protect Margins */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#5BA4B5] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="flex justify-center mb-4 sm:mb-6">
-                <BenefitMargins size={60} />
+            {/* Benefit 3: Zero Fraud Incidents */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
+              <div className="mb-4 sm:mb-6">
+                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">03</div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#5BA4B5] text-center mb-3">Protect Margins</h3>
-              <p className="text-gray-400 text-center text-sm leading-relaxed">Keep loads moving with fewer bounces and cleaner execution. Quality network = predictable outcomes.</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Zero Fraud Incidents</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">TriumphPay integration and continuous verification means you sleep better. No more worrying about scammers. No more surprise cargo theft.</p>
+            </div>
+
+            {/* Benefit 4: Better Margins */}
+            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
+              <div className="mb-4 sm:mb-6">
+                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">04</div>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Better Margins</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">When every carrier is verified, your reps make better decisions faster. Fewer bounces, cleaner execution, predictable outcomes.</p>
             </div>
           </div>
         </div>
