@@ -105,28 +105,34 @@ const GlitchText = ({ text, color = "text-white" }) => {
 const Ticker = () => {
   return (
     <div className="bg-black border-b border-[#F8C617]/30 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
-      <div className="animate-marquee inline-block font-mono text-xs text-[#F8C617] font-bold tracking-wider">
-        <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-[#5BA4B5] flex items-center gap-1"><Zap className="w-3 h-3" /> ACTUAL TRANSPARENCY (NOT A BUZZWORD)</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">APPLICATION REQUIRED</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">FRAUD BLOCKED (24H): 1,204</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-red-400 flex items-center gap-1"><Ban className="w-3 h-3" /> NOT EVERYONE GETS IN</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">TFX NETWORK: 80K REGISTERED CARRIERS</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">ACTIVE DAILY: 40K UNIQUE CARRIERS</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4 text-[#5BA4B5] flex items-center gap-1"><Zap className="w-3 h-3" /> REAL MARKETPLACE, REAL TRANSPARENCY</span>
-        <span className="mx-4 text-gray-500">|</span>
-        <span className="mx-4">BROKERS ON EXCHANGE: 170</span>
+      <div className="animate-marquee inline-block font-mono text-xs text-gray-400 font-medium tracking-wider">
+        <span className="mx-4 text-[#F8C617]">40K UNIQUE CARRIERS ACTIVE DAILY</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4"><Shield className="w-3 h-3 inline text-[#5BA4B5] mr-1" />ZERO FRAUD INCIDENTS</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4">STOP WORRYING ABOUT SCAMMERS</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-[#5BA4B5]">NO MORE SLEEPLESS NIGHTS</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4"><Activity className="w-3 h-3 inline mr-1" />REAL-TIME ELD VERIFICATION</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-[#F8C617]">FRAUD TEAM BUILT IN</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4">170+ BROKERS OPERATING WITHOUT FEAR</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4"><Clock className="w-3 h-3 inline text-[#5BA4B5] mr-1" />SAVE 20+ HOURS/WEEK VETTING</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-[#F8C617]">AI SCAMMERS GETTING SMARTER. WE'RE FASTER.</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4">REDUCE HEADCOUNT ON FRAUD PREVENTION</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-[#5BA4B5]">WE HANDLE THE SCARY STUFF</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4 text-[#F8C617]">40K UNIQUE CARRIERS ACTIVE DAILY</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4"><Shield className="w-3 h-3 inline text-[#5BA4B5] mr-1" />ZERO FRAUD INCIDENTS</span>
+        <span className="mx-4 text-gray-600">•</span>
+        <span className="mx-4">170+ BROKERS SLEEPING BETTER</span>
       </div>
     </div>
   );
