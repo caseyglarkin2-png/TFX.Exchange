@@ -1255,10 +1255,10 @@ export default function TFXApp() {
               
               {/* Left Column: Text */}
               <div className="lg:w-1/2 text-left pt-10">
-                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-8 backdrop-blur-sm" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
-                    <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <div className="inline-flex items-center gap-2 border border-red-900/50 bg-red-900/10 px-4 py-2 rounded-full mb-8 backdrop-blur-sm" style={{borderColor: 'rgba(255,68,68,0.3)'}}>
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
                     <span className="text-red-400 font-mono text-xs uppercase tracking-widest">
-                      <IconAnarchy /> PUBLIC SQUARE: COMPROMISED
+                      Public Square: Compromised
                     </span>
                 </div>
 
