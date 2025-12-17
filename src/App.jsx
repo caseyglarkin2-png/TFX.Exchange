@@ -1198,7 +1198,9 @@ export default function TFXApp() {
           <div className="container mx-auto px-6 flex justify-between items-center">
             <div className="flex items-center gap-3">
               <LogoSelector currentLogo={currentLogo} setCurrentLogo={setCurrentLogo} />
-              <span className="text-white font-bold text-xl tracking-tighter">TFX<span className="text-[#F8C617]">.EXCHANGE</span></span>
+              <span className="text-white font-bold text-xl tracking-tight">
+                <span className="text-[#F8C617]">Trusted</span>.<span className="text-white">Freight</span>.<span className="text-[#F8C617]">Xchange</span>
+              </span>
             </div>
             
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
