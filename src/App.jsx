@@ -1330,15 +1330,15 @@ export default function TFXApp() {
       </header>
 
       {/* --- The Architecture: Load Board vs Exchange --- */}
-      <section id="architecture" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
+      <section id="platform" className="py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 circuit-pattern opacity-30"></div>
         <BackgroundOrbs />
         
         <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
-            title="Market Structure" 
-            subtitle="Load Board vs Exchange" 
+            title="The Difference" 
+            subtitle="Load Board vs Trading Floor" 
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -1393,7 +1393,7 @@ export default function TFXApp() {
               <div className="border border-cyan-900/50 bg-cyan-900/5 p-6 sm:p-8 rounded-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <IconSanctuary className="w-8 h-8 text-[#5BA4B5]" />
-                  <h3 className="text-2xl font-bold text-[#5BA4B5] uppercase neon-text-cyan">Exchange</h3>
+                  <h3 className="text-2xl font-bold text-[#5BA4B5] uppercase neon-text-cyan">Trading Floor</h3>
                 </div>
                 
                 <div className="space-y-4 mb-8">
@@ -1442,7 +1442,7 @@ export default function TFXApp() {
                 <tr className="border-b border-gray-800 bg-[#05060a]">
                   <th className="text-left px-6 py-4 font-mono text-xs uppercase text-gray-500">Dimension</th>
                   <th className="text-left px-6 py-4 font-mono text-xs uppercase text-red-500">Load Board</th>
-                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-[#5BA4B5]">Exchange</th>
+                  <th className="text-left px-6 py-4 font-mono text-xs uppercase text-[#5BA4B5]">Trading Floor</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800">
@@ -1901,50 +1901,39 @@ export default function TFXApp() {
         
         <div className="container mx-auto px-6 relative z-10">
            <SectionHeader 
-            title="Access Protocols" 
-            subtitle="Reid's Circle" 
+            title="Membership" 
+            subtitle="The Trading Floor" 
           />
           
           <div className="max-w-4xl mx-auto bg-gradient-to-b from-[#1a1d2e] to-[#0f1225] border border-[#F8C617] p-1 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-[10px] sm:text-xs font-bold px-2 sm:px-4 py-1">APPLICATION REQUIRED</div>
-              <div className="absolute top-0 left-0 bg-red-900/80 text-red-200 text-[10px] sm:text-xs font-mono px-2 sm:px-4 py-1">87% REJECTION RATE</div>
+              <div className="absolute top-0 right-0 bg-[#F8C617] text-black text-[10px] sm:text-xs font-bold px-2 sm:px-4 py-1">MEMBERSHIP BY APPLICATION</div>
               
               <div className="p-6 sm:p-12 text-center relative">
-                  <div className="w-24 h-24 sm:w-40 sm:h-40 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden border-4 border-[#F8C617] shadow-2xl shadow-[#F8C617]/30">
-                    <img src="/reid-avatar.svg" alt="Reid Clements" className="w-full h-full object-cover" />
-                  </div>
-                  <h3 className="text-2xl sm:text-4xl font-bold text-white mb-2">Reid's Inner Circle</h3>
-                  <p className="text-[#F8C617] font-mono text-sm uppercase tracking-widest mb-2">Reid Clements</p>
-                  <p className="text-gray-500 font-mono text-xs uppercase tracking-widest mb-6">// Architect of the Verified Economy</p>
+                  <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Join the Trading Floor</h3>
                   <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                      For the visionaries, operators, and architects who believe the separation is inevitable. <br/>
-                      <span className="text-gray-500 text-sm italic">We know "transparency" is every freighttech deck's buzzword. Here it's just... how we operate.</span>
+                      170 brokers are already trading verified capacity. 80,000 carriers cleared for the floor.<br/>
+                      <span className="text-[#F8C617]">Stop slinging. Start trading.</span>
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center max-w-2xl mx-auto mb-10 bg-black/40 border border-gray-700 p-4 sm:p-8 rounded">
                       <div className="p-2">
                           <div className="text-3xl sm:text-4xl font-black text-[#F8C617]">80K</div>
-                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Registered Carriers</div>
+                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Verified Carriers</div>
                       </div>
                       <div className="p-2">
-                          <div className="text-3xl sm:text-4xl font-black text-[#5BA4B5]">80K</div>
-                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Active Daily</div>
+                          <div className="text-3xl sm:text-4xl font-black text-[#5BA4B5]">Zero</div>
+                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Fraud Incidents</div>
                       </div>
                       <div className="p-2">
                           <div className="text-3xl sm:text-4xl font-black text-[#F8C617]">170</div>
-                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers on Exchange</div>
+                          <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Brokers Trading</div>
                       </div>
                   </div>
 
-                  <div className="flex gap-2 justify-center mb-8 flex-wrap">
-                    <IconBadge icon={IconVerified} label="Verified Access" color="yellow" />
-                    <IconBadge icon={IconSanctuary} label="Sanctuary" color="cyan" />
-                  </div>
-
-                  <button className="bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform">
-                    Submit Application
-                  </button>
-                  <p className="text-xs text-gray-500 font-mono mt-4 flex items-center justify-center gap-1"><Clock className="w-3 h-3" /> Average review time: 48 hours. <span className="text-gray-600">We actually check.</span></p>
+                  <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:scale-105 transition-transform">
+                    Request Demo
+                  </a>
+                  <p className="text-xs text-gray-500 font-mono mt-4 flex items-center justify-center gap-1"><Clock className="w-3 h-3" /> Membership by application only.</p>
               </div>
           </div>
 
@@ -1957,14 +1946,17 @@ export default function TFXApp() {
         <DataPoints count={20} />
         
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter flex flex-wrap items-center justify-center gap-2 sm:gap-4">
-            <IconSanctuary className="w-6 h-6 sm:w-8 sm:h-8" /> REQUEST <span className="text-[#F8C617]">ADMISSION</span> <IconSanctuary className="w-6 h-6 sm:w-8 sm:h-8 hidden sm:block" />
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter">
+            Ready to <span className="text-[#F8C617]">Trade?</span>
           </h2>
           <p className="text-gray-500 mb-12 max-w-xl mx-auto font-mono text-sm sm:text-base">
-            System Status: <span className="text-green-400">ONLINE</span>. <br/> 
-            A marketplace with actual transparency. <span className="text-gray-600 italic">Yes, we know everyone says that.</span><br/>
-            The difference? <span className="text-[#F8C617]">We mean it.</span>
+            The floor is open. 80,000 verified carriers. 170 brokers who made the cut.<br/>
+            <span className="text-[#F8C617]">Zero fraud incidents.</span>
           </p>
+          
+          <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#F8C617] text-black px-12 py-5 font-bold text-xl uppercase tracking-widest hover:bg-white transition-colors">
+            Request Demo
+          </a>
 
           <div className="mt-12 sm:mt-24 flex flex-col gap-6 items-center border-t border-gray-900 pt-8 text-gray-600 font-mono text-xs">
             <div className="text-center text-gray-500 text-xs order-1 sm:order-2">
