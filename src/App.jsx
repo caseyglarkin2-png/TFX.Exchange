@@ -1031,15 +1031,15 @@ const LogoSelector = ({ currentLogo, setCurrentLogo }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 group cursor-pointer hover:opacity-80 transition-opacity"
       >
-        <div className="w-8 h-8 bg-black border border-[#F8C617] flex items-center justify-center group-hover:bg-[#F8C617] transition-colors">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-black border-2 border-[#F8C617] flex items-center justify-center group-hover:bg-[#F8C617] transition-colors shadow-lg shadow-[#F8C617]/20">
           <div className="text-[#F8C617] group-hover:text-black transition-colors">
-            {current && <current.component size={16} />}
+            {current && <current.component size={32} />}
           </div>
         </div>
       </button>
       
       {isOpen && (
-        <div className="absolute top-12 left-0 bg-[#0A0D1E] border border-[#F8C617] rounded-sm shadow-2xl z-50 overflow-hidden min-w-64">
+        <div className="absolute top-20 left-0 bg-[#0A0D1E] border border-[#F8C617] rounded-sm shadow-2xl z-50 overflow-hidden min-w-72">
           <div className="p-2 border-b border-gray-800">
             <span className="text-xs font-mono text-gray-500 px-3 block py-2">SELECT IDENTITY</span>
           </div>
@@ -1050,14 +1050,14 @@ const LogoSelector = ({ currentLogo, setCurrentLogo }) => {
                 setCurrentLogo(logo.id);
                 setIsOpen(false);
               }}
-              className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all ${
+              className={`w-full flex items-center gap-4 px-4 py-4 text-left transition-all ${
                 currentLogo === logo.id 
                   ? 'bg-[#F8C617] text-black' 
                   : 'hover:bg-gray-900 text-white'
               } border-b border-gray-800 last:border-b-0`}
             >
-              <div className={`w-6 h-6 flex items-center justify-center ${currentLogo === logo.id ? 'text-black' : 'text-[#F8C617]'}`}>
-                <logo.component size={16} />
+              <div className={`w-10 h-10 flex items-center justify-center ${currentLogo === logo.id ? 'text-black' : 'text-[#F8C617]'}`}>
+                <logo.component size={28} />
               </div>
               <div className="flex-1">
                 <div className="font-mono font-bold text-sm">{logo.name}</div>
@@ -1194,11 +1194,11 @@ export default function TFXApp() {
       {/* --- Ticker & Nav --- */}
       <div className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0D1E]/95 backdrop-blur-md' : 'bg-transparent'}`}>
         <Ticker />
-        <nav className={`border-b ${scrolled ? 'border-gray-800 py-3' : 'border-transparent py-6'}`}>
+        <nav className={`border-b ${scrolled ? 'border-gray-800 py-2' : 'border-transparent py-4'}`}>
           <div className="container mx-auto px-6 flex justify-between items-center">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <LogoSelector currentLogo={currentLogo} setCurrentLogo={setCurrentLogo} />
-              <span className="text-white font-bold text-xl tracking-tight">
+              <span className="text-white font-bold text-lg sm:text-xl tracking-tight">
                 <span className="text-[#F8C617]">Trusted</span>.<span className="text-white">Freight</span>.<span className="text-[#F8C617]">Xchange</span>
               </span>
             </div>
