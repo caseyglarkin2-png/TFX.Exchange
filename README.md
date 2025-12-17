@@ -1,37 +1,31 @@
-# TFX.EXCHANGE — The Verified Freight Economy
+# TFX.EXCHANGE — Verified Freight Exchange Platform
 
-> **The Great Separation has begun. TFX is the only Sanctuary left.**
+> **Secure freight connections through real-time verification and trusted partnerships**
 
-## Mission
+## Overview
 
-TFX.EXCHANGE is the border control for the new Verified Economy. In a market ravaged by AI-powered identity spoofing and strategic theft, TFX offers the only escape route: real-time ELD verification, identity certainty, and zero tolerance for fraud.
+TFX.EXCHANGE is a verified freight exchange platform connecting trusted carriers with shippers through comprehensive verification processes, real-time ELD integration, and transparent operations.
 
-### The Problem
+### The Challenge
 
-The open market is dead. Legacy load boards (DAT, Truckstop) were built for liquidity, not security. In 2025, organized crime rings use Generative AI to:
-- Clone legitimate carrier identities
-- Falsify insurance certificates
-- Intercept rate confirmations
-- Redirect high-value cargo ($2M+ electronics, copper, solar panels)
+The freight industry faces significant challenges with identity verification and fraud prevention. Traditional load boards prioritize volume over verification, creating vulnerabilities in the supply chain.
 
-**Result**: $35B+ in strategic theft. Contracts are no longer contracts. It is anarchy.
+### Our Solution
 
-### The Solution
-
-TFX separates the verified from the fraudulent through:
-- **Real-time ELD Verification**: Prove the truck is where it claims to be
-- **Identity Certainty**: Know exactly who you're paying, in real-time
-- **Gated Access**: Strict onboarding = higher quality carriers
-- **Financial Integration**: Linked with TriumphPay for double-lock fraud prevention
+TFX addresses these challenges through:
+- **Real-time ELD Verification**: Continuous location and identity validation
+- **Comprehensive Carrier Vetting**: Multi-layered onboarding and ongoing compliance checks
+- **Secure Network**: Selective access ensures a trusted marketplace
+- **Financial Integration**: TriumphPay integration for secure payment processing
 
 ## Features
 
-✅ **Live Exchange Feed** - Real-time network activity monitoring  
-✅ **Threat Analyzer** - Local intelligence engine for carrier vetting  
-✅ **War Game Scenarios** - Learn to spot strategic theft patterns  
-✅ **Network Topography** - Visualize verified vs. compromised nodes  
-✅ **Brand Identity Lab** - Multiple logo concepts for carrier adoption  
-✅ **Founder's Circle** - Enterprise partnership tier  
+✅ **Live Network Monitoring** - Real-time visibility into exchange activity  
+✅ **Carrier Verification Tools** - Comprehensive vetting and compliance tracking  
+✅ **Risk Assessment** - Pattern detection and fraud prevention analytics  
+✅ **Network Visualization** - Interactive mapping of carrier locations and activity  
+✅ **Flexible Branding** - Customizable platform identity options  
+✅ **Enterprise Partnerships** - Dedicated support for broker organizations  
 
 ## Tech Stack
 
