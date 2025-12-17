@@ -1239,9 +1239,9 @@ export default function TFXApp() {
             <a href="#benefits" onClick={() => setMobileMenuOpen(false)}>Benefits</a>
             <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Proof</a>
             <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
-            <button className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4">
-              Join TFX
-            </button>
+            <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4 text-center">
+              Request Demo
+            </a>
           </div>
         </div>
       )}
@@ -1269,12 +1269,12 @@ export default function TFXApp() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="bg-[#F8C617] text-black px-6 sm:px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
-                        Apply for Membership <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="border border-gray-700 text-gray-300 px-6 sm:px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all text-sm sm:text-base">
-                    See Requirements
-                    </button>
+                    <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="bg-[#F8C617] text-black px-6 sm:px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
+                        Request Demo <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="border border-gray-700 text-gray-300 px-6 sm:px-8 py-4 font-mono uppercase tracking-widest hover:border-[#5BA4B5] hover:text-[#5BA4B5] transition-all text-sm sm:text-base text-center">
+                    Learn More
+                    </a>
                 </div>
                 <p className="text-xs text-gray-500 font-mono mt-4">Membership by application only.</p>
               </div>
