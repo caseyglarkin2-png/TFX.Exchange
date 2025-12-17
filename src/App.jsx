@@ -1507,51 +1507,51 @@ export default function TFXApp() {
       </section>
 
       {/* --- Benefits Section --- */}
-      <section id="benefits" className="py-16 sm:py-24 bg-[#0A0D1E] relative border-t border-gray-900 overflow-hidden">
-        {/* Subtle Background */}
-        <DataPoints count={15} />
+      <section id="benefits" className="py-24 sm:py-32 bg-[#05060a] relative border-t border-gray-900 overflow-hidden">
+        {/* Minimal gradient accent */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-[#F8C617]/5 via-transparent to-transparent blur-3xl"></div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <SectionHeader 
-            title="Why Choose TFX" 
-            subtitle="Real Benefits for Real Operators" 
-          />
+          <div className="text-center mb-16 sm:mb-20">
+            <p className="text-[#F8C617] font-mono text-xs tracking-[0.3em] uppercase mb-4">Why TFX</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">Real Benefits for Real Operators</h2>
+          </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {/* Benefit 1: Stop Wasting Time Vetting */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="mb-4 sm:mb-6">
-                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">01</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-800/50 max-w-5xl mx-auto">
+            {/* Benefit 1 */}
+            <div className="bg-[#05060a] p-8 sm:p-12 group hover:bg-[#0a0c14] transition-colors">
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">01</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Stop Wasting Time Vetting</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">Every carrier on TFX is pre-verified. Real-time ELD data, insurance, authority. Your team spends time closing deals, not calling references.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Stop Wasting Time Vetting</h3>
+              <p className="text-gray-500 leading-relaxed">Every carrier on TFX is pre-verified. Real-time ELD data, insurance, authority. Your team closes deals instead of chasing references.</p>
             </div>
 
-            {/* Benefit 2: Massive Daily Capacity */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="mb-4 sm:mb-6">
-                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">02</div>
+            {/* Benefit 2 */}
+            <div className="bg-[#05060a] p-8 sm:p-12 group hover:bg-[#0a0c14] transition-colors">
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">02</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Massive Daily Capacity</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">40K unique carriers active every day. That's tens of thousands of trucks ready to move your freight. Real capacity, not stale lists.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Massive Daily Capacity</h3>
+              <p className="text-gray-500 leading-relaxed">40,000 unique carriers active every day. Tens of thousands of trucks ready to move your freight. Real capacity, not stale lists.</p>
             </div>
 
-            {/* Benefit 3: Zero Fraud Incidents */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="mb-4 sm:mb-6">
-                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">03</div>
+            {/* Benefit 3 */}
+            <div className="bg-[#05060a] p-8 sm:p-12 group hover:bg-[#0a0c14] transition-colors">
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">03</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Zero Fraud Incidents</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">TriumphPay integration and continuous verification means you sleep better. No more worrying about scammers. No more surprise cargo theft.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Zero Fraud Incidents</h3>
+              <p className="text-gray-500 leading-relaxed">TriumphPay integration and continuous verification. Sleep better knowing your network is clean. No scammers. No surprise cargo theft.</p>
             </div>
 
-            {/* Benefit 4: Better Margins */}
-            <div className="bg-gradient-to-br from-[#1a1d2e] to-[#0f1225] border border-gray-800 hover:border-[#F8C617] transition-all p-6 sm:p-8 rounded-lg group">
-              <div className="mb-4 sm:mb-6">
-                <div className="text-[#F8C617] font-mono text-xs tracking-wider uppercase mb-2">04</div>
+            {/* Benefit 4 */}
+            <div className="bg-[#05060a] p-8 sm:p-12 group hover:bg-[#0a0c14] transition-colors">
+              <div className="flex items-baseline gap-4 mb-6">
+                <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">04</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Better Margins</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">When every carrier is verified, your reps make better decisions faster. Fewer bounces, cleaner execution, predictable outcomes.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Better Margins</h3>
+              <p className="text-gray-500 leading-relaxed">Verified carriers mean faster decisions. Fewer bounces, cleaner execution, predictable outcomes. Quality network = protected margins.</p>
             </div>
           </div>
         </div>
