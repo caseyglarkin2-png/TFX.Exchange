@@ -1257,16 +1257,10 @@ export default function TFXApp() {
               
               {/* Left Column: Text */}
               <div className="lg:w-1/2 text-left pt-10">
-                <div className="inline-flex items-center gap-2 border border-[#F8C617]/30 bg-[#F8C617]/5 px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
-                    <span className="w-1.5 h-1.5 bg-[#F8C617] rounded-full animate-pulse"></span>
-                    <span className="text-[#F8C617] font-mono text-xs uppercase tracking-widest">
-                      The Trusted Freight Exchange
-                    </span>
-                </div>
 
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-6">
-                    <span className="text-gray-400 font-medium">Stop Working the Phones.</span> <br/>
-                    <span className="text-white">Start Working the Floor.</span>
+                    <span className="text-[#F8C617]">Wall Street for Freight.</span> <br/>
+                    <span className="text-gray-400 font-medium">Stop Slinging.</span> <span className="text-white">Start Trading.</span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-xl">
