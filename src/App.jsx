@@ -1202,36 +1202,20 @@ export default function TFXApp() {
             </div>
             
             <div className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest">
-              <a href="#the-separation" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <IconAnarchy className="w-3 h-3" /> The Separation
+              <a href="#platform" className="hover:text-[#F8C617] transition-all relative group">
+                Platform
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#architecture" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <IconVerified className="w-3 h-3" /> Architecture
+              <a href="#benefits" className="hover:text-[#F8C617] transition-all relative group">
+                Benefits
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#benefits" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <Sparkles className="w-3 h-3" /> Benefits
+              <a href="#case-studies" className="hover:text-[#F8C617] transition-all relative group">
+                Proof
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
-              <a href="#case-studies" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <BarChart3 className="w-3 h-3" /> Case Studies
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#branding" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <Palette className="w-3 h-3" /> Branding
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#the-anarchy" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <IconThreat className="w-3 h-3" /> The Problem
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#tools" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <Zap className="w-3 h-3" /> Tools
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
-              </a>
-              <a href="#reid-circle" className="hover:text-[#F8C617] transition-all relative group flex items-center gap-1">
-                <IconSanctuary className="w-3 h-3" /> Reid's Circle
+              <a href="#how-it-works" className="hover:text-[#F8C617] transition-all relative group">
+                How It Works
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#F8C617] transition-all group-hover:w-full"></span>
               </a>
             </div>
@@ -1249,16 +1233,12 @@ export default function TFXApp() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[#0A0D1E] pt-32 px-6 md:hidden">
           <div className="flex flex-col gap-6 font-mono text-lg uppercase tracking-widest text-white">
-            <a href="#the-separation" onClick={() => setMobileMenuOpen(false)}>The Separation</a>
-            <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
+            <a href="#platform" onClick={() => setMobileMenuOpen(false)}>Platform</a>
             <a href="#benefits" onClick={() => setMobileMenuOpen(false)}>Benefits</a>
-            <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Case Studies</a>
-            <a href="#branding" onClick={() => setMobileMenuOpen(false)}>Branding</a>
-            <a href="#the-anarchy" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
-            <a href="#tools" onClick={() => setMobileMenuOpen(false)}>Tools</a>
-            <a href="#reid-circle" onClick={() => setMobileMenuOpen(false)}>Reid's Circle</a>
+            <a href="#case-studies" onClick={() => setMobileMenuOpen(false)}>Proof</a>
+            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
             <button className="bg-[#F8C617] text-black px-6 py-3 font-bold mt-4">
-              Apply for Access
+              Join TFX
             </button>
           </div>
         </div>
