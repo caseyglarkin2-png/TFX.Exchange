@@ -134,54 +134,126 @@ const Ticker = () => {
   );
 };
 
-const LiveFeed = () => {
+// --- Trading Tape (Order Flow) ---
+const TradingTape = () => {
+  const lanes = ['CHI→ATL', 'DAL→PHX', 'LAX→SEA', 'MIA→NYC', 'DEN→HOU', 'ATL→CHI', 'PHX→LAX', 'NYC→BOS'];
+  const carriers = ['SWIFT', 'WERNER', 'JB HUNT', 'SCHNEIDER', 'LANDSTAR', 'XPO', 'KNIGHT', 'HEARTLAND'];
+  
+  const generateTrade = () => {
+    const rand = Math.random();
+    const lane = lanes[Math.floor(Math.random() * lanes.length)];
+    const carrier = carriers[Math.floor(Math.random() * carriers.length)];
+    const baseRate = 1800 + Math.floor(Math.random() * 1200);
+    const spread = Math.floor(Math.random() * 150);
+    
+    if (rand < 0.35) {
+      // BID - Broker looking for capacity
+      return {
+        type: 'BID',
+        text: `${lane}`,
+        detail: `$${(baseRate - spread).toLocaleString()}`,
+        color: 'text-[#5BA4B5]',
+        bg: 'bg-[#5BA4B5]/10'
+      };
+    } else if (rand < 0.65) {
+      // ASK - Carrier offering capacity  
+      return {
+        type: 'ASK',
+        text: `${lane}`,
+        detail: `$${(baseRate + spread).toLocaleString()}`,
+        color: 'text-[#F8C617]',
+        bg: 'bg-[#F8C617]/10'
+      };
+    } else if (rand < 0.9) {
+      // FILL - Trade executed
+      return {
+        type: 'FILL',
+        text: `${carrier} ${lane}`,
+        detail: `@ $${baseRate.toLocaleString()}`,
+        color: 'text-green-400',
+        bg: 'bg-green-500/10'
+      };
+    } else {
+      // CANCEL - Order pulled
+      return {
+        type: 'PULL',
+        text: `${lane}`,
+        detail: 'canceled',
+        color: 'text-red-400',
+        bg: 'bg-red-500/10'
+      };
+    }
+  };
+
   const [items, setItems] = useState([
-    { id: 1, type: 'LISTED', text: 'MC# 192834 - NOW LISTED', time: '10:42:01' },
-    { id: 2, type: 'BLOCK', text: 'MC# 992811 - DELISTED (SPOOF)', time: '10:42:03' },
-    { id: 3, type: 'LISTED', text: 'MC# 442100 - ELD SYNC ACTIVE', time: '10:42:05' },
-    { id: 4, type: 'LISTED', text: 'MC# 110293 - TRADE CLEARED', time: '10:42:08' },
-    { id: 5, type: 'BLOCK', text: 'MC# 887422 - DELISTED (DOMAIN)', time: '10:42:12' },
+    { id: 1, ...generateTrade(), time: '10:42:01' },
+    { id: 2, ...generateTrade(), time: '10:42:03' },
+    { id: 3, ...generateTrade(), time: '10:42:05' },
+    { id: 4, ...generateTrade(), time: '10:42:08' },
+    { id: 5, ...generateTrade(), time: '10:42:10' },
+    { id: 6, ...generateTrade(), time: '10:42:12' },
   ]);
+
+  const [stats, setStats] = useState({ bids: 2847, asks: 3102, fills: 1243, volume: 4.2 });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newAction = Math.random() > 0.7 ? 'BLOCK' : 'LISTED';
-      const mc = Math.floor(100000 + Math.random() * 900000);
-      const text = newAction === 'BLOCK' 
-        ? `DELISTED - MC# ${mc}` 
-        : `NOW LISTED - MC# ${mc}`;
-      
+      const trade = generateTrade();
       const newItem = {
         id: Date.now(),
-        type: newAction,
-        text: text,
+        ...trade,
         time: new Date().toLocaleTimeString('en-US', { hour12: false })
       };
 
-      setItems(prev => [newItem, ...prev].slice(0, 6));
-    }, 2000);
+      setItems(prev => [newItem, ...prev].slice(0, 8));
+      
+      // Update stats
+      setStats(prev => ({
+        bids: prev.bids + (trade.type === 'BID' ? 1 : 0),
+        asks: prev.asks + (trade.type === 'ASK' ? 1 : 0),
+        fills: prev.fills + (trade.type === 'FILL' ? 1 : 0),
+        volume: trade.type === 'FILL' ? +(prev.volume + 0.003).toFixed(1) : prev.volume
+      }));
+    }, 1200);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="w-full bg-black/80 border border-gray-800 font-mono text-xs p-4 rounded-sm shadow-2xl backdrop-blur-sm">
-      <div className="flex justify-between items-center mb-4 border-b border-gray-800 pb-2">
-        <span className="text-gray-500 uppercase">Live Exchange Feed</span>
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-          <span className="text-green-500">LIVE</span>
+    <div className="w-full bg-black/90 border border-gray-800 font-mono text-xs rounded-sm shadow-2xl backdrop-blur-sm overflow-hidden">
+      {/* Header with live stats */}
+      <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800 bg-black/50">
+        <div className="flex items-center gap-3">
+          <span className="text-gray-400 uppercase text-[10px] tracking-wider">Order Flow</span>
+          <div className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+            <span className="text-green-500 text-[10px]">LIVE</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-4 text-[10px]">
+          <span className="text-[#5BA4B5]">BID {stats.bids.toLocaleString()}</span>
+          <span className="text-[#F8C617]">ASK {stats.asks.toLocaleString()}</span>
+          <span className="text-green-400">FILL {stats.fills.toLocaleString()}</span>
+          <span className="text-gray-500">VOL ${stats.volume}M</span>
         </div>
       </div>
-      <div className="space-y-3">
+      
+      {/* Tape */}
+      <div className="divide-y divide-gray-800/50">
         {items.map((item) => (
-          <div key={item.id} className="flex justify-between items-center animate-fadeIn">
-            <span className={item.type === 'BLOCK' ? 'text-red-500' : 'text-[#5BA4B5]'}>
-              [{item.type}]
-            </span>
-            <span className="text-gray-300 truncate ml-2 flex-1">{item.text}</span>
-            <span className="text-gray-600">{item.time}</span>
+          <div key={item.id} className={`flex items-center px-4 py-2 ${item.bg} animate-fadeIn`}>
+            <span className={`w-10 font-bold ${item.color}`}>{item.type}</span>
+            <span className="text-gray-300 flex-1 mx-3">{item.text}</span>
+            <span className={`${item.color} font-medium mr-4`}>{item.detail}</span>
+            <span className="text-gray-600 text-[10px]">{item.time}</span>
           </div>
         ))}
+      </div>
+      
+      {/* Footer ticker */}
+      <div className="px-4 py-2 border-t border-gray-800 bg-black/50 flex justify-between text-[10px]">
+        <span className="text-gray-500">SPREAD: <span className="text-white">$127 avg</span></span>
+        <span className="text-gray-500">DEPTH: <span className="text-white">847 orders</span></span>
+        <span className="text-gray-500">FILL RATE: <span className="text-green-400">94.2%</span></span>
       </div>
     </div>
   );
@@ -609,22 +681,26 @@ const USMapWithPings = () => {
       <div className="absolute bottom-2 left-2 flex items-center gap-4 text-[10px] font-mono text-gray-500 bg-[#080a12]/80 px-2 py-1 rounded border border-gray-800/50">
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full bg-[#F8C617] opacity-50" />
-          <span>Freight Hub</span>
+          <span>Hub</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded-full bg-[#5BA4B5]" />
-          <span>Listed Carrier</span>
+          <span>Bid</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-4 h-[1px] bg-[#5BA4B5] opacity-50 border-t border-dashed border-[#5BA4B5]" />
-          <span>Active Trade</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+          <span>Fill</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-4 h-[1px] bg-white opacity-50" />
+          <span>Order Flow</span>
         </div>
       </div>
       
       {/* Stats overlay */}
       <div className="absolute top-2 right-2 text-right bg-[#080a12]/80 px-2 py-1 rounded border border-gray-800/50">
-        <div className="text-[10px] font-mono text-gray-500">LIVE EXCHANGE</div>
-        <div className="text-sm font-bold text-[#5BA4B5]">80K <span className="text-xs text-gray-500">Listed</span></div>
+        <div className="text-[10px] font-mono text-gray-500">TRADING NOW</div>
+        <div className="text-sm font-bold text-green-400">40K <span className="text-xs text-gray-500">active</span></div>
       </div>
     </div>
   );
@@ -1332,8 +1408,8 @@ export default function TFXApp() {
                           </div>
                       </div>
 
-                      {/* Live Feed Component */}
-                      <LiveFeed />
+                      {/* Trading Tape - Order Flow */}
+                      <TradingTape />
 
                       {/* US Map with ELD Pings */}
                       <div className="mt-6 h-64 w-full border border-gray-800 relative overflow-hidden rounded">
