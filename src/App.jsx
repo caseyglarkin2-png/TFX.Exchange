@@ -106,33 +106,29 @@ const Ticker = () => {
   return (
     <div className="bg-black border-b border-[#F8C617]/30 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
       <div className="animate-marquee inline-block font-mono text-xs text-gray-400 font-medium tracking-wider">
-        <span className="mx-4 text-[#F8C617]">80K VERIFIED CARRIERS</span>
+        <span className="mx-4 text-[#F8C617]">THE FLOOR IS OPEN</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">ZERO FRAUD INCIDENTS</span>
+        <span className="mx-4">80K CARRIERS LISTED</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">STOP WORRYING ABOUT SCAMMERS</span>
+        <span className="mx-4 text-green-400">TRADING NOW: 40K ACTIVE</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">NO MORE SLEEPLESS NIGHTS</span>
+        <span className="mx-4">170 BROKERS ON THE FLOOR</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">REAL-TIME ELD VERIFICATION</span>
+        <span className="mx-4 text-[#F8C617]">ZERO FRAUD INCIDENTS</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4 text-[#F8C617]">FRAUD TEAM BUILT IN</span>
+        <span className="mx-4">STOP SLINGING. START TRADING.</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">170+ BROKERS OPERATING WITHOUT FEAR</span>
+        <span className="mx-4 text-green-400">REAL-TIME ELD VERIFICATION</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">SAVE 20+ HOURS/WEEK VETTING</span>
+        <span className="mx-4">WALL STREET FOR FREIGHT</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4 text-[#F8C617]">AI SCAMMERS GETTING SMARTER. WE'RE FASTER.</span>
+        <span className="mx-4 text-[#F8C617]">THE FLOOR IS OPEN</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">REDUCE HEADCOUNT ON FRAUD PREVENTION</span>
+        <span className="mx-4">80K CARRIERS LISTED</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">WE HANDLE THE SCARY STUFF</span>
+        <span className="mx-4 text-green-400">TRADING NOW: 40K ACTIVE</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4 text-[#F8C617]">80K VERIFIED CARRIERS</span>
-        <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">ZERO FRAUD INCIDENTS</span>
-        <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">170+ BROKERS SLEEPING BETTER</span>
+        <span className="mx-4">MEMBERSHIP BY APPLICATION</span>
       </div>
     </div>
   );
@@ -140,20 +136,20 @@ const Ticker = () => {
 
 const LiveFeed = () => {
   const [items, setItems] = useState([
-    { id: 1, type: 'VERIFIED', text: 'MC# 192834 - IDENTITY CONFIRMED', time: '10:42:01' },
-    { id: 2, type: 'BLOCK', text: 'MC# 992811 - SPOOF DETECTED (NY)', time: '10:42:03' },
-    { id: 3, type: 'VERIFIED', text: 'MC# 442100 - ELD SYNC ACTIVE', time: '10:42:05' },
-    { id: 4, type: 'VERIFIED', text: 'MC# 110293 - TRIUMPH PAY CLEAR', time: '10:42:08' },
-    { id: 5, type: 'BLOCK', text: 'EMAIL BLOCKED - DOMAIN MISMATCH', time: '10:42:12' },
+    { id: 1, type: 'LISTED', text: 'MC# 192834 - NOW LISTED', time: '10:42:01' },
+    { id: 2, type: 'BLOCK', text: 'MC# 992811 - DELISTED (SPOOF)', time: '10:42:03' },
+    { id: 3, type: 'LISTED', text: 'MC# 442100 - ELD SYNC ACTIVE', time: '10:42:05' },
+    { id: 4, type: 'LISTED', text: 'MC# 110293 - TRADE CLEARED', time: '10:42:08' },
+    { id: 5, type: 'BLOCK', text: 'MC# 887422 - DELISTED (DOMAIN)', time: '10:42:12' },
   ]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newAction = Math.random() > 0.7 ? 'BLOCK' : 'VERIFIED';
+      const newAction = Math.random() > 0.7 ? 'BLOCK' : 'LISTED';
       const mc = Math.floor(100000 + Math.random() * 900000);
       const text = newAction === 'BLOCK' 
-        ? `THREAT NEUTRALIZED - MC# ${mc}` 
-        : `IDENTITY VERIFIED - MC# ${mc}`;
+        ? `DELISTED - MC# ${mc}` 
+        : `NOW LISTED - MC# ${mc}`;
       
       const newItem = {
         id: Date.now(),
@@ -617,18 +613,18 @@ const USMapWithPings = () => {
         </div>
         <div className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded-full bg-[#5BA4B5]" />
-          <span>ELD Verified Carrier</span>
+          <span>Listed Carrier</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-4 h-[1px] bg-[#5BA4B5] opacity-50 border-t border-dashed border-[#5BA4B5]" />
-          <span>Active Lane</span>
+          <span>Active Trade</span>
         </div>
       </div>
       
       {/* Stats overlay */}
       <div className="absolute top-2 right-2 text-right bg-[#080a12]/80 px-2 py-1 rounded border border-gray-800/50">
-        <div className="text-[10px] font-mono text-gray-500">LIVE ELD FEED</div>
-        <div className="text-sm font-bold text-[#5BA4B5]">80K <span className="text-xs text-gray-500">Verified</span></div>
+        <div className="text-[10px] font-mono text-gray-500">LIVE EXCHANGE</div>
+        <div className="text-sm font-bold text-[#5BA4B5]">80K <span className="text-xs text-gray-500">Listed</span></div>
       </div>
     </div>
   );
@@ -1263,10 +1259,30 @@ export default function TFXApp() {
                     <span className="text-gray-400 font-medium">Stop Slinging.</span> <span className="text-white">Start Trading.</span>
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-xl">
-                    Freight has an exchange now. 80,000 verified carriers. 170 brokers who made the cut. 
+                <p className="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed max-w-xl">
+                    Freight has an exchange now. 80,000 carriers listed. 170 brokers on the floor. 
                     <span className="text-white font-semibold"> Zero fraud incidents.</span>
                 </p>
+                
+                {/* Bloomberg-style Stats Bar */}
+                <div className="flex flex-wrap gap-6 mb-8 py-4 border-y border-gray-800">
+                    <div>
+                        <div className="text-2xl font-black text-[#F8C617]">80K</div>
+                        <div className="text-xs text-gray-500 font-mono uppercase">Listed</div>
+                    </div>
+                    <div>
+                        <div className="text-2xl font-black text-green-400">40K</div>
+                        <div className="text-xs text-gray-500 font-mono uppercase">Trading Now</div>
+                    </div>
+                    <div>
+                        <div className="text-2xl font-black text-[#5BA4B5]">170</div>
+                        <div className="text-xs text-gray-500 font-mono uppercase">Brokers</div>
+                    </div>
+                    <div>
+                        <div className="text-2xl font-black text-white">0</div>
+                        <div className="text-xs text-gray-500 font-mono uppercase">Fraud</div>
+                    </div>
+                </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                     <a href="https://highway.com/products/trusted-freight-exchange#TFX-Demo" target="_blank" rel="noopener noreferrer" className="bg-[#F8C617] text-black px-6 sm:px-8 py-4 font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-2 group text-sm sm:text-base">
@@ -1400,36 +1416,36 @@ export default function TFXApp() {
                   <div className="flex gap-3">
                     <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
-                      <div className="font-bold text-white">Quality First</div>
-                      <div className="text-sm text-gray-400">Gated access. Strategic friction filters out bad actors before they enter.</div>
+                      <div className="font-bold text-white">Listed Carriers Only</div>
+                      <div className="text-sm text-gray-400">80K carriers meet listing requirements. Like NYSE listings - standards matter.</div>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
                       <div className="font-bold text-white">Real-Time Verification</div>
-                      <div className="text-sm text-gray-400">Continuous ELD-linked identity proof. "Verified" = verified RIGHT NOW, not yesterday.</div>
+                      <div className="text-sm text-gray-400">ELD-linked identity proof. "Listed" means verified NOW, continuously, not yesterday.</div>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
-                      <div className="font-bold text-white">Physical Reality</div>
-                      <div className="text-sm text-gray-400">Truck's location is proven via ELD. Digital claim = physical fact. The machine verifies the person.</div>
+                      <div className="font-bold text-white">Trade with Confidence</div>
+                      <div className="text-sm text-gray-400">Truck location proven via ELD. Digital claim = physical fact. Trade, don't gamble.</div>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <div className="w-1 h-1 bg-[#5BA4B5] rounded-full mt-2 shrink-0"></div>
                     <div>
-                      <div className="font-bold text-white">Safety Enables Speed</div>
-                      <div className="text-sm text-gray-400">Zero Trust architecture. One-click booking without fear. Identity certainty = operational velocity.</div>
+                      <div className="font-bold text-white">One-Click Trading</div>
+                      <div className="text-sm text-gray-400">Zero Trust architecture. Trade capacity instantly. Identity certainty = operational velocity.</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
                   <p className="text-[#5BA4B5] font-mono text-xs uppercase mb-2">Result:</p>
-                  <p className="text-white text-sm">80K verified carriers. 170 brokers on network. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
+                  <p className="text-white text-sm">80K carriers listed. 40K trading daily. 170 brokers on the floor. Zero fraud. Trade with confidence, not paranoia.</p>
                 </div>
               </div>
             </div>
@@ -1469,7 +1485,7 @@ export default function TFXApp() {
                 <tr>
                   <td className="px-6 py-4 font-mono text-xs text-gray-400">Capacity</td>
                   <td className="px-6 py-4 text-sm text-gray-300">400M+ loads. Noise kills signal.</td>
-                  <td className="px-6 py-4 text-sm text-cyan-300">80K+ verified carriers | 170 brokers. Every load is clean.</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">80K carriers listed | 40K trading daily. Signal, not noise.</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 font-mono text-xs text-gray-400">Trust Model</td>
@@ -1489,8 +1505,8 @@ export default function TFXApp() {
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
-            <p className="text-[#F8C617] font-mono text-xs tracking-[0.3em] uppercase mb-4">Why TFX</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">Real Benefits for Real Operators</h2>
+            <p className="text-[#F8C617] font-mono text-xs tracking-[0.3em] uppercase mb-4">Why Trade on TFX</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">The Trading Floor Advantage</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-800/50 max-w-5xl mx-auto">
@@ -1499,8 +1515,8 @@ export default function TFXApp() {
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">01</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Stop Wasting Time Vetting</h3>
-              <p className="text-gray-500 leading-relaxed">Every carrier on TFX is pre-verified. Real-time ELD data, insurance, authority. Your team closes deals instead of chasing references.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Trade, Don't Vet</h3>
+              <p className="text-gray-500 leading-relaxed">Every carrier is listed and verified. Real-time ELD data, insurance, authority. Your team trades capacity instead of chasing references.</p>
             </div>
 
             {/* Benefit 2 */}
@@ -1508,8 +1524,8 @@ export default function TFXApp() {
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">02</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Massive Daily Capacity</h3>
-              <p className="text-gray-500 leading-relaxed">80,000 verified carriers in the network. Tens of thousands of trucks ready to move your freight. Real capacity, not stale lists.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Liquidity On Demand</h3>
+              <p className="text-gray-500 leading-relaxed">80,000 carriers listed. 40,000 trading daily. Real capacity, real trucks, ready to move. This is what an exchange looks like.</p>
             </div>
 
             {/* Benefit 3 */}
@@ -1517,8 +1533,8 @@ export default function TFXApp() {
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">03</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Zero Fraud Incidents</h3>
-              <p className="text-gray-500 leading-relaxed">TriumphPay integration and continuous verification. Sleep better knowing your network is clean. No scammers. No surprise cargo theft.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Trade with Confidence</h3>
+              <p className="text-gray-500 leading-relaxed">Zero fraud incidents. TriumphPay integration ensures every trade settles clean. Sleep better. Trade faster.</p>
             </div>
 
             {/* Benefit 4 */}
@@ -1526,8 +1542,8 @@ export default function TFXApp() {
               <div className="flex items-baseline gap-4 mb-6">
                 <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">04</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Better Margins</h3>
-              <p className="text-gray-500 leading-relaxed">Verified carriers mean faster decisions. Fewer bounces, cleaner execution, predictable outcomes. Quality network = protected margins.</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Protect Your Margins</h3>
+              <p className="text-gray-500 leading-relaxed">Listed carriers = faster decisions. Fewer bounces, cleaner execution. When you trade on a verified floor, margins stay intact.</p>
             </div>
           </div>
         </div>
@@ -1541,12 +1557,12 @@ export default function TFXApp() {
         
         <div className="container mx-auto px-6 relative z-10">
           <SectionHeader 
-            title="Proven Model" 
-            subtitle="Exchanges Work. Here's Why." 
+            title="The Exchange Model" 
+            subtitle="Why Wall Street Works" 
           />
 
           <p className="text-center text-gray-400 max-w-3xl mx-auto mb-16 text-lg">
-            The exchange model isn't new. It's been battle-tested across industries for centuries. Gated access + verified participants = liquidity with safety. The freight market is overdue.
+            The NYSE doesn't let anyone trade. Coinbase verifies every user. ICE clears every barrel. <span className="text-[#F8C617]">Freight is getting its exchange.</span> Gated access + verified participants = liquidity with safety.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1671,31 +1687,31 @@ export default function TFXApp() {
             
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
               <IconVerified className="w-6 h-6 text-[#F8C617]" />
-              The Pattern
+              How TFX Applies the Model
             </h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative z-10">
               <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
-                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">1. Gated Access</p>
-                <p className="text-sm text-gray-300">Not everyone gets in. Standards matter. Quality over quantity.</p>
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">1. Carrier Listings</p>
+                <p className="text-sm text-gray-300">80K carriers listed on the exchange. Verified like NYSE listings. Standards matter.</p>
               </div>
               <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
-                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">2. Verification</p>
-                <p className="text-sm text-gray-300">Continuous proof of identity/solvency. Today, not yesterday.</p>
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">2. Real-Time Verification</p>
+                <p className="text-sm text-gray-300">ELD-linked identity proof. "Listed" means verified NOW, not yesterday.</p>
               </div>
               <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
-                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">3. Real-Time Settlement</p>
-                <p className="text-sm text-gray-300">Instant clearing. Financial link guarantees performance.</p>
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2">3. Trade Settlement</p>
+                <p className="text-sm text-gray-300">TriumphPay integration. One-click trading without fear. Instant clearing.</p>
               </div>
               <div className="p-4 bg-black/30 border border-gray-800 hover:border-[#F8C617] transition-colors">
-                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2 flex items-center gap-1">4. Trust <ArrowRight className="w-3 h-3" /> Scale</p>
-                <p className="text-sm text-gray-300">Safety paradoxically enables speed. Safe = scalable.</p>
+                <p className="text-xs font-mono text-[#F8C617] uppercase mb-2 flex items-center gap-1">4. Trust <ArrowRight className="w-3 h-3" /> Volume</p>
+                <p className="text-sm text-gray-300">Safety enables speed. Verified floor = more trades, better margins.</p>
               </div>
             </div>
 
             <div className="mt-6 pt-6 border-t border-gray-800 relative z-10">
               <p className="text-gray-400 italic">
-                <span className="text-[#F8C617] font-bold">TFX applies this pattern to freight:</span> ELD verification = stock audits. Gated carrier network = licensed traders. Financial integration = settlement guarantee. Result? Carriers move loads 1-click, brokers move capital risk-free.
+                <span className="text-[#F8C617] font-bold">The result:</span> Carriers get listed, brokers trade capacity, loads move without fraud. 170 brokers are already on the floor. 80K carriers cleared to trade.
               </p>
             </div>
           </div>
