@@ -112,7 +112,7 @@ const Ticker = () => {
         <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4 text-green-400">TRADING NOW: 40K ACTIVE</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4">170 BROKERS ON THE FLOOR</span>
+        <span className="mx-4">170 BROKERAGES ON THE FLOOR</span>
         <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4 text-[#F8C617]">ZERO FRAUD INCIDENTS</span>
         <span className="mx-4 text-gray-600">|</span>
@@ -1336,7 +1336,7 @@ export default function TFXApp() {
                 </h1>
 
                 <p className="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed max-w-xl">
-                    Freight has an exchange now. 80,000 carriers listed. 170 brokers on the floor. 
+                    Freight has an exchange now. 80,000 carriers listed. 170 brokerages on the floor. 
                     <span className="text-white font-semibold"> Zero fraud incidents.</span>
                 </p>
                 
@@ -1521,7 +1521,7 @@ export default function TFXApp() {
 
                 <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
                   <p className="text-[#5BA4B5] font-mono text-xs uppercase mb-2">Result:</p>
-                  <p className="text-white text-sm">80K carriers listed. 40K trading daily. 170 brokers on the floor. Zero fraud. Trade with confidence, not paranoia.</p>
+                  <p className="text-white text-sm">80K carriers listed. 40K trading daily. 170 brokerages on the floor. Zero fraud. Trade with confidence, not paranoia.</p>
                 </div>
               </div>
             </div>
