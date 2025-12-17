@@ -106,7 +106,7 @@ const Ticker = () => {
   return (
     <div className="bg-black border-b border-[#F8C617]/30 overflow-hidden whitespace-nowrap py-2 flex relative z-40">
       <div className="animate-marquee inline-block font-mono text-xs text-gray-400 font-medium tracking-wider">
-        <span className="mx-4 text-[#F8C617]">40K UNIQUE CARRIERS ACTIVE DAILY</span>
+        <span className="mx-4 text-[#F8C617]">80K VERIFIED CARRIERS</span>
         <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">ZERO FRAUD INCIDENTS</span>
         <span className="mx-4 text-gray-600">|</span>
@@ -128,7 +128,7 @@ const Ticker = () => {
         <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">WE HANDLE THE SCARY STUFF</span>
         <span className="mx-4 text-gray-600">|</span>
-        <span className="mx-4 text-[#F8C617]">40K UNIQUE CARRIERS ACTIVE DAILY</span>
+        <span className="mx-4 text-[#F8C617]">80K VERIFIED CARRIERS</span>
         <span className="mx-4 text-gray-600">|</span>
         <span className="mx-4">ZERO FRAUD INCIDENTS</span>
         <span className="mx-4 text-gray-600">|</span>
@@ -628,7 +628,7 @@ const USMapWithPings = () => {
       {/* Stats overlay */}
       <div className="absolute top-2 right-2 text-right bg-[#080a12]/80 px-2 py-1 rounded border border-gray-800/50">
         <div className="text-[10px] font-mono text-gray-500">LIVE ELD FEED</div>
-        <div className="text-sm font-bold text-[#5BA4B5]">40K <span className="text-xs text-gray-500">Active</span></div>
+        <div className="text-sm font-bold text-[#5BA4B5]">80K <span className="text-xs text-gray-500">Verified</span></div>
       </div>
     </div>
   );
@@ -1268,7 +1268,7 @@ export default function TFXApp() {
                 </h1>
 
                 <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-xl">
-                    Freight has an exchange now. 40,000 verified carriers. 170 brokers who made the cut. 
+                    Freight has an exchange now. 80,000 verified carriers. 170 brokers who made the cut. 
                     <span className="text-white font-semibold"> Zero fraud incidents.</span>
                 </p>
 
@@ -1310,7 +1310,7 @@ export default function TFXApp() {
                           </div>
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
                               <div className="text-xs text-gray-500 font-mono uppercase">Active Daily</div>
-                              <div className="text-2xl font-bold text-[#5BA4B5]">40K</div>
+                              <div className="text-2xl font-bold text-[#5BA4B5]">80K</div>
                               <div className="text-xs text-gray-600 mt-1">Unique moving freight</div>
                           </div>
                           <div className="bg-[#0f1225] p-4 border border-gray-800">
@@ -1433,7 +1433,7 @@ export default function TFXApp() {
 
                 <div className="bg-black/30 p-4 border border-cyan-900/30 rounded-sm">
                   <p className="text-[#5BA4B5] font-mono text-xs uppercase mb-2">Result:</p>
-                  <p className="text-white text-sm">80K registered carriers. 40K active daily. 170 brokers on network. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
+                  <p className="text-white text-sm">80K verified carriers. 170 brokers on network. Zero fraudulent transactions. Brokers operate with confidence, not paranoia.</p>
                 </div>
               </div>
             </div>
@@ -1473,7 +1473,7 @@ export default function TFXApp() {
                 <tr>
                   <td className="px-6 py-4 font-mono text-xs text-gray-400">Capacity</td>
                   <td className="px-6 py-4 text-sm text-gray-300">400M+ loads. Noise kills signal.</td>
-                  <td className="px-6 py-4 text-sm text-cyan-300">80K+ registered | 40K+ active | 170 brokers. Every load is clean.</td>
+                  <td className="px-6 py-4 text-sm text-cyan-300">80K+ verified carriers | 170 brokers. Every load is clean.</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 font-mono text-xs text-gray-400">Trust Model</td>
@@ -1513,7 +1513,7 @@ export default function TFXApp() {
                 <span className="text-[#F8C617]/30 font-mono text-6xl sm:text-7xl font-light leading-none">02</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 tracking-tight">Massive Daily Capacity</h3>
-              <p className="text-gray-500 leading-relaxed">40,000 unique carriers active every day. Tens of thousands of trucks ready to move your freight. Real capacity, not stale lists.</p>
+              <p className="text-gray-500 leading-relaxed">80,000 verified carriers in the network. Tens of thousands of trucks ready to move your freight. Real capacity, not stale lists.</p>
             </div>
 
             {/* Benefit 3 */}
@@ -1931,7 +1931,7 @@ export default function TFXApp() {
                           <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Registered Carriers</div>
                       </div>
                       <div className="p-2">
-                          <div className="text-3xl sm:text-4xl font-black text-[#5BA4B5]">40K</div>
+                          <div className="text-3xl sm:text-4xl font-black text-[#5BA4B5]">80K</div>
                           <div className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest font-mono">Active Daily</div>
                       </div>
                       <div className="p-2">
