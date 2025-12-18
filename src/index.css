@@ -124,6 +124,7 @@ a[class*="bg-amber"] {
 }
 
 /* --- Utility Classes --- */
+/* Note: text-wrap: balance has good modern browser support (Chrome 114+, Firefox 121+, Safari 17.4+) */
 .text-balance {
   text-wrap: balance;
 }
@@ -150,25 +151,6 @@ a[class*="bg-amber"] {
 
 .glow-soft {
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.05);
-}
-
-/* --- Border Gradient --- */
-.border-gradient {
-  position: relative;
-}
-
-.border-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
 }
 
 /* --- Noise Texture (subtle) --- */

@@ -35,7 +35,7 @@ const LiveActivityFeed = () => {
     if (rand < 0.6) {
       return { type: 'MATCHED', lane, carrier, rate, color: 'text-emerald-400' };
     } else {
-      return { type: 'VERIFIED', lane, carrier: carrier, rate: null, color: 'text-blue-400' };
+      return { type: 'VERIFIED', lane, carrier, rate: null, color: 'text-blue-400' };
     }
   };
 
